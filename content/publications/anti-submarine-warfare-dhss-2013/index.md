@@ -4,22 +4,26 @@ title: Anti-Submarine Warfare Modeling and Simulation
 authors:
 - Deniz Aldoğan
 - me
-- Ömer Eroğlu
-- Semuel Franko
-- Yasemin Timar
-- Ahmet Faik Güven
 - Levent Şenyürek
+- Yasemin Timar
+- Semuel Franko
+- Ömer Eroğlu
+- Ahmet Faik Güven
 - Hakkı Murat Genç
 date: '2013-09-25'
 date_precision: day
 publication_types:
 - paper-conference
 publication:
-  name: 23rd European Modeling and Simulation Symposium (EMSS 2013), Athens, Greece
-  short_name: EMSS 2013
+  name: Proceedings of the International Defense and Homeland Security Simulation Workshop (DHSS 2013), Athens, Greece
+  short_name: DHSS 2013
+  pages: 77-84
 tags:
 - Modeling and Simulation
 featured: false
+links:
+- type: site
+  url: https://msc-les.org/proceedings/dhss/dhss2013/dhss2013_77.html
 reading_time: false
 show_date_updated: false
 ---

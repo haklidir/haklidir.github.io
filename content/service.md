@@ -57,7 +57,7 @@ sections:
     content:
       title: Professional Service
       text: |-
-        - Member, IEEE
+        - Senior Member, IEEE
         - Reviewer for journals and conferences in artificial intelligence, machine learning and automation
     design:
       columns: '1'

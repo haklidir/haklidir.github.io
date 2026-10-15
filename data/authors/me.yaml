@@ -7,6 +7,7 @@ name:
   family: Haklıdır
 postnominals:
   - PhD
+  - SMIEEE
 role: Founding Director, Artificial Intelligence Institute
 bio: |
   Dr. Mehmet Haklıdır is the founding Director of the TÜBİTAK BİLGEM Artificial Intelligence Institute,
@@ -147,6 +148,10 @@ awards:
   - title: Best in Future of Intelligence
     awarder: IDC Future Enterprise Awards
     date: "2022"
+    icon: hero/trophy
+  - title: Runner-up, Turkey Cloud Technology Awards
+    awarder: IDC
+    date: "2020"
     icon: hero/trophy
   - title: Best Product Development Award
     awarder: TÜBİTAK BİLGEM Awards

@@ -49,7 +49,7 @@
 - slug: ajan-toplumlarinda-rizanin-cokusu-2026
   title: "Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz"
   title_en: "The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case"
-  authors: [Büşra Tufan, me]
+  authors: [me, Büşra Tufan]
   date: 2026
   type: article-journal
   venue: "İstanbul Üniversitesi Sosyoloji Dergisi"
@@ -582,22 +582,26 @@
   venue_short: "WGC 2015"
   areas: [geoscience-energy]
 
-- slug: land-avoidance-tactical-entities-emss-2013
-  title: "Modeling and Simulation of Land Avoidance Behavior Belonging to Tactical Entities within a High Fidelity Simulation Environment"
-  authors: [Deniz Aldoğan, Levent Şenyürek, me]
+- slug: land-avoidance-tactical-entities-dhss-2013
+  title: "Modeling and Simulation of Land Avoidance Behavior Belonging to Tactical Entities within a High-Fidelity Simulation Environment"
+  authors: [Levent Şenyürek, Deniz Aldoğan, me]
   date: 2013-09-25
   type: paper-conference
-  venue: "23rd European Modeling and Simulation Symposium (EMSS 2013), Athens, Greece"
-  venue_short: "EMSS 2013"
+  venue: "Proceedings of the International Defense and Homeland Security Simulation Workshop (DHSS 2013), Athens, Greece"
+  venue_short: "DHSS 2013"
+  pages: "67-76"
+  url: "https://msc-les.org/proceedings/dhss/dhss2013/dhss2013_67.html"
   areas: [modeling-simulation]
 
-- slug: anti-submarine-warfare-emss-2013
+- slug: anti-submarine-warfare-dhss-2013
   title: "Anti-Submarine Warfare Modeling and Simulation"
-  authors: [Deniz Aldoğan, me, Ömer Eroğlu, Semuel Franko, Yasemin Timar, Ahmet Faik Güven, Levent Şenyürek, Hakkı Murat Genç]
+  authors: [Deniz Aldoğan, me, Levent Şenyürek, Yasemin Timar, Semuel Franko, Ömer Eroğlu, Ahmet Faik Güven, Hakkı Murat Genç]
   date: 2013-09-25
   type: paper-conference
-  venue: "23rd European Modeling and Simulation Symposium (EMSS 2013), Athens, Greece"
-  venue_short: "EMSS 2013"
+  venue: "Proceedings of the International Defense and Homeland Security Simulation Workshop (DHSS 2013), Athens, Greece"
+  venue_short: "DHSS 2013"
+  pages: "77-84"
+  url: "https://msc-les.org/proceedings/dhss/dhss2013/dhss2013_77.html"
   areas: [modeling-simulation]
 
 - slug: case-space-decision-support-usmos-2013
