@@ -1,0 +1,20 @@
+# Main navigation. Weight sets the order.
+main:
+  - name: Research
+    url: research/
+    weight: 10
+  - name: Publications
+    url: publications/
+    weight: 20
+  - name: Talks & Media
+    url: events/
+    weight: 30
+  - name: News
+    url: blog/
+    weight: 40
+  - name: Service
+    url: service/
+    weight: 50
+  - name: Experience
+    url: experience/
+    weight: 60

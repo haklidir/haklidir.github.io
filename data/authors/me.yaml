@@ -1,0 +1,175 @@
+schema: hugoblox/author/v1
+slug: me
+is_owner: true
+name:
+  display: Mehmet Haklıdır
+  given: Mehmet
+  family: Haklıdır
+postnominals:
+  - PhD
+role: Founding Director, Artificial Intelligence Institute
+bio: |
+  Dr. Mehmet Haklıdır is the founding Director of the TÜBİTAK BİLGEM Artificial Intelligence Institute,
+  Türkiye's first national AI institute. He holds a Ph.D. in Control and Automation Engineering from
+  Istanbul Technical University and has more than 24 years of experience in AI, autonomous systems, big
+  data, simulation, and technology policy.
+
+  He contributed to Türkiye's first National AI Strategy and led the technical preparation and
+  coordination of the National Artificial Intelligence Action Plan 2026–2030, finalized through
+  consultation with the national AI ecosystem. He serves on the Steering Committee of the Science,
+  Technology and Innovation Policies Council of the Presidency of the Republic of Türkiye and is a member
+  of several international AI governance initiatives, including OECD ONE AI, GPAI, UNESCO AI Ethics,
+  NATO DAIRB, and the European AI Alliance.
+
+  His current research focuses on large language models, AI safety with an emphasis on agentic AI
+  systems, deep reinforcement learning, robotics, and autonomous decision-making under uncertainty.
+
+affiliations:
+  - name: TÜBİTAK BİLGEM Artificial Intelligence Institute
+    url: https://bilgem.tubitak.gov.tr/
+
+links:
+  - icon: at-symbol
+    url: mailto:haklidir@gmail.com
+    label: E-mail
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?user=sEOFMPoAAAAJ
+    label: Google Scholar
+  - icon: academicons/orcid
+    url: https://orcid.org/0000-0003-4985-1116
+    label: ORCID
+  - icon: academicons/scopus
+    url: https://www.scopus.com/authid/detail.uri?authorId=25929922600
+    label: Scopus
+  - icon: academicons/researchgate
+    url: https://www.researchgate.net/profile/Mehmet-Haklidir
+    label: ResearchGate
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/mehmet-haklidir/
+    label: LinkedIn
+  - icon: brands/github
+    url: https://github.com/haklidir
+    label: GitHub
+  - icon: brands/x
+    url: https://x.com/mhaklidir
+    label: X
+  - icon: brands/instagram
+    url: https://www.instagram.com/mhaklidir/
+    label: Instagram
+
+interests:
+  - Large Language Models
+  - AI Safety & Agentic AI Systems
+  - Deep Reinforcement Learning
+  - Robotics & Autonomous Systems
+  - Decision-Making under Uncertainty
+  - AI Governance & Policy
+
+education:
+  - degree: PhD, Control and Automation Engineering
+    institution: Istanbul Technical University
+    year: "2011–2022"
+    start: "2011"
+    end: "2022"
+    summary: |
+      Thesis: [Deep Reinforcement Learning for Partially Observable Markov Decision Processes](/publications/phd-thesis-drl-pomdp-2022/)
+  - degree: MSc, Mechatronics Engineering
+    institution: Istanbul Technical University
+    year: "2003–2006"
+    start: "2003"
+    end: "2006"
+    summary: |
+      Thesis: [Modelling of Sonobuoy for Position Estimation](/publications/msc-thesis-sonobuoy-2006/)
+  - degree: BSc, Mechanical Engineering (minor in Computer Science)
+    institution: Istanbul University
+    year: "1999–2003"
+    start: "1999"
+    end: "2003"
+
+experience:
+  - role: Founding Director, Artificial Intelligence Institute
+    org: TÜBİTAK BİLGEM
+    start: 2023-05-01
+    summary: |
+      Leads Türkiye's national AI institute and its six competence centres (FinTech, Intelligent
+      Manufacturing, Smart Agriculture & Food, Climate & Sustainability, E-Commerce Technologies, Smart
+      Education), working with an ecosystem of 116 partner organisations from industry, SMEs, universities
+      and the public sector. Led the development of BİLGE, a Turkish large language model, and coordinates
+      the Turkic LLM initiative under the Organization of Turkic States. Task leader for AI Act compliance
+      and ethical AI in the BSC AI Factory (EuroHPC JU).
+  - role: Deputy Director
+    org: TÜBİTAK BİLGEM Informatics Technologies Research Institute
+    start: 2022-04-01
+    end: 2025-02-28
+    summary: |
+      Oversaw the Cloud Computing & Big Data, Data Valorization and Software Engineering departments,
+      including the big-data platform for customs enforcement, the 5G-MOBIX autonomous border crossing
+      (EU H2020) and the HumanE-AI-Net EEG-controlled exoskeleton work with DFKI (EU H2020).
+  - role: Head of Cloud Computing and Big Data Research Lab (B3LAB)
+    org: TÜBİTAK BİLGEM
+    start: 2020-09-01
+    end: 2023-08-31
+    summary: |
+      Led a 40-person team running cloud, big data, IoT, AI and digital twin projects, including the
+      Safir platform suite (Safir Bulut, Safir Büyük Veri, Safir Zeka) and EU Horizon 2020 and IPA projects.
+  - role: Chief Researcher, Big Data & AI Team Leader
+    org: TÜBİTAK BİLGEM B3LAB
+    start: 2018-01-01
+    end: 2020-09-30
+    summary: |
+      Built the lab's AI and data science capability and the Safir Zeka machine-learning-as-a-service platform.
+  - role: Chief Researcher, Project Manager (Defence Simulation Systems)
+    org: TÜBİTAK BİLGEM
+    start: 2005-05-01
+    end: 2018-01-31
+    summary: |
+      Modelling, simulation and control of underwater platforms; computer generated forces and tactical AI
+      for anti-submarine warfare training; HLA/RTI distributed simulation.
+  - role: Assistant Product Manager, Engineer
+    org: Bosch Türkiye
+    start: "2000"
+    end: "2003"
+
+awards:
+  - title: AIPA Artificial Intelligence for the Public Sector Award
+    awarder: AIPA
+    date: "2026"
+    summary: Received as founding Director on behalf of the TÜBİTAK BİLGEM Artificial Intelligence Institute.
+    icon: hero/trophy
+  - title: Gold, Ecosystem Contribution Award
+    awarder: AI Factory Awards
+    date: "2024"
+    icon: hero/trophy
+  - title: Best in Machine Learning
+    awarder: Future of Cloud & AI Summit
+    date: "2023"
+    icon: hero/trophy
+  - title: Best in Future of Intelligence
+    awarder: IDC Future Enterprise Awards
+    date: "2022"
+    icon: hero/trophy
+  - title: Best Product Development Award
+    awarder: TÜBİTAK BİLGEM Awards
+    date: "2014"
+    icon: hero/trophy
+  - title: Best Research Group Award
+    awarder: TÜBİTAK BİLGEM Awards
+    date: "2012"
+    icon: hero/trophy
+  - title: Ship Survivability Solution Award
+    awarder: Ship Survivability Conference, Berlin
+    date: "2010"
+    summary: For the Decision Support System for Torpedo Threats (DeSuS).
+    url: /publications/torpedo-decision-support-desus-ssc-2010/
+    icon: hero/trophy
+
+languages:
+  - name: Turkish
+    level: 5
+    label: Native
+  - name: English
+    level: 4
+    label: Professional working proficiency
+  - name: German
+    level: 2
+    label: Limited working proficiency
