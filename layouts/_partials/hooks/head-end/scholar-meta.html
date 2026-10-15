@@ -1,0 +1,70 @@
+{{/*
+  Highwire Press citation_* meta tags for Google Scholar on publication pages.
+  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing
+  Loaded by HugoBlox's head-end hook with the current page as context.
+*/}}
+{{- $page := . -}}
+{{- if and $page.IsPage (eq $page.Type "publications") -}}
+{{- $p := $page.Params -}}
+{{- $pub := $p.publication | default dict -}}
+{{- $type := "" -}}{{- with $p.publication_types }}{{ $type = index . 0 }}{{ end -}}
+<meta name="citation_title" content="{{ $page.Title }}">
+{{- range $p.authors }}
+{{- $profile := partial "functions/get_author_profile" . }}
+<meta name="citation_author" content="{{ $profile.title | default . }}">
+{{- end }}
+{{- if eq $p.date_precision "year" }}
+<meta name="citation_publication_date" content="{{ $page.Date.Format "2006" }}">
+{{- else }}
+<meta name="citation_publication_date" content="{{ $page.Date.Format "2006/01/02" }}">
+{{- end }}
+{{- with $pub.name }}
+{{- if eq $type "article-journal" }}
+<meta name="citation_journal_title" content="{{ . }}">
+{{- with $pub.short_name }}<meta name="citation_journal_abbrev" content="{{ . }}">{{ end }}
+{{- else if eq $type "paper-conference" }}
+<meta name="citation_conference_title" content="{{ . }}">
+{{- else if eq $type "chapter" }}
+<meta name="citation_inbook_title" content="{{ . }}">
+{{- end }}
+{{- end }}
+{{- if eq $type "thesis" }}{{ with $pub.publisher }}
+<meta name="citation_dissertation_institution" content="{{ . }}">
+{{- end }}{{ else }}{{ with $pub.publisher }}
+<meta name="citation_publisher" content="{{ . }}">
+{{- end }}{{ end }}
+{{- with $pub.volume }}
+<meta name="citation_volume" content="{{ . }}">
+{{- end }}
+{{- with $pub.issue }}
+<meta name="citation_issue" content="{{ . }}">
+{{- end }}
+{{- with $pub.pages }}
+{{- $range := split (replace (printf "%v" .) "–" "-") "-" }}
+<meta name="citation_firstpage" content="{{ index $range 0 }}">
+{{- if gt (len $range) 1 }}
+<meta name="citation_lastpage" content="{{ index $range 1 }}">
+{{- end }}
+{{- end }}
+{{- $ids := (($p.hugoblox | default dict).ids | default dict) -}}
+{{- with $ids.doi }}
+<meta name="citation_doi" content="{{ . }}">
+{{- end }}
+{{- with $ids.arxiv }}
+<meta name="citation_arxiv_id" content="{{ . }}">
+{{- end }}
+{{- with $p.pub_language }}
+<meta name="citation_language" content="{{ . }}">
+{{- end }}
+{{- with $p.tags }}
+<meta name="citation_keywords" content="{{ delimit . "; " }}">
+{{- end }}
+<meta name="citation_abstract_html_url" content="{{ $page.Permalink }}">
+{{- $pdf := "" -}}
+{{- with $page.File }}{{ with $page.Resources.GetMatch (printf "%s.pdf" .ContentBaseName) }}{{ $pdf = .Permalink }}{{ end }}{{ end -}}
+{{- if not $pdf }}{{ range $p.links }}{{ if and (eq .type "pdf") (not $pdf) }}{{ $pdf = .url }}{{ end }}{{ end }}{{ end -}}
+{{- if and (not $pdf) $ids.arxiv }}{{ $pdf = printf "https://arxiv.org/pdf/%s" $ids.arxiv }}{{ end -}}
+{{- with $pdf }}
+<meta name="citation_pdf_url" content="{{ . }}">
+{{- end }}
+{{- end -}}

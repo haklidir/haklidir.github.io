@@ -1,0 +1,121 @@
+# Research areas. Each publication lists one or more of these keys under `areas`.
+# The generator creates one page per area (content/research/<key>/index.md) that
+# shows the narrative below followed by every publication tagged with the area.
+# `icon` (HugoBlox icon name) and `topics` are used on the cards on the home and Research pages.
+# `tag` is the short tag put on each publication (letters, digits and spaces only: the
+# research pages look publications up by it).
+
+- key: agentic-ai-safety
+  name: "Agentic AI Safety & Governance"
+  tag: "Agentic AI Safety"
+  icon: hero/shield-check
+  topics: [Consent, Multi-agent systems, Human oversight, EU AI Act]
+  weight: 1
+  summary: "How consent, oversight and accountability hold up when AI systems act on people's behalf and interact with each other."
+  narrative: |-
+    My current research asks what happens to consent, oversight and accountability once AI systems stop
+    answering questions and start acting on people's behalf, increasingly in interaction with other agents.
+
+    Work in this line formalises *consent chain degradation* in embodied multi-agent systems and proposes a
+    runtime architecture for consent verification (ICRA 2026 Workshop on Robot Ethics); analyses the
+    *consent vacuum* that emerges in open-ended agent-to-agent ecosystems and maps it onto the EU AI Act,
+    the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat
+    to action (CHI 2026 workshop); and offers a sociotechnical reading of the Clawdbot/Moltbook case
+    (İstanbul Üniversitesi Sosyoloji Dergisi, forthcoming).
+
+    The research connects to my policy work on trustworthy AI, including contributions to the OECD
+    Framework for the Classification of AI Systems and OECD work on accountability in AI, and to earlier
+    papers on AI content detection obligations and fairness in medical AI.
+
+- key: rl-autonomy
+  name: "Reinforcement Learning & Autonomous Systems"
+  tag: "Reinforcement Learning"
+  icon: hero/cpu-chip
+  topics: [Deep RL, POMDPs, Autonomous driving, Robot navigation]
+  weight: 2
+  summary: "Decision-making under uncertainty and partial observability for autonomous vehicles, robots and control."
+  narrative: |-
+    This line studies decision-making under uncertainty for autonomous systems. My doctoral work at
+    Istanbul Technical University introduced Guided Soft Actor-Critic (GSAC), a guided deep reinforcement
+    learning method for partially observable Markov decision processes (IEEE Access, 2021).
+
+    Recent work extends GSAC to belief-aware privileged distillation for autonomous driving under partial
+    observability (CVPR 2026 Workshop on Autonomous Driving) and to agent-based reinforcement learning for
+    geochemical control in geothermal systems. Applied work includes cloud-assisted connected and
+    automated mobility in the EU H2020 5G-MOBIX project (IEEE IV 2022), human-interactive social robot
+    navigation (ICRA 2024 workshop) and reinforcement learning for COVID-19 mitigation policies.
+
+- key: geoscience-energy
+  name: "AI for Geoscience & Energy"
+  tag: "AI for Geoscience"
+  icon: hero/globe-europe-africa
+  topics: [Geothermal systems, Reservoir temperature, GANs, Scaling control]
+  weight: 3
+  summary: "Machine learning and control for geothermal systems: reservoir temperature, contamination and scaling."
+  narrative: |-
+    Together with Füsun Servin Tut Haklıdır, I have worked on data-driven methods for geothermal energy
+    systems: fuzzy control of calcium carbonate and silica scaling (Geothermics, 2017), machine-learning
+    prediction of reservoir temperatures from hydrogeochemical data (Natural Resources Research, 2020),
+    deep-learning prediction of geothermal boron contamination (Environmental Earth Sciences, 2020),
+    synthetic hydrogeochemical data generation with generative adversarial networks (Stanford Geothermal
+    Workshop, 2025) and agent-based reinforcement learning for geochemical control (2026).
+
+    Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.
+
+- key: language-tech
+  name: "Language Technologies & LLMs"
+  tag: "Language Technologies"
+  icon: hero/language
+  topics: [Turkish LLMs, Text embeddings, Benchmarks]
+  weight: 4
+  summary: "Turkish language models, embedding benchmarks and multimodal language analysis."
+  narrative: |-
+    This line supports Türkiye's work on Turkish language models, including BİLGE, the national large
+    language model developed at the TÜBİTAK BİLGEM Artificial Intelligence Institute, and the multinational
+    Turkic LLM initiative.
+
+    Contributions include TR-TEB, a standardized benchmark for Turkish text embeddings that evaluates 45
+    open-source models (LREC 2026), a metric for the conceptual diversity of text, and multimodal speech
+    emotion and text sentiment analysis (UBMK 2023).
+
+- key: health-ai
+  name: "AI for Health"
+  tag: "AI for Health"
+  icon: hero/heart
+  topics: [Federated learning, Digital twins, Medical imaging]
+  weight: 5
+  summary: "Privacy-preserving and trustworthy AI for clinical prediction, medical imaging and digital twins."
+  narrative: |-
+    With clinical and academic partners, this line develops privacy-preserving and trustworthy AI for
+    healthcare: federated learning for heart disease, diabetes and medical imaging; cloud- and edge-based
+    digital twins for cardiovascular disease prediction (ICT4AWE 2023, 2024); deep learning to identify the
+    left adrenal vein in minimally invasive adrenalectomy (Surgical Laparoscopy, Endoscopy & Percutaneous
+    Techniques, 2023); deepfake detection in lung CT; synthetic data for privacy-preserving medical imaging;
+    and gender bias in COVID-19 diagnosis from medical images.
+
+- key: vision-applied
+  name: "Computer Vision & Applied AI"
+  tag: "Applied AI"
+  icon: hero/eye
+  topics: [Object tracking, Soft sensors, Anomaly detection]
+  weight: 6
+  summary: "Applied machine learning with industry and public partners, from livestock tracking to smart appliances."
+  narrative: |-
+    Applied machine learning with industrial and public partners: identification-based cattle tracking with
+    feature-matching models (SIU 2025), soft sensors for load estimation in washing machines (SIU 2023) and
+    a systematic review of AI in washing machines (Neural Computing and Applications, 2026), big-data
+    anomaly detection in blockchain (SIU 2023), and medical imaging applications.
+
+- key: modeling-simulation
+  name: "Modeling, Simulation & Control"
+  tag: "Modeling and Simulation"
+  icon: hero/cube-transparent
+  topics: [Simulation, Computer generated forces, Underwater vehicles]
+  weight: 7
+  summary: "High-fidelity simulation, computer generated forces and control (2003–2015)."
+  narrative: |-
+    Before focusing on AI, I worked for more than a decade on high-fidelity modelling, simulation and
+    control at TÜBİTAK: submarine and surface-platform dynamics, computer generated forces and tactical AI
+    for anti-submarine warfare training, sonobuoy design, and decision support for torpedo threats, which
+    received the Ship Survivability Solution Award in 2010. Earlier academic work covered fuzzy and
+    nonlinear control of robot manipulators.
