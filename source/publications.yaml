@@ -54,7 +54,10 @@
   type: article-journal
   venue: "İstanbul Üniversitesi Sosyoloji Dergisi"
   venue_short: "İÜ Sosyoloji Dergisi"
-  status: forthcoming
+  volume: 46
+  issue: 1
+  pages: "389-413"
+  publisher: "Istanbul University Press"
   language: tr
   areas: [agentic-ai-safety]
   abstract: >-
@@ -175,6 +178,73 @@
   pages: "275"
   publisher: "Springer"
   areas: [vision-applied]
+
+- slug: accountability-graphs-cui-2026
+  title: "Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains"
+  authors: [me]
+  date: 2026
+  type: paper-conference
+  venue: "Proceedings of the 8th ACM Conference on Conversational User Interfaces (CUI '26)"
+  venue_short: "CUI 2026"
+  pages: "1-5"
+  publisher: "ACM"
+  doi: "10.1145/3816046.3816264"
+  areas: [agentic-ai-safety]
+  featured: true
+
+- slug: copula-synthetic-data-reservoir-temperature-geothermics-2026
+  title: "Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2026
+  type: article-journal
+  venue: "Geothermics"
+  volume: 141
+  pages: "103760"
+  publisher: "Elsevier"
+  areas: [geoscience-energy]
+  featured: true
+
+- slug: lithium-prediction-uq-esi-2026
+  title: "Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2026
+  type: article-journal
+  venue: "Earth Science Informatics"
+  volume: 19
+  issue: 9
+  pages: "159"
+  publisher: "Springer"
+  areas: [geoscience-energy]
+
+- slug: fuzzy-to-agentic-reservoir-management-wgc-2026
+  title: "From Fuzzy Logic to Agentic AI: Dynamic Reservoir Management for Long-Term Geothermal Sustainability"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2026
+  type: paper-conference
+  venue: "Proceedings of the World Geothermal Congress 2026"
+  venue_short: "WGC 2026"
+  areas: [geoscience-energy]
+
+- slug: explainable-bad-check-risk-siu-2026
+  title: "Explainable Bad Check Risk Using Hybrid Machine Learning and Large Language Models in Natural Language"
+  authors: [Mustafa Furkan Zenginoğlu, Zeynep Beyda Olgun, Hasan Fatih Durkaya, me, Tuna Çakar]
+  date: 2026
+  type: paper-conference
+  venue: "34th Signal Processing and Communications Applications Conference (SIU 2026)"
+  venue_short: "SIU 2026"
+  pages: "1-4"
+  publisher: "IEEE"
+  areas: [language-tech, vision-applied]
+
+- slug: turkiye-ai-ecosystem-tuba-2026
+  title: "Türkiye’s AI Ecosystem: Key Actors, Research Institutes, Startups, and Collaborations"
+  authors: [me]
+  date: 2026
+  type: chapter
+  venue: "Artificial Intelligence and National Technology Reflections"
+  pages: "381-412"
+  publisher: "TÜBA Türkiye Bilimler Akademisi"
+  note: "ISBN 978-625-6110-86-1."
 
 - slug: cattle-tracking-siu-2025
   title: "Identification-Based Cattle Tracking Using Feature Matching Models"

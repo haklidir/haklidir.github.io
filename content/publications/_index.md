@@ -7,7 +7,7 @@ sections:
 - block: markdown
   content:
     title: Publications
-    text: '74 publications: 15 journal articles, 54 conference and workshop papers, 2 book chapters, 1 preprint and 2 theses. Each title opens a page with publication details, links and a BibTeX citation.
+    text: '80 publications: 17 journal articles, 57 conference and workshop papers, 3 book chapters, 1 preprint and 2 theses. Each title opens a page with publication details, links and a BibTeX citation.
 
 
       Also on [Google Scholar](https://scholar.google.com/citations?user=sEOFMPoAAAAJ), [ORCID](https://orcid.org/0000-0003-4985-1116), [Scopus](https://www.scopus.com/authid/detail.uri?authorId=25929922600) and [ResearchGate](https://www.researchgate.net/profile/Mehmet-Haklidir).'
