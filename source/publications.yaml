@@ -1,0 +1,890 @@
+# Publication records for haklidir.github.io
+#
+# This file is the single source of truth for the publication pages.
+# After editing it, run:   python3 scripts/generate_content.py
+# which (re)writes content/publications/<slug>/index.md and cite.bib.
+#
+# Fields
+#   slug       URL slug (must be unique, lowercase, hyphenated)
+#   title      Paper title
+#   authors    Author list in order; use "me" for Mehmet Haklıdır
+#   date       YYYY-MM-DD if known, otherwise YYYY (only the year is displayed)
+#   type       article-journal | paper-conference | chapter | thesis | article (preprint)
+#   venue      Journal / proceedings / book name; venue_short is optional
+#   volume, issue, pages, publisher   optional
+#   doi, arxiv, acl_id                optional identifiers (rendered as buttons)
+#   url, pdf                          optional external landing page / PDF
+#   areas      research-area keys (see source/research_areas.yaml)
+#   featured   true to show on the home page
+#   status     optional, e.g. "forthcoming"
+#   language   optional ISO code when the paper is not in English (e.g. tr)
+#   abstract   the paper's official abstract (author-written) only
+#   overview   short description shown on the page when no abstract is available
+#   summary    optional one-line teaser for list views (default: first sentence of overview/abstract)
+#   note       extra line shown on the page (e.g. earlier presentation of the work)
+
+- slug: consent-vacuum-iail-2026
+  title: "The Consent Vacuum: When Agents Interact Without Humans"
+  authors: [me, Osman Gazi Güçlütürk]
+  date: 2026-07-07
+  type: paper-conference
+  venue: "IAIL 2026: 5th International Workshop on Imagining the AI Landscape after the AI Act, co-located with HHAI 2026"
+  venue_short: "IAIL 2026 @ HHAI 2026"
+  areas: [agentic-ai-safety]
+  featured: true
+  overview: >-
+    Existing consent frameworks assume a human who authorises an action in a context they can see.
+    This paper asks what happens to a user's authorisation once their AI agent stops talking to humans
+    and interacts primarily with other agents. Using the early-2026 Clawdbot/Moltbook incidents as a
+    stress test, it argues that consent degrades as an operative governance mechanism once it travels
+    through open-ended agent-to-agent chains, a condition the paper calls the *consent vacuum*: not the
+    absence of consent, but the structural erosion of the conditions that make it meaningful.
+
+    The paper contributes a taxonomy of six consent-failure types; a distinction between visibility,
+    auditability and intervenability as oversight capacities relevant to Article 14 of the EU AI Act;
+    and a mapping onto the GDPR, the AI Act and the Digital Services Act, with the DSA systemic-risk
+    regime offered as a structural template for governing emergent agent ecosystems.
+  note: "IAIL 2026 was held in Brussels on 7 July 2026. Co-authored with Osman Gazi Güçlütürk (Galatasaray University, Faculty of Law)."
+
+- slug: ajan-toplumlarinda-rizanin-cokusu-2026
+  title: "Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz"
+  title_en: "The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case"
+  authors: [me, Büşra Tufan]
+  date: 2026
+  type: article-journal
+  venue: "İstanbul Üniversitesi Sosyoloji Dergisi"
+  venue_short: "İÜ Sosyoloji Dergisi"
+  status: forthcoming
+  language: tr
+  areas: [agentic-ai-safety]
+  abstract: >-
+    Bu makale, otonom yapay zekâ ajanlarının birbirleriyle etkileşime girdiği ekosistemlerde rıza
+    mekanizmalarının nasıl çöktüğünü incelemektedir. İnsan-yapay zekâ etkileşimi (HAII), insan-merkezli
+    yapay zekâ (HCAI) ve sosyal-merkezli yapay zekâ (SCAI) literatürü insan-YZ ilişkisine odaklanırken,
+    bu çalışma yeni bir fenomeni ele almaktadır: YZ-YZ etkileşimi ve bunun rıza açısından doğurduğu
+    sonuçlar. 2026 başında yaşanan Clawdbot/Moltbook vakası (82 ülkede 42.900 açık ajan kontrol paneli,
+    bunlardan 15.200'ü uzaktan kod yürütme (RCE) saldırılarına açık; 1,5 milyon sızdırılmış ajan tokenı
+    ve ajanların kolektif olarak ürettiği "Crustafarianizm" adlı satirik din fenomeni) paradigmatik bir
+    vaka olarak incelenmektedir.
+
+    Çalışma, Bilim ve Teknoloji Çalışmaları (STS) ile dijital sosyoloji alanlarından üç kavramsal çerçeve
+    kullanmaktadır: yeni sosyoteknik düzenlerin nasıl ortaya çıktığını anlamak için Jasanoff'un
+    ortak-üretim kavramı, yapay zekâ ajanlarını faillik kapasitesine sahip insan-dışı aktörler olarak
+    kavramsallaştırmak için Latour'un aktör-ağ teorisi ve bağlamların öngörülemez biçimde değiştiği
+    durumlarda rızanın nasıl aşındığını analiz etmek için Nissenbaum'un bağlamsal bütünlük yaklaşımı.
+
+    Çalışma, ajan ekosistemlerine özgü altı rıza kırılganlığı türü tanımlamaktadır: rıza miras hatası,
+    çapraz-ajan kapsam kayması, ortaya çıkan kolektif eylem, zamansal rıza kayması, yansımalı rıza
+    döngüleri ve güvenlik-aracılı rıza çöküşü. Bu kırılganlıklar temel bir hipoteze işaret etmektedir:
+    etkileşim zinciri uzadıkça rıza sıfıra yaklaşır. Makale, bireysel onaya dayalı mevcut rıza
+    kavramının, etkileşim zincirlerinin belirsiz biçimde uzadığı ve insan gözetiminin mimari düzeyde
+    dışlandığı ajan ekosistemlerinde yapısal olarak yetersiz kaldığını ileri sürmektedir. Bu bulgu hem
+    sosyolojik kuram hem de düzenleyici çerçeveler için çıkarımlar taşımaktadır.
+  overview: >-
+    **English summary.** The article examines how consent mechanisms break down in ecosystems where
+    autonomous AI agents interact with one another. Taking the early-2026 Clawdbot/Moltbook case as a
+    paradigmatic case, and drawing on Jasanoff's co-production, Latour's actor-network theory and
+    Nissenbaum's contextual integrity, it identifies six consent fragilities specific to agent
+    ecosystems and argues that as interaction chains lengthen, consent approaches zero.
+
+- slug: consent-chain-degradation-icra-2026
+  title: "Consent Chain Degradation in Embodied Multi-Agent Systems: Bridging the Gap Between AI Agent Governance and Robot Ethics"
+  authors: [me]
+  date: 2026-06-01
+  type: paper-conference
+  venue: "ICRA 2026 Workshop on Robot Ethics (WoRoBet), IEEE International Conference on Robotics and Automation"
+  venue_short: "ICRA 2026 WoRoBet"
+  arxiv: "2605.16300"
+  areas: [agentic-ai-safety, rl-autonomy]
+  featured: true
+  overview: >-
+    Introduces *consent chain degradation*: the way the specificity, validity and scope of human
+    consent weaken as authority passes through chains of delegation among embodied agents. The paper
+    proposes CoRVE, a three-layer runtime architecture for consent scope modelling, delegation tracking
+    and physical irreversibility assessment, illustrates the problem with healthcare, domestic and
+    industrial scenarios (including a worked numerical example), and maps the gaps left by the EU AI
+    Act, the GDPR, the Machinery Regulation and the revised Product Liability Directive.
+
+- slug: adaptive-guidance-cvpr-wad-2026
+  title: "When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability"
+  authors: [me]
+  date: 2026-06-01
+  type: paper-conference
+  venue: "CVPR 2026 Workshop on Autonomous Driving (WAD)"
+  venue_short: "CVPR 2026 WAD"
+  arxiv: "2605.26155"
+  areas: [rl-autonomy]
+  featured: true
+  overview: >-
+    Extends Guided Soft Actor-Critic with Belief-Aware GSAC, which scales the privileged-distillation
+    coefficient by ensemble disagreement in a driving POMDP. Across three occlusion levels, adaptive
+    guidance helps under mild and moderate occlusion; under severe occlusion the coefficient collapses
+    to its minimum early ("observability blindness") and a simple linear decay schedule performs best,
+    suggesting that much of the benefit comes from scheduling rather than adaptivity.
+
+- slug: chat-to-agent-chi-2026
+  title: "From Chat to Agent: Why Consent Breaks When AI Acts on Your Behalf"
+  authors: [me]
+  date: 2026-04-01
+  type: paper-conference
+  venue: "ACM CHI 2026 Workshop: Moving Beyond Clicks: Rethinking Consent and User Control in the Age of AI"
+  venue_short: "CHI 2026 Workshop"
+  areas: [agentic-ai-safety]
+  overview: >-
+    A position paper on why consent mechanisms designed for conversational systems fail once AI moves
+    from answering to acting on a user's behalf. It identifies design tensions in agentic consent and
+    offers provocations for rethinking user control.
+
+- slug: tr-teb-lrec-2026
+  title: "TR-TEB: Turkish Text Embedding Benchmark"
+  authors: [Ömer Arslan, Atalay Çelik, Yusuf Aslan, Hasan Fatih Durkaya, Mustafa Furkan Zenginoğlu, Musa Alperen Yılmaz, Merve Gül Kantarcı, me]
+  date: 2026-05-01
+  type: paper-conference
+  venue: "Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)"
+  venue_short: "LREC 2026"
+  pages: "11028-11044"
+  publisher: "ELRA Language Resource Association"
+  doi: "10.63317/3qway8hn6y53"
+  acl_id: "2026.lrec-1.862"
+  pdf: "https://aclanthology.org/2026.lrec-1.862.pdf"
+  areas: [language-tech]
+  featured: true
+  overview: >-
+    Presents TR-TEB, a standardized and reproducible benchmark for Turkish text embeddings. It covers
+    five task categories (classification, pair classification, clustering, retrieval and semantic
+    textual similarity), combines 14 open-source resources, 26 translated datasets and 7 new
+    Turkish-specific datasets, and evaluates 45 open-source embedding models.
+
+- slug: geochemical-control-rl-gsl-2026
+  title: "Agent-Based Reinforcement Learning for Geochemical Control in Geothermal Energy Systems"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2026
+  type: paper-conference
+  venue: "AI in the Geosciences, Geological Society of London"
+  venue_short: "GSL AI in the Geosciences"
+  areas: [geoscience-energy, rl-autonomy]
+
+- slug: ai-washing-machines-review-nca-2026
+  title: "Artificial Intelligence in Washing Machines: A Systematic Review"
+  authors: [F. Canan Pembe Muhtaroğlu, İsmail Bilgen, Murat Delibalta, Erman Kiremit, me]
+  date: 2026
+  type: article-journal
+  venue: "Neural Computing and Applications"
+  volume: 38
+  issue: 8
+  pages: "275"
+  publisher: "Springer"
+  areas: [vision-applied]
+
+- slug: cattle-tracking-siu-2025
+  title: "Identification-Based Cattle Tracking Using Feature Matching Models"
+  authors: [Zeynep Beyda Olgun, Ömer Arslan, Atalay Çelik, me, İpek Baz]
+  date: 2025
+  type: paper-conference
+  venue: "33rd Signal Processing and Communications Applications Conference (SIU 2025)"
+  venue_short: "SIU 2025"
+  pages: "1-4"
+  publisher: "IEEE"
+  areas: [vision-applied]
+
+- slug: reservoir-temperature-gan-stanford-2025
+  title: "Enhancing Reservoir Temperature Prediction in Western Anatolia Geothermal Systems by Generating Synthetic Hydrogeochemical Data Using Generative Adversarial Networks"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2025-02-10
+  type: paper-conference
+  venue: "50th Workshop on Geothermal Reservoir Engineering, Stanford University"
+  venue_short: "Stanford Geothermal Workshop 2025"
+  areas: [geoscience-energy]
+
+- slug: ai-content-detection-eit-2024
+  title: "AI content detection in the emerging information ecosystem: new obligations for media and tech companies"
+  authors: [Alistair Knott, Dino Pedreschi, Toshiya Jitsuzumi, Susan Leavy, David Eyers, Tapabrata Chakraborti, Andrew Trotman, Sundar Sundareswaran, Ricardo Baeza-Yates, Przemysław Biecek, Adrian Weller, Paul D. Teal, Subhadip Basu, me, Virginia Morini, Stuart Russell, Yoshua Bengio]
+  date: 2024-09-21
+  type: article-journal
+  venue: "Ethics and Information Technology"
+  volume: 26
+  issue: 4
+  pages: "63"
+  publisher: "Springer"
+  doi: "10.1007/s10676-024-09795-1"
+  areas: [agentic-ai-safety]
+  featured: true
+  overview: >-
+    Examines how new regulatory instruments, including the EU AI Act, create binding obligations for AI
+    providers to mark and detect AI-generated content, and what these obligations mean for media and
+    technology companies in the emerging information ecosystem.
+
+- slug: geothermal-ai-stanford-2024
+  title: "Artificial Intelligence Approaches for Sustainable Geothermal Energy Systems: With a Case Study"
+  authors: [Füsun Servin Tut Haklıdır, Feyza Özen, Ruşen Halepmollası, Zeynep Korkmaz, me]
+  date: 2024-02-12
+  type: paper-conference
+  venue: "49th Workshop on Geothermal Reservoir Engineering, Stanford University"
+  venue_short: "Stanford Geothermal Workshop 2024"
+  areas: [geoscience-energy]
+
+- slug: social-robot-navigation-icra-2024
+  title: "Bidirectional Human Interactive AI Framework for Social Robot Navigation"
+  authors: [Tuba Girgin, Emre Girgin, Yiğit Yıldırım, Emre Uğur, me]
+  date: 2024-05-13
+  type: paper-conference
+  venue: "Workshop on Robot Trustworthiness and Social Suitability (RTSS), ICRA 2024"
+  venue_short: "ICRA 2024 RTSS"
+  arxiv: "2404.04069"
+  areas: [rl-autonomy]
+
+- slug: digital-twin-federated-cardiovascular-2024
+  title: "A Novel Transformation Through Digital Twin and Federated Learning Integration: A Case Study on Cardiovascular Disease Prediction"
+  authors: [Rabia Arkan Yurtoğlu, Havvanur Dervişoğlu, Burak Ülver, Ruşen Halepmollası, me]
+  date: 2024
+  type: chapter
+  venue: "Information and Communication Technologies for Ageing Well and e-Health: ICT4AWE 2023 Revised Selected Papers (CCIS)"
+  venue_short: "ICT4AWE 2023 (CCIS)"
+  pages: "91"
+  publisher: "Springer Nature"
+  areas: [health-ai]
+
+- slug: parkinsons-vocal-features-syz-2024
+  title: "AI-Driven Detection of Parkinson's Disease Through Vocal Feature Optimization"
+  authors: [Mahmut Lütfullah Özbilen, Feyza Özen, Ayça Şirin Kındap, Hakan Gündüz, Ruşen Halepmollası, me]
+  date: 2024
+  type: paper-conference
+  venue: "IV. International Congress on Artificial Intelligence in Health"
+  venue_short: "SYZ 2024"
+  areas: [health-ai]
+
+- slug: federated-diabetes-syz-2024
+  title: "Federated Learning for Diabetes Prediction in Healthcare"
+  authors: [Rabia Arkan Yurtoğlu, Havvanur Dervişoğlu, Mustafa Aktaş, Mehmet Daşçılar, Ruşen Halepmollası, İpek Baz, me]
+  date: 2024
+  type: paper-conference
+  venue: "IV. International Congress on Artificial Intelligence in Health"
+  venue_short: "SYZ 2024"
+  areas: [health-ai]
+
+- slug: synthetic-medical-imaging-syz-2024
+  title: "Experimental Analysis of Synthetic Data Generation Techniques for Privacy-Preserving AI in Medical Imaging"
+  authors: [Süleyman Yolcu, Elif Özcan, Havvanur Dervişoğlu, Ruşen Halepmollası, me]
+  date: 2024
+  type: paper-conference
+  venue: "IV. International Congress on Artificial Intelligence in Health"
+  venue_short: "SYZ 2024"
+  areas: [health-ai, vision-applied]
+
+- slug: dementia-agitation-iot-syz-2024
+  title: "Predicting Agitation in Dementia Patients Using AI and IoT for Enhanced Real-Time Monitoring and Care"
+  authors: [Melik Mert Dolan, Burak Ülver, Kerem Basım, Ruşen Halepmollası, me]
+  date: 2024
+  type: paper-conference
+  venue: "IV. International Congress on Artificial Intelligence in Health"
+  venue_short: "SYZ 2024"
+  areas: [health-ai]
+
+- slug: deepfake-lung-ct-syz-2024
+  title: "Benchmarking Machine Learning and Deep Learning Models for Deepfake Detection in Lung CT Scans"
+  authors: [Merve Kaya Zeybel, Havvanur Dervişoğlu, Elif Özcan, Nida Kumbasar, Ruşen Halepmollası, İpek Baz, me]
+  date: 2024
+  type: paper-conference
+  venue: "IV. International Congress on Artificial Intelligence in Health"
+  venue_short: "SYZ 2024"
+  areas: [health-ai, vision-applied]
+
+- slug: adrenal-vein-deep-learning-slept-2023
+  title: "Artificial Intelligence in Minimally Invasive Adrenalectomy: Using Deep Learning to Identify the Left Adrenal Vein"
+  authors: [Berke Şengün, Yalın İşcan, Gözde A. Tataroğlu Özbulak, Nida Kumbasar, Emre Eğriboz, İsmail Cem Sormaz, Nihat Aksakal, Sencer Melih Deniz, me, Fatih Tunca, Yasemin Giles Şenyürek]
+  date: 2023-05-30
+  type: article-journal
+  venue: "Surgical Laparoscopy, Endoscopy & Percutaneous Techniques"
+  volume: 33
+  issue: 4
+  pages: "327-331"
+  publisher: "Wolters Kluwer"
+  doi: "10.1097/SLE.0000000000001185"
+  areas: [health-ai, vision-applied]
+  note: "An earlier Turkish version was presented at the 11th National Endocrine Surgery Congress, Antalya, 2023."
+
+- slug: digital-twin-cardiovascular-ict4awe-2023
+  title: "A Comparative Study on Cloud-based and Edge-Based Digital Twin Frameworks for Prediction of Cardiovascular Disease"
+  authors: [Havvanur Dervişoğlu, Burak Ülver, Rabia Arkan Yurtoğlu, Ruşen Halepmollası, me]
+  date: 2023-04-22
+  type: paper-conference
+  venue: "Proceedings of the 9th International Conference on Information and Communication Technologies for Ageing Well and e-Health (ICT4AWE 2023)"
+  venue_short: "ICT4AWE 2023"
+  pages: "159-169"
+  publisher: "SciTePress"
+  doi: "10.5220/0011859400003476"
+  areas: [health-ai]
+
+- slug: federated-heart-disease-siu-2023
+  title: "Federated Learning in Predicting Heart Disease"
+  authors: [Burak Ülver, Rabia Arkan Yurtoğlu, Havvanur Dervişoğlu, Ruşen Halepmollası, me]
+  date: 2023-07-05
+  type: paper-conference
+  venue: "31st Signal Processing and Communications Applications Conference (SIU 2023)"
+  venue_short: "SIU 2023"
+  pages: "1-4"
+  publisher: "IEEE"
+  doi: "10.1109/SIU59756.2023.10223935"
+  areas: [health-ai]
+
+- slug: washing-machine-load-estimation-siu-2023
+  title: "Load Weight Estimation in Washing Machine Using Soft Sensors with Machine Learning Techniques"
+  authors: [Murat Delibalta, İsmail Bilgen, F. Canan Pembe, Erman Kiremit, Hilal İrkil, me]
+  date: 2023
+  type: paper-conference
+  venue: "31st Signal Processing and Communications Applications Conference (SIU 2023)"
+  venue_short: "SIU 2023"
+  pages: "1-4"
+  publisher: "IEEE"
+  areas: [vision-applied]
+
+- slug: blockchain-anomaly-detection-siu-2023
+  title: "Big Data Analytics for Anomaly Detection in Blockchain"
+  authors: [Mahmut Lütfullah Özbilen, Elif Özcan, Mustafa Berk Keleş, Merve Zeybel, Havvanur Dervişoğlu, Aslınur Doğan, me]
+  date: 2023
+  type: paper-conference
+  venue: "31st Signal Processing and Communications Applications Conference (SIU 2023)"
+  venue_short: "SIU 2023"
+  pages: "1-4"
+  publisher: "IEEE"
+  areas: [vision-applied]
+
+- slug: multimodal-emotion-sentiment-ubmk-2023
+  title: "Multimodal Speech Emotion and Text Sentiment Analysis"
+  authors: [Nur Bengisu Çam, İlknur Dönmez, Ömer Faruk Bitikçioğlu, Fadime Buse Yediparmak, Emre Bektaş, me]
+  date: 2023
+  type: paper-conference
+  venue: "8th International Conference on Computer Science and Engineering (UBMK 2023)"
+  venue_short: "UBMK 2023"
+  pages: "157-162"
+  publisher: "IEEE"
+  areas: [language-tech]
+
+- slug: conceptual-diversity-metric-2023
+  title: "A proposed new metric for the conceptual diversity of a text"
+  authors: [İlknur Dönmez, me]
+  date: 2023-12-27
+  type: article
+  venue: "arXiv preprint"
+  arxiv: "2312.16548"
+  areas: [language-tech]
+
+- slug: akilli-saglik-sistemi-tuba-2023
+  title: "Akıllı Sağlık Sistemi ve Yapay Zeka"
+  title_en: "Smart Health Systems and Artificial Intelligence"
+  authors: [me, Sinem Nalbantoğlu, Abdullah Karadağ]
+  date: 2023
+  type: chapter
+  venue: "Moleküler Biyoloji ve Genetik: Sağlık Alanında ve Biyoteknolojide İleri Uygulamalar"
+  pages: "595-613"
+  publisher: "TÜBA Türkiye Bilimler Akademisi"
+  language: tr
+  areas: [health-ai]
+
+- slug: phd-thesis-drl-pomdp-2022
+  title: "Deep Reinforcement Learning for Partially Observable Markov Decision Processes"
+  authors: [me]
+  date: 2022
+  type: thesis
+  venue: "Ph.D. Thesis, Control and Automation Engineering, Istanbul Technical University"
+  publisher: "Istanbul Technical University"
+  areas: [rl-autonomy]
+
+- slug: 5g-mobix-truck-routing-iv-2022
+  title: "Cloud Assisted Connected and Automated Mobility System Architecture Design and Experimental Verification: The 5G-MOBIX Autonomous Truck Routing Use Case"
+  authors: [Tahir Sarı, Mert Sever, Arda Taha Candan, Gülsüm Tuba Çibuk Girgin, Emre Girgin, me]
+  date: 2022-06-05
+  type: paper-conference
+  venue: "2022 IEEE Intelligent Vehicles Symposium (IV)"
+  venue_short: "IEEE IV 2022"
+  pages: "1374-1380"
+  publisher: "IEEE"
+  pdf: "https://5g-mobix.com/assets/files/Cloud_Assisted_CAM_System_Architecture_Design_5G-MOBIX_Autonomous_Truck_Routing_Use_Case.pdf"
+  areas: [rl-autonomy]
+  overview: >-
+    Demonstrates the use of 5G networks for a cloud-assisted connected and automated mobility service
+    in the EU H2020 5G-MOBIX project, with preliminary field tests of the autonomous truck routing use
+    case at the Ford Otosan test track in Eskişehir, Türkiye.
+
+- slug: autonomous-driving-drl-siu-2022
+  title: "Autonomous Driving Systems for Decision-Making Under Uncertainty Using Deep Reinforcement Learning"
+  authors: [me, Hakan Temeltaş]
+  date: 2022-05-15
+  type: paper-conference
+  venue: "30th Signal Processing and Communications Applications Conference (SIU 2022)"
+  venue_short: "SIU 2022"
+  pages: "1-4"
+  publisher: "IEEE"
+  areas: [rl-autonomy]
+
+- slug: eeg-lifted-weight-bhi-2022
+  title: "Prediction of Lifted Weight Category Using EEG Equipped Headgear"
+  authors: [Sencer Melih Deniz, Hamraz Javaheri, Juan Felipe Vargas, Doğan Urgun, Fariza Sabit, Mahmut Tok, me, Bo Zhou, Paul Lukowicz]
+  date: 2022-09-27
+  type: paper-conference
+  venue: "2022 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI)"
+  venue_short: "IEEE-EMBS BHI 2022"
+  pages: "1-7"
+  publisher: "IEEE"
+  areas: [health-ai, rl-autonomy]
+
+- slug: preschool-obesity-multilevel-jbs-2022
+  title: "Overweight and obesity in preschool children in Turkey: A multilevel analysis"
+  authors: [Şeyma Görçin Karaketir, Nimet Emel Lüleci, Mehmet Ali Eryurt, Ahmet Naci Emecen, me, Seyhan Hıdıroğlu]
+  date: 2022-01-28
+  type: article-journal
+  venue: "Journal of Biosocial Science"
+  volume: 55
+  issue: 2
+  pages: "344-366"
+  publisher: "Cambridge University Press"
+  doi: "10.1017/S0021932022000025"
+  areas: [health-ai]
+
+- slug: guided-soft-actor-critic-ieee-access-2021
+  title: "Guided Soft Actor Critic: A Guided Deep Reinforcement Learning Approach for Partially Observable Markov Decision Processes"
+  authors: [me, Hakan Temeltaş]
+  date: 2021-11-29
+  type: article-journal
+  venue: "IEEE Access"
+  volume: 9
+  pages: "159672-159683"
+  publisher: "IEEE"
+  doi: "10.1109/ACCESS.2021.3131772"
+  open_access: true
+  areas: [rl-autonomy]
+  featured: true
+  overview: >-
+    Introduces Guided Soft Actor-Critic (GSAC), in which a guidance module steers Soft Actor-Critic
+    during training to cope with partial observability, improving sample efficiency and final return
+    on partially observable continuous-control tasks.
+
+- slug: mers-cov-macro-domain-proteins-2021
+  title: "Structures of MERS-CoV macro domain in aqueous solution with dynamics: Impacts of parallel tempering simulation techniques and CHARMM36m and AMBER99SB force field parameters"
+  authors: [İbrahim Yağız Akbayrak, Şule İrem Çağlayan, Serdar Durdağı, Lukasz Kurgan, Vladimir N. Uversky, Burak Ülver, Havvanur Dervişoğlu, me, Orkun Hasekioğlu, Orkid Coskuner-Weber]
+  date: 2021-05-18
+  type: article-journal
+  venue: "Proteins: Structure, Function, and Bioinformatics"
+  volume: 89
+  issue: 10
+  pages: "1289-1299"
+  publisher: "Wiley"
+  doi: "10.1002/prot.26150"
+  areas: [health-ai]
+
+- slug: covid-mitigation-drl-aita-2021
+  title: "Deep Reinforcement Learning for Simulation-Based Determination of COVID-19 Pandemic Mitigation Policies"
+  authors: [Mahmut Lütfullah Özbilen, Emre Eğriboz, Ruşen Halepmollası, İsmail Bilgen, me]
+  date: 2021
+  type: article-journal
+  venue: "Artificial Intelligence Theory and Applications"
+  volume: 1
+  issue: 2
+  publisher: "İzmir Bakırçay Üniversitesi"
+  areas: [rl-autonomy, health-ai]
+  note: "A preliminary version was presented at the II. International Artificial Intelligence in Health Congress (SYZ 2021), İzmir."
+
+- slug: federated-medical-images-aita-2021
+  title: "Towards Federated Learning in Identification of Medical Images: A Case Study"
+  authors: [Ruşen Halepmollası, Merve Zeybel, Elif Eyvaz, Rabia Arkan, Ahsen Genç, İsmail Bilgen, me]
+  date: 2021
+  type: article-journal
+  venue: "Artificial Intelligence Theory and Applications"
+  volume: 1
+  issue: 2
+  publisher: "İzmir Bakırçay Üniversitesi"
+  areas: [health-ai, vision-applied]
+  note: "Also presented at the II. International Artificial Intelligence in Health Congress (SYZ 2021), İzmir."
+
+- slug: gender-bias-covid-diagnosis-aita-2021
+  title: "Unfairness of Deep Learning Methods Arising Gender Bias in Covid-19 Diagnosis of Medical Images"
+  authors: [Havvanur Dervişoğlu, İsmail Bilgen, Ruşen Halepmollası, Barış Can, me]
+  date: 2021
+  type: article-journal
+  venue: "Artificial Intelligence Theory and Applications"
+  volume: 1
+  issue: 2
+  pages: "81-94"
+  publisher: "İzmir Bakırçay Üniversitesi"
+  areas: [health-ai, agentic-ai-safety]
+  note: "Also presented at the II. International Artificial Intelligence in Health Congress (SYZ 2021), İzmir."
+
+- slug: boron-contamination-deep-learning-ees-2020
+  title: "Prediction of geothermal originated boron contamination by deep learning approach: at Western Anatolia Geothermal Systems in Turkey"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2020-04-01
+  type: article-journal
+  venue: "Environmental Earth Sciences"
+  volume: 79
+  issue: 8
+  pages: "180"
+  publisher: "Springer"
+  doi: "10.1007/s12665-020-08907-6"
+  areas: [geoscience-energy]
+  overview: >-
+    Uses hydrogeochemical variables and a deep neural network to predict boron contamination
+    originating from geothermal systems in Western Anatolia, and uses the model to discuss sustainable
+    discharge scenarios.
+
+- slug: reservoir-temperature-ml-nrr-2020
+  title: "Prediction of Reservoir Temperatures Using Hydrogeochemical Data, Western Anatolia Geothermal Systems (Turkey): A Machine Learning Approach"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2019-11-27
+  type: article-journal
+  venue: "Natural Resources Research"
+  volume: 29
+  issue: 4
+  pages: "2333-2346"
+  publisher: "Springer"
+  doi: "10.1007/s11053-019-09596-0"
+  areas: [geoscience-energy]
+  featured: true
+  overview: >-
+    A deep neural network forecasts geothermal reservoir temperatures from routine water-chemistry
+    data, offering a way to reduce exploration risk and cost before drilling.
+
+- slug: reservoir-temperature-ml-wgc-2020
+  title: "The Reservoir Temperature Prediction Using Hydrogeochemical Indicators by Machine Learning: Western Anatolia (Turkey) Case"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2020
+  type: paper-conference
+  venue: "Proceedings of the World Geothermal Congress 2020+1"
+  venue_short: "WGC 2020+1"
+  areas: [geoscience-energy]
+
+- slug: fluid-temperature-deep-learning-stanford-2019
+  title: "The Fluid Temperature Prediction with Hydro-geochemical Indicators Using a Deep Learning Model: A Case Study Western Anatolia (Turkey)"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2019-02-11
+  type: paper-conference
+  venue: "Workshop on Geothermal Reservoir Engineering, Stanford University"
+  venue_short: "Stanford Geothermal Workshop 2019"
+  areas: [geoscience-energy]
+
+- slug: scale-fuzzy-control-geothermics-2017
+  title: "Fuzzy control of calcium carbonate and silica scales in geothermal systems"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2017-07-11
+  type: article-journal
+  venue: "Geothermics"
+  volume: 70
+  pages: "230-238"
+  publisher: "Elsevier"
+  doi: "10.1016/j.geothermics.2017.07.003"
+  areas: [geoscience-energy]
+
+- slug: scale-fuzzy-control-wgc-2015
+  title: "Fuzzy Control of Calcium Carbonate and Silica Scales in Geothermal Systems"
+  authors: [me, Füsun Servin Tut Haklıdır]
+  date: 2015-04-19
+  type: paper-conference
+  venue: "Proceedings of the World Geothermal Congress 2015, Melbourne, Australia"
+  venue_short: "WGC 2015"
+  areas: [geoscience-energy]
+
+- slug: land-avoidance-tactical-entities-dhss-2013
+  title: "Modeling and Simulation of Land Avoidance Behavior Belonging to Tactical Entities within a High-Fidelity Simulation Environment"
+  authors: [Levent Şenyürek, Deniz Aldoğan, me]
+  date: 2013-09-25
+  type: paper-conference
+  venue: "Proceedings of the International Defense and Homeland Security Simulation Workshop (DHSS 2013), Athens, Greece"
+  venue_short: "DHSS 2013"
+  pages: "67-76"
+  url: "https://msc-les.org/proceedings/dhss/dhss2013/dhss2013_67.html"
+  areas: [modeling-simulation]
+
+- slug: anti-submarine-warfare-dhss-2013
+  title: "Anti-Submarine Warfare Modeling and Simulation"
+  authors: [Deniz Aldoğan, me, Levent Şenyürek, Yasemin Timar, Semuel Franko, Ömer Eroğlu, Ahmet Faik Güven, Hakkı Murat Genç]
+  date: 2013-09-25
+  type: paper-conference
+  venue: "Proceedings of the International Defense and Homeland Security Simulation Workshop (DHSS 2013), Athens, Greece"
+  venue_short: "DHSS 2013"
+  pages: "77-84"
+  url: "https://msc-les.org/proceedings/dhss/dhss2013/dhss2013_77.html"
+  areas: [modeling-simulation]
+
+- slug: case-space-decision-support-usmos-2013
+  title: "Case-Space Model Approach in Decision Support Systems"
+  authors: [U. Uluğ, Ahmet Faik Güven, Semuel Franko, me, N. Sarı, M. Gürbüz, U. Özkan]
+  date: 2013-06-11
+  type: paper-conference
+  venue: "USMOS 2013, National Defence Modelling and Simulation Symposium, METU, Ankara"
+  venue_short: "USMOS 2013"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: anti-submarine-warfare-usmos-2013
+  title: "Modeling and Simulation of Anti-Submarine Warfare"
+  authors: [Deniz Aldoğan, me, Levent Şenyürek, Yasemin Timar, Semuel Franko, Ömer Eroğlu, Ahmet Faik Güven, Hakkı Murat Genç]
+  date: 2013-06-11
+  type: paper-conference
+  venue: "USMOS 2013, National Defence Modelling and Simulation Symposium, METU, Ankara"
+  venue_short: "USMOS 2013"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: torpedo-decision-support-desus-ssc-2010
+  title: "Decision Support System for Torpedo Threats (DeSuS)"
+  authors: [me, Semuel Franko, Ahmet Faik Güven, U. Uluğ]
+  date: 2010-10-01
+  type: paper-conference
+  venue: "Ship Survivability Conference 2010, Berlin, Germany"
+  venue_short: "SSC 2010"
+  areas: [modeling-simulation]
+  award: "Ship Survivability Solution Award 2010"
+
+- slug: hydrogen-geothermal-turkey-wgc-2010
+  title: "Hydrogen Production from Geothermal Sources in Turkey"
+  authors: [me, Füsun Servin Tut Haklıdır]
+  date: 2010-04-25
+  type: paper-conference
+  venue: "Proceedings of the World Geothermal Congress 2010, Bali, Indonesia"
+  venue_short: "WGC 2010"
+  areas: [geoscience-energy]
+
+- slug: robot-arm-fuzzy-control-jim-2009
+  title: "Modeling, simulation and fuzzy control of an anthropomorphic robot arm by using Dymola"
+  authors: [me, Isa Taşdelen]
+  date: 2009-01-04
+  type: article-journal
+  venue: "Journal of Intelligent Manufacturing"
+  volume: 20
+  issue: 2
+  pages: "177-186"
+  publisher: "Springer"
+  doi: "10.1007/s10845-008-0227-9"
+  areas: [modeling-simulation, rl-autonomy]
+
+- slug: hydrogen-h2s-black-sea-ijnhpa-2009
+  title: "The possibilities for hydrogen production from H2S and storage in the Black Sea"
+  authors: [me, Füsun Servin Tut Haklıdır]
+  date: 2009
+  type: article-journal
+  venue: "International Journal of Nuclear Hydrogen Production and Applications"
+  volume: 2
+  issue: 1
+  pages: "78-85"
+  publisher: "Inderscience"
+  areas: [geoscience-energy]
+
+- slug: tactical-entities-cgf-emss-2009
+  title: "A General Approach to High Fidelity Modeling, Simulation and Control of Tactical Entities and Implementation in a Commercial Computer Generated Forces Toolkit"
+  authors: [Deniz Aldoğan, me, Levent Şenyürek, Seniha Köksal, Ömer Eroğlu, Cemil Akdemir, Semuel Franko, Isa Taşdelen, Sevgi Akgün]
+  date: 2009-09-23
+  type: paper-conference
+  venue: "21st European Modeling and Simulation Symposium (EMSS 2009), Tenerife, Spain"
+  venue_short: "EMSS 2009"
+  areas: [modeling-simulation]
+
+- slug: submarine-cgf-scsc-2009
+  title: "High Fidelity Modeling and Simulation of Submarine in a Commercial Computer Generated Forces Toolkit"
+  authors: [me, Ahmet Faik Güven, Ömer Eroğlu, Deniz Aldoğan, Isa Taşdelen]
+  date: 2009-07-13
+  type: paper-conference
+  venue: "Proceedings of the 2009 Summer Computer Simulation Conference (SCSC 2009), Istanbul"
+  venue_short: "SCSC 2009"
+  pages: "299-306"
+  areas: [modeling-simulation]
+
+- slug: surface-vessels-feedback-linearization-icinco-2009
+  title: "Modeling, Simulation and Feedback Linearization Control of Nonlinear Surface Vessels"
+  authors: [me, Deniz Aldoğan, Isa Taşdelen, Semuel Franko]
+  date: 2009-07-02
+  type: paper-conference
+  venue: "6th International Conference on Informatics in Control, Automation and Robotics (ICINCO 2009), Milan, Italy"
+  venue_short: "ICINCO 2009"
+  areas: [modeling-simulation]
+
+- slug: passive-sonobuoy-fea-udt-2009
+  title: "Full-Scale Finite Element Analysis of a Passive Sonobuoy"
+  authors: [F. Aruk, A. Kaplaner, Semuel Franko, C. Okutan, me]
+  date: 2009-06-09
+  type: paper-conference
+  venue: "Undersea Defence Technology (UDT Europe 2009), Cannes, France"
+  venue_short: "UDT Europe 2009"
+  areas: [modeling-simulation]
+
+- slug: rotary-wing-cgf-isc-2009
+  title: "Modeling, Simulation and Control of Rotary Wing Platforms in a Computer Generated Forces Toolkit"
+  authors: [Semuel Franko, Seniha Köksal, me]
+  date: 2009-06-01
+  type: paper-conference
+  venue: "7th Annual Industrial Simulation Conference (ISC 2009), Loughborough, UK"
+  venue_short: "ISC 2009"
+  areas: [modeling-simulation]
+
+- slug: acoustic-decoy-submarines-usmos-2009
+  title: "Acoustic Decoy/Jammer Tactical Concepts for Submarines: A Simulation Case Study"
+  authors: [U. Uluğ, me, S. Koruk, R. Caputcu, N. Sarı]
+  date: 2009-06-17
+  type: paper-conference
+  venue: "USMOS 2009, National Defence Modelling and Simulation Symposium, METU, Ankara"
+  venue_short: "USMOS 2009"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: submarine-cgf-usmos-2009
+  title: "Modeling and Simulation of a Submarine in a Commercial Computer Generated Forces Toolkit"
+  authors: [me, Ahmet Faik Güven, Ömer Eroğlu, Deniz Aldoğan, Isa Taşdelen]
+  date: 2009-06-17
+  type: paper-conference
+  venue: "USMOS 2009, National Defence Modelling and Simulation Symposium, METU, Ankara"
+  venue_short: "USMOS 2009"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: fuzzy-control-surface-platforms-cimca-2008
+  title: "Implementation of Fuzzy Control for Surface Platforms in a Computer Generated Forces Toolkit"
+  authors: [Levent Şenyürek, Seniha Köksal, Hakkı Murat Genç, Deniz Aldoğan, me]
+  date: 2008-12-10
+  type: paper-conference
+  venue: "2008 International Conference on Computational Intelligence for Modelling, Control and Automation (CIMCA 2008), Vienna, Austria"
+  venue_short: "CIMCA 2008"
+  pages: "832-837"
+  publisher: "IEEE"
+  areas: [modeling-simulation]
+
+- slug: sonobuoy-design-tool-isic-2008
+  title: "FST: Simulation Based Sonobuoy Mechanical Design Tool"
+  authors: [me, Semuel Franko]
+  date: 2008-09-23
+  type: paper-conference
+  venue: "International Sonobuoy Interoperability Conference 2008, Washington DC, USA"
+  venue_short: "ISIC 2008"
+  areas: [modeling-simulation]
+
+- slug: surface-platforms-cgf-scsc-2008
+  title: "High Fidelity Modeling and Simulation of Surface Platforms in a Computer Generated Forces Toolkit"
+  authors: [me, Deniz Aldoğan, Isa Taşdelen]
+  date: 2008-06-16
+  type: paper-conference
+  venue: "2008 Summer Computer Simulation Conference (SCSC 2008), Edinburgh, UK"
+  venue_short: "SCSC 2008"
+  areas: [modeling-simulation]
+
+- slug: tactical-shortest-path-ga-usmos-2007
+  title: "The Solution of Tactical Shortest Path Problems Using Genetic Algorithm Approach"
+  authors: [F. Ucan, G. B. Kaplan, R. Caputcu, me, O. F. Arar]
+  date: 2007-04-18
+  type: paper-conference
+  venue: "USMOS 2007, National Defence Modelling and Simulation Symposium, METU, Ankara"
+  venue_short: "USMOS 2007"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: surface-ships-vr-forces-usmos-2007
+  title: "Modeling and VR-Forces Back-End Integrated Simulation of Surface Ships"
+  authors: [me, Deniz Aldoğan, Isa Taşdelen]
+  date: 2007-04-18
+  type: paper-conference
+  venue: "USMOS 2007, National Defence Modelling and Simulation Symposium, METU, Ankara"
+  venue_short: "USMOS 2007"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: sonobuoy-hydrophone-usmos-2007
+  title: "FST: Hidrofonun Yer Değiştirmesinin Hesaplanması İçin Benzetim Tabanlı Sonoboy Mekanik Tasarım Aracı"
+  title_en: "FST: A Simulation-Based Sonobuoy Mechanical Design Tool to Calculate the Displacement of the Hydrophone"
+  authors: [me]
+  date: 2007-04-18
+  type: paper-conference
+  venue: "USMOS 2007, National Defence Modelling and Simulation Symposium, METU, Ankara"
+  venue_short: "USMOS 2007"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: hydrogen-geothermal-ihec-2007
+  title: "Hydrogen Production from Geothermal Sources"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2007-07-13
+  type: paper-conference
+  venue: "International Hydrogen Energy Congress and Exhibition (IHEC 2007), Istanbul"
+  venue_short: "IHEC 2007"
+  areas: [geoscience-energy]
+
+- slug: hydrogen-h2s-black-sea-htm-2007
+  title: "Possibilities for Hydrogen Production from H2S and Storage in the Black Sea"
+  authors: [me, Füsun Servin Tut Haklıdır]
+  date: 2007-05-21
+  type: paper-conference
+  venue: "5th International Conference on Hydrogen Treatment of Materials (HTM 2007), Donetsk, Ukraine"
+  venue_short: "HTM 2007"
+  areas: [geoscience-energy]
+  note: "Keynote speaker and co-chair."
+
+- slug: robot-arm-dymola-ims-2006
+  title: "Modeling and Simulation of an Anthropomorphic Robot Arm by Using Dymola"
+  authors: [me, Isa Taşdelen]
+  date: 2006-05-29
+  type: paper-conference
+  venue: "5th International Symposium on Intelligent Manufacturing Systems (IMS 2006), Sakarya"
+  venue_short: "IMS 2006"
+  areas: [modeling-simulation, rl-autonomy]
+
+- slug: sonobuoy-position-estimation-savtek-2006
+  title: "Modeling of Sonobuoy for Position Estimation"
+  authors: [me, Ş. Ertuğrul, E. Tulunay]
+  date: 2006-06-28
+  type: paper-conference
+  venue: "SAVTEK 2006, National Defence Technologies Congress, METU, Ankara"
+  venue_short: "SAVTEK 2006"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: msc-thesis-sonobuoy-2006
+  title: "Yüzer Göndermecin Durum Denetimi İçin Modellenmesi"
+  title_en: "Modelling of Sonobuoy for Position Estimation"
+  authors: [me]
+  date: 2006
+  type: thesis
+  venue: "M.Sc. Thesis, Mechatronics Engineering, Istanbul Technical University"
+  publisher: "Istanbul Technical University"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: hydrogen-black-sea-whec-2006
+  title: "Possibilities of Production and Storage of Hydrogen in the Black Sea"
+  authors: [me, Füsun Servin Tut, Şule Kapkın]
+  date: 2006-06-13
+  type: paper-conference
+  venue: "16th World Hydrogen Energy Conference (WHEC 2006), Lyon, France"
+  venue_short: "WHEC 2006"
+  areas: [geoscience-energy]
+
+- slug: black-sea-hydrogen-source-ihec-2005
+  title: "Black Sea, a Hydrogen Source"
+  authors: [me, Şule Kapkın]
+  date: 2005-07-13
+  type: paper-conference
+  venue: "International Hydrogen Energy Congress and Exhibition (IHEC 2005), Istanbul"
+  venue_short: "IHEC 2005"
+  areas: [geoscience-energy]
+
+- slug: fuzzy-pd-robot-manipulator-umts-2003
+  title: "Fuzzy-PD Control of a Two DOF Robot Manipulator"
+  authors: [me, M. Güler]
+  date: 2003-09-04
+  type: paper-conference
+  venue: "UMTS 2003, National Machine Theory Symposium, Gazi University, Ankara"
+  venue_short: "UMTS 2003"
+  language: tr
+  areas: [modeling-simulation]
+
+- slug: planar-two-link-robot-mbgak-2003
+  title: "Analysis of a Planar Two-Link Robot on a Square Trajectory"
+  authors: [M. Güler, me, N. Yağız]
+  date: 2003-02-17
+  type: paper-conference
+  venue: "MBGAK 2003, Istanbul University"
+  venue_short: "MBGAK 2003"
+  areas: [modeling-simulation]
+
+- slug: fuzzy-control-one-dof-robot-mbgak-2003
+  title: "Fuzzy Control of a One DOF Robot Arm"
+  authors: [me, M. Güler]
+  date: 2003-02-17
+  type: paper-conference
+  venue: "MBGAK 2003, Istanbul University"
+  venue_short: "MBGAK 2003"
+  areas: [modeling-simulation]
