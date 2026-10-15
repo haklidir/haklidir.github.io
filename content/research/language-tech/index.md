@@ -16,7 +16,9 @@ sections:
 
       Contributions include TR-TEB, a standardized benchmark for Turkish text embeddings that evaluates 45
 
-      open-source models (LREC 2026), a metric for the conceptual diversity of text, and multimodal speech
+      open-source models (LREC 2026), explainable bad-check risk assessment combining machine learning with
+
+      large language models (SIU 2026), a metric for the conceptual diversity of text, and multimodal speech
 
       emotion and text sentiment analysis (UBMK 2023).'
   design:

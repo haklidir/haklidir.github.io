@@ -42,7 +42,7 @@ sections:
       - EU AI Act
       metrics:
       - icon: hero/document-text
-        value: '6'
+        value: '7'
         label: papers
       cta:
         text: Read more
@@ -74,7 +74,7 @@ sections:
       - Scaling control
       metrics:
       - icon: hero/document-text
-        value: '15'
+        value: '18'
         label: papers
       cta:
         text: Read more
@@ -89,7 +89,7 @@ sections:
       - Benchmarks
       metrics:
       - icon: hero/document-text
-        value: '3'
+        value: '4'
         label: papers
       cta:
         text: Read more
@@ -119,7 +119,7 @@ sections:
       - Anomaly detection
       metrics:
       - icon: hero/document-text
-        value: '8'
+        value: '9'
         label: papers
       cta:
         text: Read more
@@ -146,7 +146,7 @@ sections:
   content:
     title: Selected Publications
     text: ''
-    count: 8
+    count: 10
     filters:
       folders:
       - publications
