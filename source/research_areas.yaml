@@ -20,8 +20,9 @@
     runtime architecture for consent verification (ICRA 2026 Workshop on Robot Ethics); analyses the
     *consent vacuum* that emerges in open-ended agent-to-agent ecosystems and maps it onto the EU AI Act,
     the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat
-    to action (CHI 2026 workshop); and offers a sociotechnical reading of the Clawdbot/Moltbook case
-    (İstanbul Üniversitesi Sosyoloji Dergisi, forthcoming).
+    to action (CHI 2026 workshop); proposes *accountability graphs* for tracing responsibility across
+    conversational AI chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook
+    case (İstanbul Üniversitesi Sosyoloji Dergisi, 2026).
 
     The research connects to my policy work on trustworthy AI, including contributions to the OECD
     Framework for the Classification of AI Systems and OECD work on accountability in AI, and to earlier
@@ -58,7 +59,10 @@
     prediction of reservoir temperatures from hydrogeochemical data (Natural Resources Research, 2020),
     deep-learning prediction of geothermal boron contamination (Environmental Earth Sciences, 2020),
     synthetic hydrogeochemical data generation with generative adversarial networks (Stanford Geothermal
-    Workshop, 2025) and agent-based reinforcement learning for geochemical control (2026).
+    Workshop, 2025) and rank–Gaussian copulas (Geothermics, 2026), prediction of dissolved lithium in
+    geothermal fluids with calibrated uncertainty quantification (Earth Science Informatics, 2026),
+    agent-based reinforcement learning for geochemical control (2026) and agentic AI for dynamic reservoir
+    management (World Geothermal Congress 2026).
 
     Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.
 
@@ -75,7 +79,8 @@
     Turkic LLM initiative.
 
     Contributions include TR-TEB, a standardized benchmark for Turkish text embeddings that evaluates 45
-    open-source models (LREC 2026), a metric for the conceptual diversity of text, and multimodal speech
+    open-source models (LREC 2026), explainable bad-check risk assessment combining machine learning with
+    large language models (SIU 2026), a metric for the conceptual diversity of text, and multimodal speech
     emotion and text sentiment analysis (UBMK 2023).
 
 - key: health-ai
