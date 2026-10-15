@@ -9,6 +9,9 @@ sections:
   content:
     username: me
     text: ''
+    button:
+      text: Download CV
+      url: haklidir.pdf
     headings:
       about: Biography
       education: Education
