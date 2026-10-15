@@ -1,0 +1,51 @@
+{{/*
+  Site block: media-grid. A wide grid of link cards with a thumbnail, kicker line and title.
+  Used on the Talks & Media page (content/events/_index.md, generated from source/media.yaml).
+
+  content:
+    title: Section title
+    text: Optional Markdown intro
+    items: [{ url, image, kicker, title, note, video: true|false }]
+*/}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+<div class="mx-auto w-full max-w-6xl px-6">
+  {{ with index $content "title" }}
+  <h2 class="mb-4 text-center text-3xl font-bold text-gray-900 dark:text-white">{{ . }}</h2>
+  {{ end }}
+  {{ with index $content "text" }}
+  <div class="mx-auto mb-8 max-w-prose text-center text-gray-600 dark:text-gray-300">{{ . | $page.RenderString }}</div>
+  {{ end }}
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {{ range index $content "items" }}
+      {{ $url := .url | default "" }}
+      {{ $external := or (hasPrefix $url "http://") (hasPrefix $url "https://") (strings.HasSuffix $url ".jpg") }}
+      {{ if $url }}<a href="{{ $url }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}{{ else }}<div{{ end }}
+        class="group flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-lg dark:border-gray-700 dark:bg-gray-800">
+        <div class="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-700">
+          {{ with .image }}
+          <img src="{{ . }}" alt="" loading="lazy" class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105">
+          {{ else }}
+          <div class="flex h-full w-full items-center justify-center text-gray-400 dark:text-gray-500">
+            {{ partial "functions/get_icon" (dict "name" (cond .video "hero/play-circle" "hero/newspaper") "attributes" "class=\"h-14 w-14\"") }}
+          </div>
+          {{ end }}
+          {{ if and .video .image }}
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="flex h-14 w-14 items-center justify-center rounded-full bg-black/60 text-white">
+              {{ partial "functions/get_icon" (dict "name" "hero/play" "attributes" "class=\"h-7 w-7\"") }}
+            </span>
+          </div>
+          {{ end }}
+        </div>
+        <div class="flex flex-1 flex-col p-4">
+          {{ with .kicker }}<div class="text-xs font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-300">{{ . }}</div>{{ end }}
+          <div class="mt-1 font-semibold leading-snug text-gray-900 dark:text-gray-100">{{ .title }}</div>
+          {{ with .note }}<div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{{ . | $page.RenderString }}</div>{{ end }}
+        </div>
+      {{ if $url }}</a>{{ else }}</div>{{ end }}
+    {{ end }}
+  </div>
+</div>

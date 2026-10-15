@@ -1,0 +1,357 @@
+# Talks and panels. The generator creates one page per entry under content/events/.
+#   title     talk title (or event title when the talk had no separate title)
+#   event     event name;  organizer, location optional
+#   date      YYYY-MM-DD (or YYYY-MM when the day is unknown)
+#   role      Keynote | Invited talk | Panelist | Guest lecture | Webinar
+#   language  tr | en
+#   youtube   YouTube video id (embedded on the page)
+#   url       other link (slides, event page)
+
+- title: "Tıpta Yapay Zekâ ve Karar Destek Sistemleri"
+  event: "Tıpta Yapay Zekâ ve Karar Destek Sistemleri Eğitim Semineri"
+  organizer: "Kartal Koşuyolu Training and Research Hospital"
+  location: "Istanbul, Türkiye"
+  date: 2025-12-18
+  role: Invited talk
+  language: tr
+
+- title: "Güvenilir Yapay Zekâ"
+  event: "Güvenilir Yapay Zekâ Webinarı"
+  organizer: "AI EDIH Türkiye"
+  location: "Online"
+  date: 2025-12-12
+  role: Webinar
+  language: tr
+
+- title: "Türkiye E-Ticaret Haftası Paneli"
+  event: "Türkiye E-Ticaret Haftası"
+  organizer: "Republic of Türkiye Ministry of Trade"
+  location: "Lütfi Kırdar Congress Center, Istanbul"
+  date: 2025-11-21
+  role: Panelist
+  language: tr
+
+- title: "İAFL AI Talks"
+  event: "İAFL AI Talks"
+  organizer: "Istanbul Atatürk Science High School AI Club"
+  location: "Istanbul, Türkiye"
+  date: 2025-11-10
+  role: Invited talk
+  language: tr
+
+- title: "TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü Müdürü Mehmet Haklıdır Sunumu"
+  event: "Future of AI and Cloud 2025"
+  organizer: "CXO Media"
+  location: "Çırağan Palace Kempinski, Istanbul"
+  date: 2025-11-05
+  role: Invited talk
+  language: tr
+  youtube: yO1sLb5QNY8
+
+- title: "AI EDIH Türkiye Paneli"
+  event: "AI EDIH Türkiye"
+  organizer: "AI EDIH Türkiye"
+  location: "MEXT, Istanbul"
+  date: 2025-11-04
+  role: Panelist
+  language: tr
+
+- title: "Makineler \"Artık\" Düşünebilir mi?"
+  event: "Türkiye Yapay Zekâ Zirvesi 2025"
+  organizer: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  location: "Wyndham Grand Levent, Istanbul"
+  date: 2025-10-23
+  role: Invited talk
+  language: tr
+  youtube: NUxr9R4FE4k
+
+- title: "Stratejiden Uygulamaya: BSC Yapay Zekâ Fabrikası"
+  event: "Stratejiden Uygulamaya: BSC Yapay Zekâ Fabrikası"
+  organizer: "TÜBİTAK"
+  location: "METU CoZone, Ankara"
+  date: 2025-10-09
+  role: Invited talk
+  language: tr
+
+- title: "Türkiye Innovation Week 2025 Paneli"
+  event: "Türkiye Innovation Week 2025"
+  organizer: "Turkish Exporters Assembly (TİM)"
+  location: "Haliç Congress Center, Istanbul"
+  date: 2025-10-08
+  role: Panelist
+  language: tr
+
+- title: "AWS Cloud Day Istanbul 2025"
+  event: "AWS Cloud Day Istanbul 2025"
+  organizer: "Amazon Web Services"
+  location: "Zorlu PSM, Istanbul"
+  date: 2025-09-24
+  role: Invited talk
+  language: tr
+
+- title: "Zihinle Makine Arasında: Üretken Yapay Zekâ Nerede Başlar?"
+  event: "IDEF'25 – IDEF Talks"
+  organizer: "IDEF"
+  location: "Istanbul Expo Center, Istanbul"
+  date: 2025-07-24
+  role: Invited talk
+  language: tr
+  youtube: z9q47wQjxvU
+
+- title: "BSC Yapay Zekâ Fabrikası Yolculuğu"
+  event: "BSC Yapay Zekâ Fabrikası Yolculuğu"
+  organizer: "TÜBİTAK"
+  location: "MEXT, Istanbul"
+  date: 2025-07-04
+  role: Invited talk
+  language: tr
+
+- title: "ESFRI ve Ufuk Avrupa Araştırma Altyapıları Bilgi Günü"
+  event: "ESFRI and Horizon Europe Research Infrastructures Info Day"
+  organizer: "TÜBİTAK"
+  location: "Online"
+  date: 2025-06-27
+  role: Invited talk
+  language: tr
+
+- title: "Next Level Uludağ Paneli"
+  event: "Next Level Uludağ"
+  organizer: "Bursa Chamber of Commerce and Industry"
+  location: "Bursa Business School, Uludağ, Bursa"
+  date: 2025-06-18
+  role: Panelist
+  language: tr
+
+- title: "28. Makine ve Teknoloji Günleri"
+  event: "28th Machine and Technology Days"
+  organizer: "Istanbul University-Cerrahpaşa"
+  location: "Avcılar Campus, Istanbul"
+  date: 2025-05-21
+  role: Invited talk
+  language: tr
+
+- title: "TRAI 8. Yıl Mayıs Çalıştayı Paneli"
+  event: "TRAI 8th Year Workshop"
+  organizer: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  location: "Istanbul, Türkiye"
+  date: 2025-05-10
+  role: Panelist
+  language: tr
+
+- title: "Türkiye'nin Türkçe Büyük Dil Temel Modeli Projesi"
+  event: "TÜBİTAK Bilim Genç"
+  organizer: "TÜBİTAK"
+  date: 2024-04
+  role: Invited talk
+  language: tr
+  youtube: xlYV5h1zVxk
+
+- title: "Yapay Zekâ Ekonomisini İnşa Etmek"
+  event: "8th Istanbul Economy Summit"
+  location: "Istanbul, Türkiye"
+  date: 2024-03
+  role: Invited talk
+  language: tr
+  youtube: jelyG337g2U
+
+- title: "TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü"
+  event: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  organizer: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  date: 2024-02
+  role: Invited talk
+  language: tr
+  youtube: SDMMbTk0Fz4
+
+- title: "Üretken Yapay Zekâ Uygulamaları Paneli"
+  event: "SAYZEK Defence Industry AI Summit"
+  organizer: "SSB SAYZEK"
+  date: 2024-02
+  role: Panelist
+  language: tr
+  youtube: 1aOzpWbcn-0
+
+- title: "Türkçe Büyük Dil Modeli: Yolculuğun Neresindeyiz?"
+  event: "TRAI Panel"
+  organizer: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  date: 2024-02
+  role: Panelist
+  language: tr
+  youtube: 28LlUBuf97A
+
+- title: "IV. Uluslararası Sağlıkta Yapay Zekâ Kongresi"
+  event: "IV. International Congress on Artificial Intelligence in Health"
+  date: 2024-02
+  role: Invited talk
+  language: tr
+  youtube: BkIKomgoHb8
+
+- title: "1. Ulusal Yapay Zekâ Buluşması"
+  event: "1st National AI Meeting"
+  location: "Cappadocia, Türkiye"
+  date: 2024-01
+  role: Invited talk
+  language: tr
+  youtube: JsJVeAbohZY
+
+- title: "Yapay Zekâ Dünyasında Ülkemizdeki Çalışmalar ve Geleceğimiz"
+  event: "Yapay Zekâ Çalışmaları"
+  date: 2023-10
+  role: Invited talk
+  language: tr
+  youtube: w_FW2t8lW-E
+
+- title: "Webinar: Yapay Zekâ Merkezleri"
+  event: "TRAI Webinar"
+  organizer: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  location: "Online"
+  date: 2023-03-30
+  role: Webinar
+  language: tr
+  youtube: fK1AYcFGlz8
+
+- title: "TÜBİTAK BİLGEM Yapay Zekâ Enstitüsünün Yapay Zekâ Ekosistemi ile Etkileşimi"
+  event: "TR AI Week 2022"
+  organizer: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  date: 2022-10-26
+  role: Invited talk
+  language: tr
+  youtube: PZd2nMqE19w
+
+- title: "Yapay Zekâ Nedir?"
+  event: "TÜBİTAK Bilim Genç"
+  organizer: "TÜBİTAK"
+  date: 2022-03-14
+  role: Invited talk
+  language: tr
+  youtube: z-_c3swsHDY
+
+- title: "Büyük Veri ve İleri Analitik Uygulamaları"
+  event: "Türkiye Açık Kaynak Platformu – Açık Seminer"
+  location: "Online"
+  date: 2021-12-15
+  role: Webinar
+  language: tr
+  youtube: bo5Bdf13NvQ
+
+- title: "TÜBİTAK BİLGEM and Artificial Intelligence"
+  event: "SEDS GTU TechTalks #2"
+  organizer: "SEDS Gebze Technical University"
+  date: 2021-05-11
+  role: Invited talk
+  language: tr
+  youtube: dM4RUb5Vh80
+
+- title: "Artificial Intelligence and Digital Transformation"
+  event: "Visionary Engineers Summit"
+  date: 2021-04-28
+  role: Invited talk
+  language: tr
+  youtube: 5JVcH_EfXiA
+
+- title: "Artificial Intelligence in Manufacturing"
+  event: "YONAR/MU 2021"
+  organizer: "Istanbul Gedik University"
+  date: 2021-04-02
+  role: Invited talk
+  language: tr
+  url: "https://yonar2021.gedik.edu.tr/"
+
+- title: "Artificial Intelligence and Big Data in Real-World Problems"
+  event: "24th Machine and Technology Days"
+  date: 2021-03-22
+  role: Invited talk
+  language: tr
+  youtube: ExMYlL3rePQ
+
+- title: "Big Data and Advanced Analytics"
+  event: "Galatasaray University Industrial Engineering Seminar"
+  organizer: "Galatasaray University"
+  date: 2020-11-09
+  role: Invited talk
+  language: tr
+  url: "https://www.facebook.com/gsuendustri/posts/1279375315746187/"
+
+- title: "Big Data and Artificial Intelligence in the Impact of Digital Transformation"
+  event: "İzmir Bakırçay University Seminar"
+  organizer: "İzmir Bakırçay University"
+  date: 2020-06-04
+  role: Invited talk
+  language: tr
+
+- title: "Data Science of the Future"
+  event: "İzmir Universities Platform Technology Days"
+  location: "İzmir, Türkiye"
+  date: 2019-12-25
+  role: Invited talk
+  language: tr
+
+- title: "Big Data and Advanced Analytics"
+  event: "Bilişim Zirvesi 2019"
+  location: "Istanbul, Türkiye"
+  date: 2019-11-20
+  role: Invited talk
+  language: tr
+  url: "https://bilisimzirvesi.com.tr/documents/Dokumanlar/sunumlar/mehmet-haklidir-tubitak-bilgem.pdf"
+
+- title: "Artificial Intelligence and Big Data in Health"
+  event: "Abant Anesthesia Symposium"
+  date: 2019-04-26
+  role: Invited talk
+  language: tr
+
+- title: "Cloud Computing and Big Data Research Lab (B3LAB)"
+  event: "TRAI Meet-up #21"
+  organizer: "Türkiye Yapay Zekâ İnisiyatifi (TRAI)"
+  date: 2019-04-19
+  role: Invited talk
+  language: tr
+  youtube: vomJXicNsGo
+
+- title: "Artificial Intelligence and Energy"
+  event: "PES Speak"
+  organizer: "Istanbul Bilgi University"
+  date: 2019-03-12
+  role: Invited talk
+  language: tr
+
+- title: "Artificial Intelligence and Turkey"
+  event: "BEMDays 2019"
+  organizer: "Yıldız Technical University"
+  date: 2019-03-05
+  role: Invited talk
+  language: tr
+
+- title: "Big Data and Machine Learning"
+  event: "GSUINNOVE"
+  organizer: "Galatasaray University"
+  date: 2018-12-18
+  role: Invited talk
+  language: tr
+
+- title: "Artificial Intelligence, Deep Learning and Applications for Energy"
+  event: "ESEN 401 Guest Lecture"
+  organizer: "Istanbul Bilgi University"
+  date: 2018-10-30
+  role: Guest lecture
+  language: tr
+  url: "https://www.bilgi.edu.tr/en/news/8632/mehmet-haklidir-from-tubitak-bilgem-participated-to-esen-401/"
+
+- title: "Digital Transformation in Industries"
+  event: "KAMU-BİB'20"
+  organizer: "Turkish Informatics Association (TBD)"
+  date: 2018-10-06
+  role: Invited talk
+  language: tr
+  url: "https://www.tbd.org.tr/wp-content/uploads/2019/01/KamuBIB-BIMY-sonuc_raporu_2018_27122018.pdf"
+
+- title: "AI-Based Decision Making for Self-Driving Cars"
+  event: "BIAS – TOSB Seminar Series"
+  date: 2018-09-28
+  role: Invited talk
+  language: tr
+
+- title: "Naval Research and Development Activities"
+  event: "Turkey Defence Week"
+  date: 2015-11-12
+  role: Invited talk
+  language: en
