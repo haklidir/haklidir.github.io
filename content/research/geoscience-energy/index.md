@@ -17,7 +17,13 @@ sections:
 
       synthetic hydrogeochemical data generation with generative adversarial networks (Stanford Geothermal
 
-      Workshop, 2025) and agent-based reinforcement learning for geochemical control (2026).
+      Workshop, 2025) and rank–Gaussian copulas (Geothermics, 2026), prediction of dissolved lithium in
+
+      geothermal fluids with calibrated uncertainty quantification (Earth Science Informatics, 2026),
+
+      agent-based reinforcement learning for geochemical control (2026) and agentic AI for dynamic reservoir
+
+      management (World Geothermal Congress 2026).
 
 
       Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.'

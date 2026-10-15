@@ -20,9 +20,11 @@ sections:
 
       the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat
 
-      to action (CHI 2026 workshop); and offers a sociotechnical reading of the Clawdbot/Moltbook case
+      to action (CHI 2026 workshop); proposes *accountability graphs* for tracing responsibility across
 
-      (İstanbul Üniversitesi Sosyoloji Dergisi, forthcoming).
+      conversational AI chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook
+
+      case (İstanbul Üniversitesi Sosyoloji Dergisi, 2026).
 
 
       The research connects to my policy work on trustworthy AI, including contributions to the OECD

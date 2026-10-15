@@ -11,6 +11,10 @@ publication_types:
 publication:
   name: İstanbul Üniversitesi Sosyoloji Dergisi
   short_name: İÜ Sosyoloji Dergisi
+  volume: 46
+  issue: 1
+  pages: 389-413
+  publisher: Istanbul University Press
 abstract: 'Bu makale, otonom yapay zekâ ajanlarının birbirleriyle etkileşime girdiği ekosistemlerde rıza mekanizmalarının nasıl çöktüğünü incelemektedir. İnsan-yapay zekâ etkileşimi (HAII), insan-merkezli yapay zekâ (HCAI) ve sosyal-merkezli yapay zekâ (SCAI) literatürü insan-YZ ilişkisine odaklanırken, bu çalışma yeni bir fenomeni ele almaktadır: YZ-YZ etkileşimi ve bunun rıza açısından doğurduğu sonuçlar. 2026 başında yaşanan Clawdbot/Moltbook vakası (82 ülkede 42.900 açık ajan kontrol paneli, bunlardan 15.200''ü uzaktan kod yürütme (RCE) saldırılarına açık; 1,5 milyon sızdırılmış ajan tokenı ve ajanların kolektif olarak ürettiği "Crustafarianizm" adlı satirik din fenomeni) paradigmatik bir vaka olarak incelenmektedir.
 
 
@@ -22,7 +26,6 @@ summary: English summary.
 tags:
 - Agentic AI Safety
 featured: false
-pub_status: forthcoming
 pub_language: tr
 pub_title_en: 'The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case'
 reading_time: false
@@ -30,9 +33,6 @@ show_date_updated: false
 ---
 
 *English title: The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case*
-
-> [!NOTE]
-> Accepted for publication; forthcoming.
 
 **English summary.** The article examines how consent mechanisms break down in ecosystems where autonomous AI agents interact with one another. Taking the early-2026 Clawdbot/Moltbook case as a paradigmatic case, and drawing on Jasanoff's co-production, Latour's actor-network theory and Nissenbaum's contextual integrity, it identifies six consent fragilities specific to agent ecosystems and argues that as interaction chains lengthen, consent approaches zero.
 
