@@ -11,6 +11,7 @@ GitHub Actions siteyi derler ve GitHub Pages'e yayınlar (Settings → Pages →
 | Araştırma alanları | `source/research_areas.yaml` | Düzenle, sonra betiği çalıştır |
 | Konuşmalar | `source/talks.yaml` | Düzenle, sonra betiği çalıştır |
 | TV, video, basın | `source/media.yaml` | Düzenle, sonra betiği çalıştır |
+| Google Scholar sayıları (atıf, h-index, i10) | `source/metrics.yaml` | Düzenle, sonra betiği çalıştır |
 | Profil, biyografi, deneyim, ödüller | `data/authors/me.yaml` | Doğrudan düzenle |
 | Ana sayfa düzeni | `content/_index.md` | Doğrudan düzenle |
 | Haberler | `content/blog/<klasör>/index.md` | Yeni klasör aç |

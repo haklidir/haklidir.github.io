@@ -4,8 +4,8 @@ title: 'Prediction of Reservoir Temperatures Using Hydrogeochemical Data, Wester
 authors:
 - Füsun Servin Tut Haklıdır
 - me
-date: '2019-11-27'
-date_precision: day
+date: '2020-01-01'
+date_precision: year
 publication_types:
 - article-journal
 publication:

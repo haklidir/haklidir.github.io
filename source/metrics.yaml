@@ -1,0 +1,7 @@
+# Google Scholar metrics shown on the home page (Selected Publications) and the Publications page.
+# Update by hand from https://scholar.google.com/citations?user=sEOFMPoAAAAJ, then run
+# python3 scripts/generate_content.py
+as_of: "October 2026"
+citations: 528
+h_index: 11
+i10_index: 15

@@ -19,7 +19,11 @@ sections:
 
       Workshop, 2025) and rank–Gaussian copulas (Geothermics, 2026), prediction of dissolved lithium in
 
-      geothermal fluids with calibrated uncertainty quantification (Earth Science Informatics, 2026),
+      geothermal fluids with calibrated uncertainty quantification (Earth Science Informatics, 2026), a
+
+      systematic evidence map of validation, transferability and deployment readiness of AI for geothermal
+
+      energy systems (Earth Science Informatics, 2026),
 
       agent-based reinforcement learning for geochemical control (2026) and agentic AI for dynamic reservoir
 

@@ -1,5 +1,6 @@
 ---
-# Hand-edited page. The items of the focus-areas block are refreshed by scripts/generate_content.py.
+# Hand-edited page. The focus-areas items and the Scholar line under Selected Publications
+# are refreshed by scripts/generate_content.py.
 title: ''
 summary: ''
 date: 2026-10-15
@@ -74,7 +75,7 @@ sections:
       - Scaling control
       metrics:
       - icon: hero/document-text
-        value: '18'
+        value: '19'
         label: papers
       cta:
         text: Read more
@@ -145,12 +146,26 @@ sections:
   id: papers
   content:
     title: Selected Publications
-    text: ''
+    text: '[Google Scholar](https://scholar.google.com/citations?user=sEOFMPoAAAAJ), October 2026: 528 citations, h-index 11, i10-index 15.'
     count: 10
     filters:
       folders:
       - publications
       featured_only: true
+    archive:
+      enable: false
+  design:
+    view: citation
+- block: collection
+  id: recent-papers
+  content:
+    title: Recent Publications
+    text: ''
+    count: 10
+    filters:
+      folders:
+      - publications
+      exclude_featured: true
     archive:
       enable: true
       text: All publications
