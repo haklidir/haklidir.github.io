@@ -204,6 +204,19 @@
   areas: [geoscience-energy]
   featured: true
 
+- slug: geothermal-ai-evidence-map-esi-2026
+  title: "Artificial intelligence for geothermal energy systems: a systematic evidence map of validation, transferability and deployment readiness"
+  authors: [Füsun Servin Tut Haklıdır, me]
+  date: 2026
+  type: article-journal
+  venue: "Earth Science Informatics"
+  volume: 19
+  issue: 12
+  pages: "211"
+  publisher: "Springer"
+  doi: "10.1007/s12145-026-02268-7"
+  areas: [geoscience-energy]
+
 - slug: lithium-prediction-uq-esi-2026
   title: "Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification"
   authors: [Füsun Servin Tut Haklıdır, me]
@@ -599,7 +612,7 @@
 - slug: reservoir-temperature-ml-nrr-2020
   title: "Prediction of Reservoir Temperatures Using Hydrogeochemical Data, Western Anatolia Geothermal Systems (Turkey): A Machine Learning Approach"
   authors: [Füsun Servin Tut Haklıdır, me]
-  date: 2019-11-27
+  date: 2020  # volume year; first published online 27 November 2019
   type: article-journal
   venue: "Natural Resources Research"
   volume: 29

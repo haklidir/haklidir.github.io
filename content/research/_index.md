@@ -52,7 +52,7 @@ sections:
       - Scaling control
       metrics:
       - icon: hero/document-text
-        value: '18'
+        value: '19'
         label: papers
       cta:
         text: Read more

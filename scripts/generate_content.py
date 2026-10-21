@@ -142,8 +142,23 @@ def area_cards(areas: list[dict], pubs: list[dict]) -> list[dict]:
     return items
 
 
+SCHOLAR_URL = "https://scholar.google.com/citations?user=sEOFMPoAAAAJ"
+
+
+def scholar_line(link: bool = True) -> str:
+    """One line with the Google Scholar metrics from source/metrics.yaml (empty if the file is missing)."""
+    path = SRC / "metrics.yaml"
+    if not path.exists():
+        return ""
+    m = load("metrics.yaml")
+    name = f"[Google Scholar]({SCHOLAR_URL})" if link else "Google Scholar"
+    return (f"{name}, {m['as_of']}: {m['citations']} citations, "
+            f"h-index {m['h_index']}, i10-index {m['i10_index']}.")
+
+
 def refresh_home_cards(items: list[dict]) -> None:
-    """Replace the items of the focus-areas block on the hand-written home page."""
+    """Refresh the generated parts of the hand-written home page: the focus-areas items and the
+    Scholar metrics line under Selected Publications (section id: papers)."""
     home = CONTENT / "_index.md"
     if not home.exists():
         return
@@ -153,7 +168,10 @@ def refresh_home_cards(items: list[dict]) -> None:
     for section in fm.get("sections", []):
         if section.get("block") == "focus-areas":
             section.setdefault("content", {})["items"] = items
-    note = "# Hand-edited page. The items of the focus-areas block are refreshed by scripts/generate_content.py.\n"
+        if section.get("id") == "papers":
+            section.setdefault("content", {})["text"] = scholar_line()
+    note = ("# Hand-edited page. The focus-areas items and the Scholar line under Selected Publications\n"
+            "# are refreshed by scripts/generate_content.py.\n")
     dumped = yaml.safe_dump(fm, allow_unicode=True, sort_keys=False, width=1000)
     home.write_text("---\n" + note + dumped + "---\n" + body, encoding="utf-8")
 
@@ -290,9 +308,10 @@ def build_publications(pubs: list[dict], areas: dict[str, dict]) -> None:
         + (f", {counts['article']} preprint" + ("s" if counts["article"] != 1 else "") if counts["article"] else "")
         + f" and {counts['thesis']} theses. Each title opens a page with publication details, "
         "links and a BibTeX citation.\n\n"
-        "Also on [Google Scholar](https://scholar.google.com/citations?user=sEOFMPoAAAAJ), "
+        + (scholar_line(link=False) + " " if scholar_line() else "")
+        + "Profiles: [Google Scholar](https://scholar.google.com/citations?user=sEOFMPoAAAAJ), "
         "[ORCID](https://orcid.org/0000-0003-4985-1116), "
-        "[Scopus](https://www.scopus.com/authid/detail.uri?authorId=25929922600) and "
+        "[Scopus](https://www.scopus.com/authid/detail.uri?authorId=25929922600), "
         "[ResearchGate](https://www.researchgate.net/profile/Mehmet-Haklidir)."
     )
     sections = [{"block": "markdown", "content": {"title": "Publications", "text": intro},
