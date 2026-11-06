@@ -3,6 +3,8 @@
 # are refreshed by scripts/generate_content.py.
 title: ''
 summary: ''
+seo:
+  title: Mehmet Haklıdır, PhD | AI Researcher, TÜBİTAK BİLGEM
 date: 2026-10-15
 type: landing
 sections:
