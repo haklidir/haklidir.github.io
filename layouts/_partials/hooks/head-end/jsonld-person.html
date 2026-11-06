@@ -1,0 +1,27 @@
+{{- /*
+  schema.org Person for the site owner (home page) and DefinedTerm/Article markup for concept pages.
+  Publication pages reference the Person by "@id": "<home>#person" (see layouts/_partials/jsonld/article.html).
+*/ -}}
+{{- $page := . -}}
+{{- $me := hugo.Data.authors.me -}}
+{{- $home := site.Home.Permalink -}}
+{{- $personID := printf "%s#person" $home -}}
+{{- if and $page.IsHome $me -}}
+  {{- $same := slice -}}
+  {{- range $me.links }}{{ if hasPrefix .url "http" }}{{ $same = $same | append .url }}{{ end }}{{ end -}}
+  {{- $alumni := slice -}}
+  {{- range $me.education }}{{ $alumni = $alumni | append (dict "@type" "CollegeOrUniversity" "name" .institution) }}{{ end -}}
+  {{- $alumni = $alumni | uniq -}}
+  {{- $person := dict "@context" "https://schema.org" "@type" "Person" "@id" $personID "name" $me.name.display "alternateName" (slice "Mehmet Haklidir" "M. Haklidir" "M. Haklıdır") "givenName" $me.name.given "familyName" $me.name.family "honorificSuffix" (delimit $me.postnominals ", ") "jobTitle" $me.role "url" $home "description" ($me.bio | markdownify | plainify | htmlUnescape | strings.TrimSpace) "knowsAbout" $me.interests "sameAs" $same "alumniOf" $alumni -}}
+  {{- with $me.affiliations }}{{ with index . 0 }}{{ $person = merge $person (dict "worksFor" (dict "@type" "ResearchOrganization" "name" .name "url" .url)) }}{{ end }}{{ end -}}
+<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
+{{- end -}}
+{{- if and $page.IsPage (eq $page.Type "concepts") -}}
+  {{- $term := dict "@type" "DefinedTerm" "name" ($page.Params.defines | default $page.Title) "description" ($page.Summary | plainify | htmlUnescape) "url" $page.Permalink -}}
+  {{- $article := dict "@context" "https://schema.org" "@type" "TechArticle" "@id" (printf "%s#explainer" $page.Permalink) "headline" $page.Title "url" $page.Permalink "author" (dict "@id" $personID "@type" "Person" "name" "Mehmet Haklıdır") "datePublished" ($page.Date.Format "2006-01-02") "about" $term "inLanguage" "en" -}}
+  {{- with $page.Params.keywords }}{{ $article = merge $article (dict "keywords" (delimit . ", ")) }}{{ end -}}
+  {{- with $page.Params.paper_doi -}}
+    {{- $article = merge $article (dict "citation" (dict "@type" "ScholarlyArticle" "@id" (printf "%s#article" ($page.Params.paper_url | absURL)) "sameAs" (printf "https://doi.org/%s" .) "url" ($page.Params.paper_url | absURL))) -}}
+  {{- end -}}
+<script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
+{{- end -}}

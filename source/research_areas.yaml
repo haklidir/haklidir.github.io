@@ -20,8 +20,8 @@
     runtime architecture for consent verification (ICRA 2026 Workshop on Robot Ethics); analyses the
     *consent vacuum* that emerges in open-ended agent-to-agent ecosystems and maps it onto the EU AI Act,
     the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat
-    to action (CHI 2026 workshop); proposes *accountability graphs* for tracing responsibility across
-    conversational AI chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook
+    to action (CHI 2026 workshop); proposes [Accountability Graphs](/concepts/accountability-graphs/) for
+    tracing responsibility across conversational AI agent chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook
     case (İstanbul Üniversitesi Sosyoloji Dergisi, 2026).
 
     The research connects to my policy work on trustworthy AI, including contributions to the OECD

@@ -20,9 +20,9 @@ sections:
 
       the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat
 
-      to action (CHI 2026 workshop); proposes *accountability graphs* for tracing responsibility across
+      to action (CHI 2026 workshop); proposes [Accountability Graphs](/concepts/accountability-graphs/) for
 
-      conversational AI chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook
+      tracing responsibility across conversational AI agent chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook
 
       case (İstanbul Üniversitesi Sosyoloji Dergisi, 2026).
 

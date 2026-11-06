@@ -1,0 +1,41 @@
+# Mehmet Haklıdır
+
+> Founding Director, Artificial Intelligence Institute, TÜBİTAK BİLGEM, Türkiye. Researcher in agentic AI safety and governance (consent and accountability in multi-agent AI systems), deep reinforcement learning for autonomous systems, language technologies, and AI for health and geoscience. Contributor to national and international AI policy (Türkiye's National AI Strategy and Action Plan 2026–2030, OECD, GPAI, UNESCO).
+
+Name spellings: Mehmet Haklıdır (Turkish) and Mehmet Haklidir (as printed in most English-language papers). Google Scholar, October 2026: 528 citations, h-index 11, i10-index 15.
+
+Profiles: Google Scholar: https://scholar.google.com/citations?user=sEOFMPoAAAAJ; ORCID: https://orcid.org/0000-0003-4985-1116; Scopus: https://www.scopus.com/authid/detail.uri?authorId=25929922600; DBLP: https://dblp.org/pid/09/7320.html; ResearchGate: https://www.researchgate.net/profile/Mehmet-Haklidir; LinkedIn: https://www.linkedin.com/in/mehmet-haklidir/; GitHub: https://github.com/haklidir; X: https://x.com/mhaklidir; Instagram: https://www.instagram.com/mhaklidir/
+
+## Concepts and frameworks
+
+- [Accountability Graphs](https://haklidir.github.io/concepts/accountability-graphs/): A framework for attributing responsibility in conversational AI agent chains: agent chains are modelled as directed acyclic graphs with provenance metadata and causal responsibility semantics, and harm is traced backwards to graded responsibility scores.
+
+## Research areas
+
+- [Agentic AI Safety & Governance](https://haklidir.github.io/research/agentic-ai-safety/): How consent, oversight and accountability hold up when AI systems act on people's behalf and interact with each other.
+- [Reinforcement Learning & Autonomous Systems](https://haklidir.github.io/research/rl-autonomy/): Decision-making under uncertainty and partial observability for autonomous vehicles, robots and control.
+- [AI for Geoscience & Energy](https://haklidir.github.io/research/geoscience-energy/): Machine learning and control for geothermal systems: reservoir temperature, contamination and scaling.
+- [Language Technologies & LLMs](https://haklidir.github.io/research/language-tech/): Turkish language models, embedding benchmarks and multimodal language analysis.
+- [AI for Health](https://haklidir.github.io/research/health-ai/): Privacy-preserving and trustworthy AI for clinical prediction, medical imaging and digital twins.
+- [Computer Vision & Applied AI](https://haklidir.github.io/research/vision-applied/): Applied machine learning with industry and public partners, from livestock tracking to smart appliances.
+- [Modeling, Simulation & Control](https://haklidir.github.io/research/modeling-simulation/): High-fidelity simulation, computer generated forces and control (2003–2015).
+
+## Selected publications
+
+- [Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains](https://haklidir.github.io/publications/accountability-graphs-cui-2026/): Mehmet Haklıdır (2026). Proceedings of the 8th ACM Conference on Conversational User Interfaces (CUI '26), Bremen, Germany, 56:1-56:5. ACM. DOI: 10.1145/3816046.3816264
+- [The Consent Vacuum: When Agents Interact Without Humans](https://haklidir.github.io/publications/consent-vacuum-iail-2026/): Mehmet Haklıdır, Osman Gazi Güçlütürk (2026). IAIL 2026: 5th International Workshop on Imagining the AI Landscape after the AI Act, co-located with HHAI 2026.
+- [Consent Chain Degradation in Embodied Multi-Agent Systems: Bridging the Gap Between AI Agent Governance and Robot Ethics](https://haklidir.github.io/publications/consent-chain-degradation-icra-2026/): Mehmet Haklıdır (2026). ICRA 2026 Workshop on Robot Ethics (WoRoBet), IEEE International Conference on Robotics and Automation. arXiv: 2605.16300
+- [When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability](https://haklidir.github.io/publications/adaptive-guidance-cvpr-wad-2026/): Mehmet Haklıdır (2026). CVPR 2026 Workshop on Autonomous Driving (WAD). arXiv: 2605.26155
+- [TR-TEB: Turkish Text Embedding Benchmark](https://haklidir.github.io/publications/tr-teb-lrec-2026/): Ömer Arslan, Atalay Çelik, Yusuf Aslan, Hasan Fatih Durkaya, Mustafa Furkan Zenginoğlu, Musa Alperen Yılmaz, Merve Gül Kantarcı, Mehmet Haklıdır (2026). Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026), 11028-11044. ELRA Language Resource Association. DOI: 10.63317/3qway8hn6y53
+- [Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas](https://haklidir.github.io/publications/copula-synthetic-data-reservoir-temperature-geothermics-2026/): Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Geothermics, 141, 103760. Elsevier.
+- [AI content detection in the emerging information ecosystem: new obligations for media and tech companies](https://haklidir.github.io/publications/ai-content-detection-eit-2024/): Alistair Knott, Dino Pedreschi, Toshiya Jitsuzumi, Susan Leavy, David Eyers, Tapabrata Chakraborti, Andrew Trotman, Sundar Sundareswaran, Ricardo Baeza-Yates, Przemysław Biecek, Adrian Weller, Paul D. Teal, Subhadip Basu, Mehmet Haklıdır, Virginia Morini, Stuart Russell, Yoshua Bengio (2024). Ethics and Information Technology, 26(4), 63. Springer. DOI: 10.1007/s10676-024-09795-1
+- [Guided Soft Actor Critic: A Guided Deep Reinforcement Learning Approach for Partially Observable Markov Decision Processes](https://haklidir.github.io/publications/guided-soft-actor-critic-ieee-access-2021/): Mehmet Haklıdır, Hakan Temeltaş (2021). IEEE Access, 9, 159672-159683. IEEE. DOI: 10.1109/ACCESS.2021.3131772
+- [Prediction of Reservoir Temperatures Using Hydrogeochemical Data, Western Anatolia Geothermal Systems (Turkey): A Machine Learning Approach](https://haklidir.github.io/publications/reservoir-temperature-ml-nrr-2020/): Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2020). Natural Resources Research, 29(4), 2333-2346. Springer. DOI: 10.1007/s11053-019-09596-0
+
+## More
+
+- [Full text for language models](https://haklidir.github.io/llms-full.txt): biography, concept pages and all 81 publications with abstracts or summaries, DOIs and links
+- [All publications](https://haklidir.github.io/publications/): grouped by type, each with a BibTeX entry
+- [Talks and media](https://haklidir.github.io/events/)
+- [Service and policy work](https://haklidir.github.io/service/)
+- [CV (PDF)](https://haklidir.github.io/haklidir.pdf)

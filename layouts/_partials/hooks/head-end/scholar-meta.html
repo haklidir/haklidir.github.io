@@ -41,9 +41,10 @@
 {{- end }}
 {{- with $pub.pages }}
 {{- $range := split (replace (printf "%v" .) "–" "-") "-" }}
-<meta name="citation_firstpage" content="{{ index $range 0 }}">
+{{- /* ACM article numbering "56:1-56:5": Scholar expects plain page numbers */}}
+<meta name="citation_firstpage" content="{{ replaceRE `^\d+:` "" (index $range 0) }}">
 {{- if gt (len $range) 1 }}
-<meta name="citation_lastpage" content="{{ index $range 1 }}">
+<meta name="citation_lastpage" content="{{ replaceRE `^\d+:` "" (index $range 1) }}">
 {{- end }}
 {{- end }}
 {{- $ids := (($p.hugoblox | default dict).ids | default dict) -}}
@@ -56,7 +57,7 @@
 {{- with $p.pub_language }}
 <meta name="citation_language" content="{{ . }}">
 {{- end }}
-{{- with $p.tags }}
+{{- with ($p.keywords | default $p.tags) }}
 <meta name="citation_keywords" content="{{ delimit . "; " }}">
 {{- end }}
 <meta name="citation_abstract_html_url" content="{{ $page.Permalink }}">
