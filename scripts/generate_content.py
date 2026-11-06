@@ -8,6 +8,7 @@ Writes:
   content/events/<slug>/index.md                     (from source/talks.yaml)
   content/research/<key>/index.md                    (from source/research_areas.yaml)
   content/events/_index.md (talks list + media)       (from source/media.yaml)
+  static/llms.txt and static/llms-full.txt          (summary and full text for language models)
 
 Generated files are rewritten on every run. To attach a PDF to a paper, put it
 next to the generated index.md as content/publications/<slug>/<slug>.pdf; the
@@ -176,6 +177,15 @@ def refresh_home_cards(items: list[dict]) -> None:
     home.write_text("---\n" + note + dumped + "---\n" + body, encoding="utf-8")
 
 
+def concept_pages() -> list[dict]:
+    """Hand-written concept pages in content/concepts/<key>/index.md (title, summary, front matter)."""
+    out = []
+    for page in sorted((CONTENT / "concepts").glob("*/index.md")):
+        fm = yaml.safe_load(page.read_text(encoding="utf-8").split("---\n")[1])
+        out.append({"key": page.parent.name, "body": page.read_text(encoding="utf-8").split("---\n", 2)[2], **fm})
+    return out
+
+
 def build_research(areas: list[dict], pubs: list[dict]) -> dict[str, dict]:
     out_dir = CONTENT / "research"
     reset_generated_dir(out_dir, keep_extra_files=False)
@@ -202,6 +212,16 @@ def build_research(areas: list[dict], pubs: list[dict]) -> dict[str, dict]:
             }
         ],
     }
+    concept_items = concept_pages()
+    if concept_items:
+        lines = [f"- [**{c['title']}**](/concepts/{c['key']}/): {c['summary']}" for c in concept_items]
+        index["sections"].append({
+            "block": "markdown",
+            "id": "concepts",
+            "content": {"title": "Concepts and Frameworks",
+                        "text": "Explanations of frameworks introduced in my papers.\n\n" + "\n".join(lines)},
+            "design": {"columns": "1"},
+        })
     (out_dir / "_index.md").write_text(front_matter(index), encoding="utf-8")
 
     for area in areas:
@@ -385,6 +405,10 @@ def build_publications(pubs: list[dict], areas: dict[str, dict]) -> None:
         if pub.get("open_access"):
             fm["open_access"] = True
         fm["tags"] = [areas[k]["tag"] for k in pub.get("areas", [])]
+        if pub.get("keywords"):
+            fm["keywords"] = pub["keywords"]
+        if pub.get("concept"):
+            fm["concept"] = pub["concept"]
         fm["featured"] = bool(pub.get("featured", False))
         if ids:
             fm["hugoblox"] = {"ids": ids}
@@ -405,6 +429,12 @@ def build_publications(pubs: list[dict], areas: dict[str, dict]) -> None:
             body.append("> [!NOTE]\n> Accepted for publication; forthcoming.")
         if pub.get("overview"):
             body.append(paragraphs(pub["overview"]))
+        if pub.get("concept"):
+            concept_page = CONTENT / "concepts" / pub["concept"] / "index.md"
+            if not concept_page.exists():
+                sys.exit(f"{slug}: concept page {concept_page} does not exist")
+            concept_title = yaml.safe_load(concept_page.read_text(encoding="utf-8").split("---\n")[1])["title"]
+            body.append(f"Overview of the framework, worked example and related work: [{concept_title}](/concepts/{pub['concept']}/).")
         if pub.get("note"):
             body.append(pub["note"].strip())
         area_links = ", ".join(f"[{areas[k]['name']}](/research/{k}/)" for k in pub.get("areas", []))
@@ -539,12 +569,130 @@ def build_events(talks: list[dict], media: dict) -> None:
         (page_dir / "index.md").write_text(front_matter(fm, "\n\n".join(body)), encoding="utf-8")
 
 
+# --------------------------------------------------------------------------- llms.txt
+BASE_URL = "https://haklidir.github.io"
+STATIC = ROOT / "static"
+
+
+def author_name(a: str) -> str:
+    return "Mehmet Haklıdır" if a == OWNER else a
+
+
+def citation_line(pub: dict, with_title: bool = True) -> str:
+    date, _ = parse_date(pub["date"])
+    authors = ", ".join(author_name(a) for a in pub["authors"])
+    venue = pub.get("venue", "")
+    if pub.get("volume") is not None:
+        venue += f", {pub['volume']}"
+        if pub.get("issue") is not None:
+            venue += f"({pub['issue']})"
+    if pub.get("pages"):
+        venue += f", {pub['pages']}"
+    if pub.get("publisher") and pub["type"] != "thesis":
+        venue += f". {pub['publisher']}"
+    status = " Forthcoming." if pub.get("status") == "forthcoming" else ""
+    title = f" {pub['title']}." if with_title else ""
+    return f"{authors} ({date.year}).{title} {venue}.{status}".replace("..", ".")
+
+
+def pub_links(pub: dict) -> str:
+    bits = [f"{BASE_URL}/publications/{pub['slug']}/"]
+    if pub.get("doi"):
+        bits.append(f"https://doi.org/{pub['doi']}")
+    if pub.get("arxiv"):
+        bits.append(f"https://arxiv.org/abs/{pub['arxiv']}")
+    return " | ".join(bits)
+
+
+def build_llms(pubs: list[dict], areas: list[dict], talks: list[dict]) -> None:
+    """Write static/llms.txt (index, llmstxt.org format) and static/llms-full.txt (full text)."""
+    me = yaml.safe_load((ROOT / "data" / "authors" / "me.yaml").read_text(encoding="utf-8"))
+    concepts = concept_pages()
+    metrics = scholar_line(link=False)
+    profiles = [f"{l['label']}: {l['url']}" for l in me.get("links", []) if l["url"].startswith("http")]
+    bio = " ".join(me["bio"].split())
+    name_note = ("Name spellings: Mehmet Haklıdır (Turkish) and Mehmet Haklidir (as printed in most "
+                 "English-language papers).")
+    by_date = sorted(pubs, key=lambda p: parse_date(p["date"])[0], reverse=True)
+    featured = [p for p in by_date if p.get("featured")]
+
+    # ---- llms.txt
+    out = [f"# {me['name']['display']}", "",
+           f"> {me['role']}, TÜBİTAK BİLGEM, Türkiye. Researcher in agentic AI safety and governance "
+           "(consent and accountability in multi-agent AI systems), deep reinforcement learning for autonomous "
+           "systems, language technologies, and AI for health and geoscience. Contributor to national and "
+           "international AI policy (Türkiye's National AI Strategy and Action Plan 2026–2030, OECD, GPAI, UNESCO).",
+           "", name_note + " " + metrics, "", "Profiles: " + "; ".join(profiles), "",
+           "## Concepts and frameworks", ""]
+    for c in concepts:
+        out.append(f"- [{c['title']}]({BASE_URL}/concepts/{c['key']}/): {c['summary']}")
+    out += ["", "## Research areas", ""]
+    for a in sorted(areas, key=lambda x: x["weight"]):
+        out.append(f"- [{a['name']}]({BASE_URL}/research/{a['key']}/): {a['summary']}")
+    out += ["", "## Selected publications", ""]
+    for p in featured:
+        line = f"- [{p['title']}]({BASE_URL}/publications/{p['slug']}/): {citation_line(p, with_title=False)}"
+        if p.get("doi"):
+            line += f" DOI: {p['doi']}"
+        if p.get("arxiv"):
+            line += f" arXiv: {p['arxiv']}"
+        out.append(line)
+    out += ["", "## More", "",
+            f"- [Full text for language models]({BASE_URL}/llms-full.txt): biography, concept pages and all "
+            f"{len(pubs)} publications with abstracts or summaries, DOIs and links",
+            f"- [All publications]({BASE_URL}/publications/): grouped by type, each with a BibTeX entry",
+            f"- [Talks and media]({BASE_URL}/events/)",
+            f"- [Service and policy work]({BASE_URL}/service/)",
+            f"- [CV (PDF)]({BASE_URL}/haklidir.pdf)", ""]
+    (STATIC / "llms.txt").write_text("\n".join(out), encoding="utf-8")
+
+    # ---- llms-full.txt
+    full = [f"# {me['name']['display']}", "", f"Website: {BASE_URL}/", name_note, "",
+            "## Biography", "", bio, "", f"Research interests: {', '.join(me.get('interests', []))}.", "",
+            metrics, "", "Profiles: " + "; ".join(profiles), ""]
+    for c in concepts:
+        full += [f"## Concept: {c['title']}", "", f"URL: {BASE_URL}/concepts/{c['key']}/", "",
+                 re.sub(r"^(#+) ", r"#\1 ", re.sub(r"!\[[^\]]*\]\([^)]*\)\n?", "", c["body"]), flags=re.M).strip()
+                 .replace("](/", f"]({BASE_URL}/"), ""]
+    full += ["## Research areas", ""]
+    for a in sorted(areas, key=lambda x: x["weight"]):
+        full += [f"### {a['name']}", "", f"URL: {BASE_URL}/research/{a['key']}/", "",
+                 " ".join(a["narrative"].split()).replace("](/", f"]({BASE_URL}/"), ""]
+    full += ["## Publications", "", f"{len(pubs)} publications, newest first.", ""]
+    for p in by_date:
+        full += [f"### {p['title']}", "", citation_line(p), f"Links: {pub_links(p)}"]
+        if p.get("title_en"):
+            full.append(f"English title: {p['title_en']}")
+        if p.get("keywords"):
+            full.append("Keywords: " + ", ".join(p["keywords"]))
+        if p.get("areas"):
+            full.append("Research area: " + ", ".join(next(a["name"] for a in areas if a["key"] == k)
+                                                       for k in p["areas"]))
+        if p.get("abstract"):
+            full += ["", "Abstract: " + " ".join(p["abstract"].split())]
+        elif p.get("overview"):
+            full += ["", "Summary: " + " ".join(p["overview"].split())]
+        elif p.get("summary"):
+            full += ["", "Summary: " + p["summary"]]
+        if p.get("concept"):
+            full.append(f"Explainer: {BASE_URL}/concepts/{p['concept']}/")
+        full.append("")
+    full += ["## Talks", ""]
+    for t in sorted(talks, key=lambda t: parse_date(t["date"])[0], reverse=True):
+        d = fmt_date(t["date"])
+        full.append(f"- {d}: {t['title']} ({t.get('role', 'Talk')}, {t['event']}"
+                    + (f", {t['location']}" if t.get("location") else "") + ")")
+    full.append("")
+    (STATIC / "llms-full.txt").write_text("\n".join(full), encoding="utf-8")
+
+
 def main() -> None:
     pubs = load("publications.yaml")
     areas = build_research(load("research_areas.yaml"), pubs)
     build_publications(pubs, areas)
     talks = load("talks.yaml")
     build_events(talks, load("media.yaml"))
+    build_llms(pubs, list(areas.values()), talks)
     print(f"Generated {len(pubs)} publications, {len(talks)} talks, {len(areas)} research areas.")
 
 

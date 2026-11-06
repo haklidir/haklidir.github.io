@@ -42,6 +42,9 @@ links:
   - icon: academicons/scopus
     url: https://www.scopus.com/authid/detail.uri?authorId=25929922600
     label: Scopus
+  - icon: academicons/dblp
+    url: https://dblp.org/pid/09/7320.html
+    label: DBLP
   - icon: academicons/researchgate
     url: https://www.researchgate.net/profile/Mehmet-Haklidir
     label: ResearchGate

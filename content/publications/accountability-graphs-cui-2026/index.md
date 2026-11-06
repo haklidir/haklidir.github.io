@@ -3,17 +3,28 @@
 title: Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains
 authors:
 - me
-date: '2026-01-01'
-date_precision: year
+date: '2026-07-21'
+date_precision: day
 publication_types:
 - paper-conference
 publication:
-  name: Proceedings of the 8th ACM Conference on Conversational User Interfaces (CUI '26)
+  name: Proceedings of the 8th ACM Conference on Conversational User Interfaces (CUI '26), Bremen, Germany
   short_name: CUI 2026
-  pages: 1-5
+  pages: 56:1-56:5
   publisher: ACM
+abstract: 'Conversational user interfaces (CUIs) are shifting from single-model dialogue systems to multi-agent architectures where an orchestrating agent delegates tasks to sub-agents, external APIs, and third-party tools. When these agent chains produce harmful or misleading outputs, a governance question follows: who is accountable? Current approaches blame either the visible interface or the system developer, but neither captures how responsibility is distributed across a chain. We identify three research threads (structural ecosystem mapping, formal causal responsibility theory, and operational provenance tracking) that have developed in isolation and have not been unified for conversational AI. We propose Accountability Graphs, a framework that models agent chains as directed acyclic graphs enriched with provenance metadata and causal responsibility semantics. Motivated by Moffatt v. Air Canada (2024), where an airline was held liable for its chatbot''s misrepresentation of bereavement
+  fare policy, we extend this case into a multi-agent architecture and show how backward responsibility propagation can assign graded responsibility scores to chain components. We discuss CUI-specific challenges including real-time dialogue, dynamic delegation, modality effects, and the design of user-facing accountability surfaces, and propose a research agenda connecting accountability to consent in agentic AI.'
+summary: Proposes Accountability Graphs, which model conversational AI agent chains as provenance-enriched directed acyclic graphs with causal responsibility semantics.
 tags:
 - Agentic AI Safety
+keywords:
+- accountability
+- conversational AI
+- multi-agent systems
+- causal responsibility
+- agentic CUI
+- governance
+concept: accountability-graphs
 featured: true
 hugoblox:
   ids:
@@ -21,5 +32,7 @@ hugoblox:
 reading_time: false
 show_date_updated: false
 ---
+
+Overview of the framework, worked example and related work: [Accountability Graphs](/concepts/accountability-graphs/).
 
 Research area: [Agentic AI Safety & Governance](/research/agentic-ai-safety/).

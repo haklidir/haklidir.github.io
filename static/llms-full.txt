@@ -1,0 +1,722 @@
+# Mehmet Haklıdır
+
+Website: https://haklidir.github.io/
+Name spellings: Mehmet Haklıdır (Turkish) and Mehmet Haklidir (as printed in most English-language papers).
+
+## Biography
+
+Dr. Mehmet Haklıdır is the founding Director of the TÜBİTAK BİLGEM Artificial Intelligence Institute, Türkiye's first national AI institute. He holds a Ph.D. in Control and Automation Engineering from Istanbul Technical University and has more than 24 years of experience in AI, autonomous systems, big data, simulation, and technology policy. He contributed to Türkiye's first National AI Strategy and led the technical preparation and coordination of the National Artificial Intelligence Action Plan 2026–2030, finalized through consultation with the national AI ecosystem. He serves on the Steering Committee of the Science, Technology and Innovation Policies Council of the Presidency of the Republic of Türkiye and is a member of several international AI governance initiatives, including OECD ONE AI, GPAI, UNESCO AI Ethics, NATO DAIRB, and the European AI Alliance. His current research focuses on large language models, AI safety with an emphasis on agentic AI systems, deep reinforcement learning, robotics, and autonomous decision-making under uncertainty.
+
+Research interests: Large Language Models, AI Safety & Agentic AI Systems, Deep Reinforcement Learning, Robotics & Autonomous Systems, Decision-Making under Uncertainty, AI Governance & Policy.
+
+Google Scholar, October 2026: 528 citations, h-index 11, i10-index 15.
+
+Profiles: Google Scholar: https://scholar.google.com/citations?user=sEOFMPoAAAAJ; ORCID: https://orcid.org/0000-0003-4985-1116; Scopus: https://www.scopus.com/authid/detail.uri?authorId=25929922600; DBLP: https://dblp.org/pid/09/7320.html; ResearchGate: https://www.researchgate.net/profile/Mehmet-Haklidir; LinkedIn: https://www.linkedin.com/in/mehmet-haklidir/; GitHub: https://github.com/haklidir; X: https://x.com/mhaklidir; Instagram: https://www.instagram.com/mhaklidir/
+
+## Concept: Accountability Graphs
+
+URL: https://haklidir.github.io/concepts/accountability-graphs/
+
+**Accountability Graphs** is a framework for deciding who is responsible when a conversational AI system built from several agents produces a harmful or misleading answer. It was introduced by Mehmet Haklıdır (also written Mehmet Haklidir) in [*Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains*](https://haklidir.github.io/publications/accountability-graphs-cui-2026/), presented at the ACM Conference on Conversational User Interfaces (CUI '26) in Bremen, Germany, in July 2026 ([doi:10.1145/3816046.3816264](https://doi.org/10.1145/3816046.3816264)).
+
+### In brief
+
+- **Problem.** Conversational assistants increasingly delegate work to sub-agents, external APIs and third-party tools. The user sees one assistant, but each answer is produced by a chain of components that may belong to different organizations. When the answer causes harm, blaming either the visible interface or the system developer misses how responsibility is spread across the chain.
+- **Idea.** Model each agent chain as a directed acyclic graph whose nodes are decisions, whose edges are information or control flow, and which carries provenance records and a harm propagation function. Responsibility is then computed by tracing backwards from the harm, rather than asserted.
+- **Basis.** The framework unifies three research threads that had developed separately: structural mapping of AI ecosystems, formal causal responsibility theory (Halpern and Pearl's actual causation; Chockler and Halpern's degree of responsibility) and operational provenance tracking.
+- **Output.** Graded responsibility scores for chain components, plus an *accountability surface*: a user-facing explanation of what went wrong and who is responsible, with a path to contest the attribution.
+- **Status.** A conceptual work-in-progress paper with a worked example. Full formalization and empirical evaluation are ongoing.
+
+### Why conversational agent chains need it
+
+Work on trust, transparency and explainability in conversational AI asks whether users rely on a system, whether they can see what it does and why it produced an output. None of these answers who bears responsibility when an output causes harm. Agent chains make this harder in three ways:
+
+- **An illusion of singularity.** The interface presents one persona, while several technical and organizational actors jointly produce each utterance. This is the "many hands" problem described by Helen Nissenbaum, amplified by a conversational facade.
+- **Real-time dialogue.** Decisions are made and compounded within a single conversational turn, which makes post-hoc tracing difficult.
+- **Dynamic delegation.** The orchestrating agent decides at runtime which sub-agents to call, so the accountability structure emerges during the conversation instead of being fixed at design time.
+
+### The framework
+
+An Accountability Graph for a conversational agent chain is a tuple **AG = (N, E, P, H)**:
+
+- **N, decision nodes.** Points where a component makes a choice that influences the output, such as intent classification, agent delegation, tool invocation or response generation. A node can be an entire agent, a single tool call or one decision inside a component; finer nodes give more precise attribution but need more detailed logging.
+- **E, directed causal edges.** Dataflow edges carry information between steps; configuration edges represent design-time settings, such as an orchestrator configuring a sub-agent's policy.
+- **P, provenance function.** Maps each node to a record of the responsible component, its degree of decision autonomy, the information available at decision time, the temporal context and any contractual or design obligations.
+- **H, harm propagation function.** Maps each node to a value between 0 and 1 that captures how a harm detected at a terminal node relates to upstream decisions, following Halpern and Pearl's structural-model approach to actual causation.
+
+The paper adapts the framework to five conversational settings: temporal proximity weighting for real-time dialogue, the accountability surface for user-facing accountability, contextual provenance tracking for multi-turn context, modality-aware node types for voice versus text, and runtime graph construction for dynamic delegation.
+
+### Backward responsibility propagation
+
+Responsibility is assigned by traversing the graph from the harm towards its sources:
+
+1. **Harm localization.** Identify the terminal node or nodes where the harm appears in the conversational output.
+2. **Causal backtracking.** Walk the edges backwards and test, at each node, whether it is an actual cause of the harm in Halpern and Pearl's sense.
+3. **Provenance-weighted scoring.** For each causal node, combine its degree of responsibility with provenance factors (decision autonomy, information availability, temporal proximity, scope of obligations) into a graded score.
+4. **Counterfactual validation.** For the highest-scoring nodes, check the attribution by asking whether the harm would have occurred had that node decided otherwise.
+
+The graph traversal itself is linear in the size of the graph; the cost lies in the counterfactual evaluation at each candidate node.
+
+### Worked example: an airline bereavement fare agent
+
+The paper starts from *Moffatt v. Air Canada* (2024), in which a Canadian tribunal held an airline liable after its customer-service chatbot misrepresented its bereavement fare policy. That case could be resolved because the system was monolithic. The paper imagines the same airline running a seven-node agent chain: intent parser, orchestrator, policy retrieval agent, a third-party knowledge base API, a synthesis agent, an empathy filter and delivery.
+
+
+Facing a structured fare rule and an outdated FAQ passage that contradict each other, the synthesis agent picks the FAQ and tells a grieving user that a refund can be claimed after travel. It cannot. Backward propagation identifies the synthesis agent and the knowledge base API as primary contributors and the orchestrator as a secondary one. With illustrative provenance weights, the synthesis agent, which had full autonomy and access to both sources, scores 0.97; the knowledge base API, a retrieval service operating under prescribed parameters, scores 0.80; and the orchestrator, which configured the synthesis step, scores 0.43. The weights are examples; in deployment they could be set by designers, elicited from stakeholders or learned from incident data.
+
+### Accountability surfaces
+
+The accountability surface translates the internal graph into explanations for people. End users need short, actionable explanations and a remedy; auditors and regulators need the full provenance trail and formal scores; support staff need something in between. One graph can serve all three. In sensitive situations such as bereavement, the explanation has to draw on conversational repair and empathic response design, and voice interfaces need shorter explanations than text. Accountability surfaces should also support contestability: a clear way to challenge the attribution, request a remedy or reach a human.
+
+### Regulatory alignment
+
+As a preliminary interpretive mapping, not a formal legal analysis, the paper links the framework to the EU AI Act: node-level provenance to risk management (Article 9), runtime graph construction to logging (Article 12), and the accountability surface to disclosure obligations towards natural persons (Article 50), extended from disclosing that a system is an AI to disclosing who is responsible. The provider and deployer roles (Articles 16 and 26) map to responsibility weights for nodes maintained by different organizations.
+
+### Accountability and consent
+
+Accountability Graphs belong to a research line on consent and responsibility in agentic AI. Consent concerns the *before*: was permission obtained? Accountability concerns the *after*: who bears responsibility? Together they form a governance loop, and the conversational interface is both the consent mechanism and the accountability surface. Related papers:
+
+- [From Chat to Agent: Why Consent Breaks When AI Acts on Your Behalf](https://haklidir.github.io/publications/chat-to-agent-chi-2026/) (CHI 2026 workshop)
+- [The Consent Vacuum: When Agents Interact Without Humans](https://haklidir.github.io/publications/consent-vacuum-iail-2026/) (IAIL 2026), on consent in agent-to-agent interaction
+- [Consent Chain Degradation in Embodied Multi-Agent Systems](https://haklidir.github.io/publications/consent-chain-degradation-icra-2026/) (ICRA 2026 workshop), on consent when actions are physical and irreversible
+
+### How it relates to other approaches
+
+- **Ecosystem graphs** (Bommasani et al.) map asset-level dependencies across the foundation model ecosystem but perform no causal analysis and attribute no responsibility.
+- **Actual causation and degree of responsibility** (Halpern and Pearl; Chockler and Halpern) provide the formal machinery, but had been applied to model-internal questions rather than to pipelines or agent chains.
+- **Provenance and documentation** (data provenance audits, model cards, datasheets, accountability metrics catalogues) record decisions and lineage but do not compute responsibility from that record. Accountability Graphs add causal responsibility semantics on top of provenance, which also distinguishes them from purely provenance-based responsibility tracing or accountability chains in multi-agent systems.
+- **Responsibility and control gaps** (Santoni de Sio and Mecacci; Hindriks and Veluwenkamp) describe situations in which no single agent has enough control to be held responsible, a framing that applies directly to agent chains.
+
+### Limitations and next steps
+
+The framework is diagnostic, not normative: it shows where failures occurred, not what legal consequences should follow. Graded scores could be misused to shift blame onto third-party providers or users, so the paper suggests a minimum accountability floor for whoever controls the orchestrator. Users are not yet represented as nodes, proprietary black-box components can only be assessed by their inputs, outputs and contracts, and accountability norms differ across cultures and jurisdictions. A prototype that builds Accountability Graphs at runtime from LangChain callback hooks is in development, followed by a think-aloud study with conversational interface designers and a user study comparing accountability-surface explanations with standard error messages.
+
+### How to cite
+
+Mehmet Haklidir. 2026. Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains. In *Proceedings of the 8th ACM Conference on Conversational User Interfaces (CUI '26)*, Bremen, Germany. ACM, 56:1–56:5. https://doi.org/10.1145/3816046.3816264
+
+```bibtex
+@inproceedings{haklidir2026accountable,
+  title     = {Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains},
+  author    = {Haklidir, Mehmet},
+  booktitle = {Proceedings of the 8th ACM Conference on Conversational User Interfaces (CUI '26)},
+  pages     = {56:1--56:5},
+  year      = {2026},
+  publisher = {ACM},
+  address   = {Bremen, Germany},
+  doi       = {10.1145/3816046.3816264}
+}
+```
+
+[Paper page and PDF](https://haklidir.github.io/publications/accountability-graphs-cui-2026/) · [ACM Digital Library](https://doi.org/10.1145/3816046.3816264)
+
+## Research areas
+
+### Agentic AI Safety & Governance
+
+URL: https://haklidir.github.io/research/agentic-ai-safety/
+
+My current research asks what happens to consent, oversight and accountability once AI systems stop answering questions and start acting on people's behalf, increasingly in interaction with other agents. Work in this line formalises *consent chain degradation* in embodied multi-agent systems and proposes a runtime architecture for consent verification (ICRA 2026 Workshop on Robot Ethics); analyses the *consent vacuum* that emerges in open-ended agent-to-agent ecosystems and maps it onto the EU AI Act, the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat to action (CHI 2026 workshop); proposes [Accountability Graphs](https://haklidir.github.io/concepts/accountability-graphs/) for tracing responsibility across conversational AI agent chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook case (İstanbul Üniversitesi Sosyoloji Dergisi, 2026). The research connects to my policy work on trustworthy AI, including contributions to the OECD Framework for the Classification of AI Systems and OECD work on accountability in AI, and to earlier papers on AI content detection obligations and fairness in medical AI.
+
+### Reinforcement Learning & Autonomous Systems
+
+URL: https://haklidir.github.io/research/rl-autonomy/
+
+This line studies decision-making under uncertainty for autonomous systems. My doctoral work at Istanbul Technical University introduced Guided Soft Actor-Critic (GSAC), a guided deep reinforcement learning method for partially observable Markov decision processes (IEEE Access, 2021). Recent work extends GSAC to belief-aware privileged distillation for autonomous driving under partial observability (CVPR 2026 Workshop on Autonomous Driving) and to agent-based reinforcement learning for geochemical control in geothermal systems. Applied work includes cloud-assisted connected and automated mobility in the EU H2020 5G-MOBIX project (IEEE IV 2022), human-interactive social robot navigation (ICRA 2024 workshop) and reinforcement learning for COVID-19 mitigation policies.
+
+### AI for Geoscience & Energy
+
+URL: https://haklidir.github.io/research/geoscience-energy/
+
+Together with Füsun Servin Tut Haklıdır, I have worked on data-driven methods for geothermal energy systems: fuzzy control of calcium carbonate and silica scaling (Geothermics, 2017), machine-learning prediction of reservoir temperatures from hydrogeochemical data (Natural Resources Research, 2020), deep-learning prediction of geothermal boron contamination (Environmental Earth Sciences, 2020), synthetic hydrogeochemical data generation with generative adversarial networks (Stanford Geothermal Workshop, 2025) and rank–Gaussian copulas (Geothermics, 2026), prediction of dissolved lithium in geothermal fluids with calibrated uncertainty quantification (Earth Science Informatics, 2026), a systematic evidence map of validation, transferability and deployment readiness of AI for geothermal energy systems (Earth Science Informatics, 2026), agent-based reinforcement learning for geochemical control (2026) and agentic AI for dynamic reservoir management (World Geothermal Congress 2026). Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.
+
+### Language Technologies & LLMs
+
+URL: https://haklidir.github.io/research/language-tech/
+
+This line supports Türkiye's work on Turkish language models, including BİLGE, the national large language model developed at the TÜBİTAK BİLGEM Artificial Intelligence Institute, and the multinational Turkic LLM initiative. Contributions include TR-TEB, a standardized benchmark for Turkish text embeddings that evaluates 45 open-source models (LREC 2026), explainable bad-check risk assessment combining machine learning with large language models (SIU 2026), a metric for the conceptual diversity of text, and multimodal speech emotion and text sentiment analysis (UBMK 2023).
+
+### AI for Health
+
+URL: https://haklidir.github.io/research/health-ai/
+
+With clinical and academic partners, this line develops privacy-preserving and trustworthy AI for healthcare: federated learning for heart disease, diabetes and medical imaging; cloud- and edge-based digital twins for cardiovascular disease prediction (ICT4AWE 2023, 2024); deep learning to identify the left adrenal vein in minimally invasive adrenalectomy (Surgical Laparoscopy, Endoscopy & Percutaneous Techniques, 2023); deepfake detection in lung CT; synthetic data for privacy-preserving medical imaging; and gender bias in COVID-19 diagnosis from medical images.
+
+### Computer Vision & Applied AI
+
+URL: https://haklidir.github.io/research/vision-applied/
+
+Applied machine learning with industrial and public partners: identification-based cattle tracking with feature-matching models (SIU 2025), soft sensors for load estimation in washing machines (SIU 2023) and a systematic review of AI in washing machines (Neural Computing and Applications, 2026), big-data anomaly detection in blockchain (SIU 2023), and medical imaging applications.
+
+### Modeling, Simulation & Control
+
+URL: https://haklidir.github.io/research/modeling-simulation/
+
+Before focusing on AI, I worked for more than a decade on high-fidelity modelling, simulation and control at TÜBİTAK: submarine and surface-platform dynamics, computer generated forces and tactical AI for anti-submarine warfare training, sonobuoy design, and decision support for torpedo threats, which received the Ship Survivability Solution Award in 2010. Earlier academic work covered fuzzy and nonlinear control of robot manipulators.
+
+## Publications
+
+81 publications, newest first.
+
+### Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains
+
+Mehmet Haklıdır (2026). Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains. Proceedings of the 8th ACM Conference on Conversational User Interfaces (CUI '26), Bremen, Germany, 56:1-56:5. ACM.
+Links: https://haklidir.github.io/publications/accountability-graphs-cui-2026/ | https://doi.org/10.1145/3816046.3816264
+Keywords: accountability, conversational AI, multi-agent systems, causal responsibility, agentic CUI, governance
+Research area: Agentic AI Safety & Governance
+
+Abstract: Conversational user interfaces (CUIs) are shifting from single-model dialogue systems to multi-agent architectures where an orchestrating agent delegates tasks to sub-agents, external APIs, and third-party tools. When these agent chains produce harmful or misleading outputs, a governance question follows: who is accountable? Current approaches blame either the visible interface or the system developer, but neither captures how responsibility is distributed across a chain. We identify three research threads (structural ecosystem mapping, formal causal responsibility theory, and operational provenance tracking) that have developed in isolation and have not been unified for conversational AI. We propose Accountability Graphs, a framework that models agent chains as directed acyclic graphs enriched with provenance metadata and causal responsibility semantics. Motivated by Moffatt v. Air Canada (2024), where an airline was held liable for its chatbot's misrepresentation of bereavement fare policy, we extend this case into a multi-agent architecture and show how backward responsibility propagation can assign graded responsibility scores to chain components. We discuss CUI-specific challenges including real-time dialogue, dynamic delegation, modality effects, and the design of user-facing accountability surfaces, and propose a research agenda connecting accountability to consent in agentic AI.
+Explainer: https://haklidir.github.io/concepts/accountability-graphs/
+
+### The Consent Vacuum: When Agents Interact Without Humans
+
+Mehmet Haklıdır, Osman Gazi Güçlütürk (2026). The Consent Vacuum: When Agents Interact Without Humans. IAIL 2026: 5th International Workshop on Imagining the AI Landscape after the AI Act, co-located with HHAI 2026.
+Links: https://haklidir.github.io/publications/consent-vacuum-iail-2026/
+Research area: Agentic AI Safety & Governance
+
+Summary: Existing consent frameworks assume a human who authorises an action in a context they can see. This paper asks what happens to a user's authorisation once their AI agent stops talking to humans and interacts primarily with other agents. Using the early-2026 Clawdbot/Moltbook incidents as a stress test, it argues that consent degrades as an operative governance mechanism once it travels through open-ended agent-to-agent chains, a condition the paper calls the *consent vacuum*: not the absence of consent, but the structural erosion of the conditions that make it meaningful. The paper contributes a taxonomy of six consent-failure types; a distinction between visibility, auditability and intervenability as oversight capacities relevant to Article 14 of the EU AI Act; and a mapping onto the GDPR, the AI Act and the Digital Services Act, with the DSA systemic-risk regime offered as a structural template for governing emergent agent ecosystems.
+
+### Consent Chain Degradation in Embodied Multi-Agent Systems: Bridging the Gap Between AI Agent Governance and Robot Ethics
+
+Mehmet Haklıdır (2026). Consent Chain Degradation in Embodied Multi-Agent Systems: Bridging the Gap Between AI Agent Governance and Robot Ethics. ICRA 2026 Workshop on Robot Ethics (WoRoBet), IEEE International Conference on Robotics and Automation.
+Links: https://haklidir.github.io/publications/consent-chain-degradation-icra-2026/ | https://arxiv.org/abs/2605.16300
+Research area: Agentic AI Safety & Governance, Reinforcement Learning & Autonomous Systems
+
+Summary: Introduces *consent chain degradation*: the way the specificity, validity and scope of human consent weaken as authority passes through chains of delegation among embodied agents. The paper proposes CoRVE, a three-layer runtime architecture for consent scope modelling, delegation tracking and physical irreversibility assessment, illustrates the problem with healthcare, domestic and industrial scenarios (including a worked numerical example), and maps the gaps left by the EU AI Act, the GDPR, the Machinery Regulation and the revised Product Liability Directive.
+
+### When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability
+
+Mehmet Haklıdır (2026). When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability. CVPR 2026 Workshop on Autonomous Driving (WAD).
+Links: https://haklidir.github.io/publications/adaptive-guidance-cvpr-wad-2026/ | https://arxiv.org/abs/2605.26155
+Research area: Reinforcement Learning & Autonomous Systems
+
+Summary: Extends Guided Soft Actor-Critic with Belief-Aware GSAC, which scales the privileged-distillation coefficient by ensemble disagreement in a driving POMDP. Across three occlusion levels, adaptive guidance helps under mild and moderate occlusion; under severe occlusion the coefficient collapses to its minimum early ("observability blindness") and a simple linear decay schedule performs best, suggesting that much of the benefit comes from scheduling rather than adaptivity.
+
+### TR-TEB: Turkish Text Embedding Benchmark
+
+Ömer Arslan, Atalay Çelik, Yusuf Aslan, Hasan Fatih Durkaya, Mustafa Furkan Zenginoğlu, Musa Alperen Yılmaz, Merve Gül Kantarcı, Mehmet Haklıdır (2026). TR-TEB: Turkish Text Embedding Benchmark. Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026), 11028-11044. ELRA Language Resource Association.
+Links: https://haklidir.github.io/publications/tr-teb-lrec-2026/ | https://doi.org/10.63317/3qway8hn6y53
+Research area: Language Technologies & LLMs
+
+Summary: Presents TR-TEB, a standardized and reproducible benchmark for Turkish text embeddings. It covers five task categories (classification, pair classification, clustering, retrieval and semantic textual similarity), combines 14 open-source resources, 26 translated datasets and 7 new Turkish-specific datasets, and evaluates 45 open-source embedding models.
+
+### From Chat to Agent: Why Consent Breaks When AI Acts on Your Behalf
+
+Mehmet Haklıdır (2026). From Chat to Agent: Why Consent Breaks When AI Acts on Your Behalf. ACM CHI 2026 Workshop: Moving Beyond Clicks: Rethinking Consent and User Control in the Age of AI.
+Links: https://haklidir.github.io/publications/chat-to-agent-chi-2026/
+Research area: Agentic AI Safety & Governance
+
+Summary: A position paper on why consent mechanisms designed for conversational systems fail once AI moves from answering to acting on a user's behalf. It identifies design tensions in agentic consent and offers provocations for rethinking user control.
+
+### Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz
+
+Mehmet Haklıdır, Büşra Tufan (2026). Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz. İstanbul Üniversitesi Sosyoloji Dergisi, 46(1), 389-413. Istanbul University Press.
+Links: https://haklidir.github.io/publications/ajan-toplumlarinda-rizanin-cokusu-2026/
+English title: The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case
+Research area: Agentic AI Safety & Governance
+
+Abstract: Bu makale, otonom yapay zekâ ajanlarının birbirleriyle etkileşime girdiği ekosistemlerde rıza mekanizmalarının nasıl çöktüğünü incelemektedir. İnsan-yapay zekâ etkileşimi (HAII), insan-merkezli yapay zekâ (HCAI) ve sosyal-merkezli yapay zekâ (SCAI) literatürü insan-YZ ilişkisine odaklanırken, bu çalışma yeni bir fenomeni ele almaktadır: YZ-YZ etkileşimi ve bunun rıza açısından doğurduğu sonuçlar. 2026 başında yaşanan Clawdbot/Moltbook vakası (82 ülkede 42.900 açık ajan kontrol paneli, bunlardan 15.200'ü uzaktan kod yürütme (RCE) saldırılarına açık; 1,5 milyon sızdırılmış ajan tokenı ve ajanların kolektif olarak ürettiği "Crustafarianizm" adlı satirik din fenomeni) paradigmatik bir vaka olarak incelenmektedir. Çalışma, Bilim ve Teknoloji Çalışmaları (STS) ile dijital sosyoloji alanlarından üç kavramsal çerçeve kullanmaktadır: yeni sosyoteknik düzenlerin nasıl ortaya çıktığını anlamak için Jasanoff'un ortak-üretim kavramı, yapay zekâ ajanlarını faillik kapasitesine sahip insan-dışı aktörler olarak kavramsallaştırmak için Latour'un aktör-ağ teorisi ve bağlamların öngörülemez biçimde değiştiği durumlarda rızanın nasıl aşındığını analiz etmek için Nissenbaum'un bağlamsal bütünlük yaklaşımı. Çalışma, ajan ekosistemlerine özgü altı rıza kırılganlığı türü tanımlamaktadır: rıza miras hatası, çapraz-ajan kapsam kayması, ortaya çıkan kolektif eylem, zamansal rıza kayması, yansımalı rıza döngüleri ve güvenlik-aracılı rıza çöküşü. Bu kırılganlıklar temel bir hipoteze işaret etmektedir: etkileşim zinciri uzadıkça rıza sıfıra yaklaşır. Makale, bireysel onaya dayalı mevcut rıza kavramının, etkileşim zincirlerinin belirsiz biçimde uzadığı ve insan gözetiminin mimari düzeyde dışlandığı ajan ekosistemlerinde yapısal olarak yetersiz kaldığını ileri sürmektedir. Bu bulgu hem sosyolojik kuram hem de düzenleyici çerçeveler için çıkarımlar taşımaktadır.
+
+### Agent-Based Reinforcement Learning for Geochemical Control in Geothermal Energy Systems
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Agent-Based Reinforcement Learning for Geochemical Control in Geothermal Energy Systems. AI in the Geosciences, Geological Society of London.
+Links: https://haklidir.github.io/publications/geochemical-control-rl-gsl-2026/
+Research area: AI for Geoscience & Energy, Reinforcement Learning & Autonomous Systems
+
+### Artificial Intelligence in Washing Machines: A Systematic Review
+
+F. Canan Pembe Muhtaroğlu, İsmail Bilgen, Murat Delibalta, Erman Kiremit, Mehmet Haklıdır (2026). Artificial Intelligence in Washing Machines: A Systematic Review. Neural Computing and Applications, 38(8), 275. Springer.
+Links: https://haklidir.github.io/publications/ai-washing-machines-review-nca-2026/
+Research area: Computer Vision & Applied AI
+
+### Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas. Geothermics, 141, 103760. Elsevier.
+Links: https://haklidir.github.io/publications/copula-synthetic-data-reservoir-temperature-geothermics-2026/
+Research area: AI for Geoscience & Energy
+
+### Artificial intelligence for geothermal energy systems: a systematic evidence map of validation, transferability and deployment readiness
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Artificial intelligence for geothermal energy systems: a systematic evidence map of validation, transferability and deployment readiness. Earth Science Informatics, 19(12), 211. Springer.
+Links: https://haklidir.github.io/publications/geothermal-ai-evidence-map-esi-2026/ | https://doi.org/10.1007/s12145-026-02268-7
+Research area: AI for Geoscience & Energy
+
+### Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification. Earth Science Informatics, 19(9), 159. Springer.
+Links: https://haklidir.github.io/publications/lithium-prediction-uq-esi-2026/
+Research area: AI for Geoscience & Energy
+
+### From Fuzzy Logic to Agentic AI: Dynamic Reservoir Management for Long-Term Geothermal Sustainability
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). From Fuzzy Logic to Agentic AI: Dynamic Reservoir Management for Long-Term Geothermal Sustainability. Proceedings of the World Geothermal Congress 2026.
+Links: https://haklidir.github.io/publications/fuzzy-to-agentic-reservoir-management-wgc-2026/
+Research area: AI for Geoscience & Energy
+
+### Explainable Bad Check Risk Using Hybrid Machine Learning and Large Language Models in Natural Language
+
+Mustafa Furkan Zenginoğlu, Zeynep Beyda Olgun, Hasan Fatih Durkaya, Mehmet Haklıdır, Tuna Çakar (2026). Explainable Bad Check Risk Using Hybrid Machine Learning and Large Language Models in Natural Language. 34th Signal Processing and Communications Applications Conference (SIU 2026), 1-4. IEEE.
+Links: https://haklidir.github.io/publications/explainable-bad-check-risk-siu-2026/
+Research area: Language Technologies & LLMs, Computer Vision & Applied AI
+
+### Türkiye’s AI Ecosystem: Key Actors, Research Institutes, Startups, and Collaborations
+
+Mehmet Haklıdır (2026). Türkiye’s AI Ecosystem: Key Actors, Research Institutes, Startups, and Collaborations. Artificial Intelligence and National Technology Reflections, 381-412. TÜBA Türkiye Bilimler Akademisi.
+Links: https://haklidir.github.io/publications/turkiye-ai-ecosystem-tuba-2026/
+
+### Enhancing Reservoir Temperature Prediction in Western Anatolia Geothermal Systems by Generating Synthetic Hydrogeochemical Data Using Generative Adversarial Networks
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2025). Enhancing Reservoir Temperature Prediction in Western Anatolia Geothermal Systems by Generating Synthetic Hydrogeochemical Data Using Generative Adversarial Networks. 50th Workshop on Geothermal Reservoir Engineering, Stanford University.
+Links: https://haklidir.github.io/publications/reservoir-temperature-gan-stanford-2025/
+Research area: AI for Geoscience & Energy
+
+### Identification-Based Cattle Tracking Using Feature Matching Models
+
+Zeynep Beyda Olgun, Ömer Arslan, Atalay Çelik, Mehmet Haklıdır, İpek Baz (2025). Identification-Based Cattle Tracking Using Feature Matching Models. 33rd Signal Processing and Communications Applications Conference (SIU 2025), 1-4. IEEE.
+Links: https://haklidir.github.io/publications/cattle-tracking-siu-2025/
+Research area: Computer Vision & Applied AI
+
+### AI content detection in the emerging information ecosystem: new obligations for media and tech companies
+
+Alistair Knott, Dino Pedreschi, Toshiya Jitsuzumi, Susan Leavy, David Eyers, Tapabrata Chakraborti, Andrew Trotman, Sundar Sundareswaran, Ricardo Baeza-Yates, Przemysław Biecek, Adrian Weller, Paul D. Teal, Subhadip Basu, Mehmet Haklıdır, Virginia Morini, Stuart Russell, Yoshua Bengio (2024). AI content detection in the emerging information ecosystem: new obligations for media and tech companies. Ethics and Information Technology, 26(4), 63. Springer.
+Links: https://haklidir.github.io/publications/ai-content-detection-eit-2024/ | https://doi.org/10.1007/s10676-024-09795-1
+Research area: Agentic AI Safety & Governance
+
+Summary: Examines how new regulatory instruments, including the EU AI Act, create binding obligations for AI providers to mark and detect AI-generated content, and what these obligations mean for media and technology companies in the emerging information ecosystem.
+
+### Bidirectional Human Interactive AI Framework for Social Robot Navigation
+
+Tuba Girgin, Emre Girgin, Yiğit Yıldırım, Emre Uğur, Mehmet Haklıdır (2024). Bidirectional Human Interactive AI Framework for Social Robot Navigation. Workshop on Robot Trustworthiness and Social Suitability (RTSS), ICRA 2024.
+Links: https://haklidir.github.io/publications/social-robot-navigation-icra-2024/ | https://arxiv.org/abs/2404.04069
+Research area: Reinforcement Learning & Autonomous Systems
+
+### Artificial Intelligence Approaches for Sustainable Geothermal Energy Systems: With a Case Study
+
+Füsun Servin Tut Haklıdır, Feyza Özen, Ruşen Halepmollası, Zeynep Korkmaz, Mehmet Haklıdır (2024). Artificial Intelligence Approaches for Sustainable Geothermal Energy Systems: With a Case Study. 49th Workshop on Geothermal Reservoir Engineering, Stanford University.
+Links: https://haklidir.github.io/publications/geothermal-ai-stanford-2024/
+Research area: AI for Geoscience & Energy
+
+### A Novel Transformation Through Digital Twin and Federated Learning Integration: A Case Study on Cardiovascular Disease Prediction
+
+Rabia Arkan Yurtoğlu, Havvanur Dervişoğlu, Burak Ülver, Ruşen Halepmollası, Mehmet Haklıdır (2024). A Novel Transformation Through Digital Twin and Federated Learning Integration: A Case Study on Cardiovascular Disease Prediction. Information and Communication Technologies for Ageing Well and e-Health: ICT4AWE 2023 Revised Selected Papers (CCIS), 91. Springer Nature.
+Links: https://haklidir.github.io/publications/digital-twin-federated-cardiovascular-2024/
+Research area: AI for Health
+
+### AI-Driven Detection of Parkinson's Disease Through Vocal Feature Optimization
+
+Mahmut Lütfullah Özbilen, Feyza Özen, Ayça Şirin Kındap, Hakan Gündüz, Ruşen Halepmollası, Mehmet Haklıdır (2024). AI-Driven Detection of Parkinson's Disease Through Vocal Feature Optimization. IV. International Congress on Artificial Intelligence in Health.
+Links: https://haklidir.github.io/publications/parkinsons-vocal-features-syz-2024/
+Research area: AI for Health
+
+### Federated Learning for Diabetes Prediction in Healthcare
+
+Rabia Arkan Yurtoğlu, Havvanur Dervişoğlu, Mustafa Aktaş, Mehmet Daşçılar, Ruşen Halepmollası, İpek Baz, Mehmet Haklıdır (2024). Federated Learning for Diabetes Prediction in Healthcare. IV. International Congress on Artificial Intelligence in Health.
+Links: https://haklidir.github.io/publications/federated-diabetes-syz-2024/
+Research area: AI for Health
+
+### Experimental Analysis of Synthetic Data Generation Techniques for Privacy-Preserving AI in Medical Imaging
+
+Süleyman Yolcu, Elif Özcan, Havvanur Dervişoğlu, Ruşen Halepmollası, Mehmet Haklıdır (2024). Experimental Analysis of Synthetic Data Generation Techniques for Privacy-Preserving AI in Medical Imaging. IV. International Congress on Artificial Intelligence in Health.
+Links: https://haklidir.github.io/publications/synthetic-medical-imaging-syz-2024/
+Research area: AI for Health, Computer Vision & Applied AI
+
+### Predicting Agitation in Dementia Patients Using AI and IoT for Enhanced Real-Time Monitoring and Care
+
+Melik Mert Dolan, Burak Ülver, Kerem Basım, Ruşen Halepmollası, Mehmet Haklıdır (2024). Predicting Agitation in Dementia Patients Using AI and IoT for Enhanced Real-Time Monitoring and Care. IV. International Congress on Artificial Intelligence in Health.
+Links: https://haklidir.github.io/publications/dementia-agitation-iot-syz-2024/
+Research area: AI for Health
+
+### Benchmarking Machine Learning and Deep Learning Models for Deepfake Detection in Lung CT Scans
+
+Merve Kaya Zeybel, Havvanur Dervişoğlu, Elif Özcan, Nida Kumbasar, Ruşen Halepmollası, İpek Baz, Mehmet Haklıdır (2024). Benchmarking Machine Learning and Deep Learning Models for Deepfake Detection in Lung CT Scans. IV. International Congress on Artificial Intelligence in Health.
+Links: https://haklidir.github.io/publications/deepfake-lung-ct-syz-2024/
+Research area: AI for Health, Computer Vision & Applied AI
+
+### A proposed new metric for the conceptual diversity of a text
+
+İlknur Dönmez, Mehmet Haklıdır (2023). A proposed new metric for the conceptual diversity of a text. arXiv preprint.
+Links: https://haklidir.github.io/publications/conceptual-diversity-metric-2023/ | https://arxiv.org/abs/2312.16548
+Research area: Language Technologies & LLMs
+
+### Federated Learning in Predicting Heart Disease
+
+Burak Ülver, Rabia Arkan Yurtoğlu, Havvanur Dervişoğlu, Ruşen Halepmollası, Mehmet Haklıdır (2023). Federated Learning in Predicting Heart Disease. 31st Signal Processing and Communications Applications Conference (SIU 2023), 1-4. IEEE.
+Links: https://haklidir.github.io/publications/federated-heart-disease-siu-2023/ | https://doi.org/10.1109/SIU59756.2023.10223935
+Research area: AI for Health
+
+### Artificial Intelligence in Minimally Invasive Adrenalectomy: Using Deep Learning to Identify the Left Adrenal Vein
+
+Berke Şengün, Yalın İşcan, Gözde A. Tataroğlu Özbulak, Nida Kumbasar, Emre Eğriboz, İsmail Cem Sormaz, Nihat Aksakal, Sencer Melih Deniz, Mehmet Haklıdır, Fatih Tunca, Yasemin Giles Şenyürek (2023). Artificial Intelligence in Minimally Invasive Adrenalectomy: Using Deep Learning to Identify the Left Adrenal Vein. Surgical Laparoscopy, Endoscopy & Percutaneous Techniques, 33(4), 327-331. Wolters Kluwer.
+Links: https://haklidir.github.io/publications/adrenal-vein-deep-learning-slept-2023/ | https://doi.org/10.1097/SLE.0000000000001185
+Research area: AI for Health, Computer Vision & Applied AI
+
+### A Comparative Study on Cloud-based and Edge-Based Digital Twin Frameworks for Prediction of Cardiovascular Disease
+
+Havvanur Dervişoğlu, Burak Ülver, Rabia Arkan Yurtoğlu, Ruşen Halepmollası, Mehmet Haklıdır (2023). A Comparative Study on Cloud-based and Edge-Based Digital Twin Frameworks for Prediction of Cardiovascular Disease. Proceedings of the 9th International Conference on Information and Communication Technologies for Ageing Well and e-Health (ICT4AWE 2023), 159-169. SciTePress.
+Links: https://haklidir.github.io/publications/digital-twin-cardiovascular-ict4awe-2023/ | https://doi.org/10.5220/0011859400003476
+Research area: AI for Health
+
+### Load Weight Estimation in Washing Machine Using Soft Sensors with Machine Learning Techniques
+
+Murat Delibalta, İsmail Bilgen, F. Canan Pembe, Erman Kiremit, Hilal İrkil, Mehmet Haklıdır (2023). Load Weight Estimation in Washing Machine Using Soft Sensors with Machine Learning Techniques. 31st Signal Processing and Communications Applications Conference (SIU 2023), 1-4. IEEE.
+Links: https://haklidir.github.io/publications/washing-machine-load-estimation-siu-2023/
+Research area: Computer Vision & Applied AI
+
+### Big Data Analytics for Anomaly Detection in Blockchain
+
+Mahmut Lütfullah Özbilen, Elif Özcan, Mustafa Berk Keleş, Merve Zeybel, Havvanur Dervişoğlu, Aslınur Doğan, Mehmet Haklıdır (2023). Big Data Analytics for Anomaly Detection in Blockchain. 31st Signal Processing and Communications Applications Conference (SIU 2023), 1-4. IEEE.
+Links: https://haklidir.github.io/publications/blockchain-anomaly-detection-siu-2023/
+Research area: Computer Vision & Applied AI
+
+### Multimodal Speech Emotion and Text Sentiment Analysis
+
+Nur Bengisu Çam, İlknur Dönmez, Ömer Faruk Bitikçioğlu, Fadime Buse Yediparmak, Emre Bektaş, Mehmet Haklıdır (2023). Multimodal Speech Emotion and Text Sentiment Analysis. 8th International Conference on Computer Science and Engineering (UBMK 2023), 157-162. IEEE.
+Links: https://haklidir.github.io/publications/multimodal-emotion-sentiment-ubmk-2023/
+Research area: Language Technologies & LLMs
+
+### Akıllı Sağlık Sistemi ve Yapay Zeka
+
+Mehmet Haklıdır, Sinem Nalbantoğlu, Abdullah Karadağ (2023). Akıllı Sağlık Sistemi ve Yapay Zeka. Moleküler Biyoloji ve Genetik: Sağlık Alanında ve Biyoteknolojide İleri Uygulamalar, 595-613. TÜBA Türkiye Bilimler Akademisi.
+Links: https://haklidir.github.io/publications/akilli-saglik-sistemi-tuba-2023/
+English title: Smart Health Systems and Artificial Intelligence
+Research area: AI for Health
+
+### Prediction of Lifted Weight Category Using EEG Equipped Headgear
+
+Sencer Melih Deniz, Hamraz Javaheri, Juan Felipe Vargas, Doğan Urgun, Fariza Sabit, Mahmut Tok, Mehmet Haklıdır, Bo Zhou, Paul Lukowicz (2022). Prediction of Lifted Weight Category Using EEG Equipped Headgear. 2022 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI), 1-7. IEEE.
+Links: https://haklidir.github.io/publications/eeg-lifted-weight-bhi-2022/
+Research area: AI for Health, Reinforcement Learning & Autonomous Systems
+
+### Cloud Assisted Connected and Automated Mobility System Architecture Design and Experimental Verification: The 5G-MOBIX Autonomous Truck Routing Use Case
+
+Tahir Sarı, Mert Sever, Arda Taha Candan, Gülsüm Tuba Çibuk Girgin, Emre Girgin, Mehmet Haklıdır (2022). Cloud Assisted Connected and Automated Mobility System Architecture Design and Experimental Verification: The 5G-MOBIX Autonomous Truck Routing Use Case. 2022 IEEE Intelligent Vehicles Symposium (IV), 1374-1380. IEEE.
+Links: https://haklidir.github.io/publications/5g-mobix-truck-routing-iv-2022/
+Research area: Reinforcement Learning & Autonomous Systems
+
+Summary: Demonstrates the use of 5G networks for a cloud-assisted connected and automated mobility service in the EU H2020 5G-MOBIX project, with preliminary field tests of the autonomous truck routing use case at the Ford Otosan test track in Eskişehir, Türkiye.
+
+### Autonomous Driving Systems for Decision-Making Under Uncertainty Using Deep Reinforcement Learning
+
+Mehmet Haklıdır, Hakan Temeltaş (2022). Autonomous Driving Systems for Decision-Making Under Uncertainty Using Deep Reinforcement Learning. 30th Signal Processing and Communications Applications Conference (SIU 2022), 1-4. IEEE.
+Links: https://haklidir.github.io/publications/autonomous-driving-drl-siu-2022/
+Research area: Reinforcement Learning & Autonomous Systems
+
+### Overweight and obesity in preschool children in Turkey: A multilevel analysis
+
+Şeyma Görçin Karaketir, Nimet Emel Lüleci, Mehmet Ali Eryurt, Ahmet Naci Emecen, Mehmet Haklıdır, Seyhan Hıdıroğlu (2022). Overweight and obesity in preschool children in Turkey: A multilevel analysis. Journal of Biosocial Science, 55(2), 344-366. Cambridge University Press.
+Links: https://haklidir.github.io/publications/preschool-obesity-multilevel-jbs-2022/ | https://doi.org/10.1017/S0021932022000025
+Research area: AI for Health
+
+### Deep Reinforcement Learning for Partially Observable Markov Decision Processes
+
+Mehmet Haklıdır (2022). Deep Reinforcement Learning for Partially Observable Markov Decision Processes. Ph.D. Thesis, Control and Automation Engineering, Istanbul Technical University.
+Links: https://haklidir.github.io/publications/phd-thesis-drl-pomdp-2022/
+Research area: Reinforcement Learning & Autonomous Systems
+
+### Guided Soft Actor Critic: A Guided Deep Reinforcement Learning Approach for Partially Observable Markov Decision Processes
+
+Mehmet Haklıdır, Hakan Temeltaş (2021). Guided Soft Actor Critic: A Guided Deep Reinforcement Learning Approach for Partially Observable Markov Decision Processes. IEEE Access, 9, 159672-159683. IEEE.
+Links: https://haklidir.github.io/publications/guided-soft-actor-critic-ieee-access-2021/ | https://doi.org/10.1109/ACCESS.2021.3131772
+Research area: Reinforcement Learning & Autonomous Systems
+
+Summary: Introduces Guided Soft Actor-Critic (GSAC), in which a guidance module steers Soft Actor-Critic during training to cope with partial observability, improving sample efficiency and final return on partially observable continuous-control tasks.
+
+### Structures of MERS-CoV macro domain in aqueous solution with dynamics: Impacts of parallel tempering simulation techniques and CHARMM36m and AMBER99SB force field parameters
+
+İbrahim Yağız Akbayrak, Şule İrem Çağlayan, Serdar Durdağı, Lukasz Kurgan, Vladimir N. Uversky, Burak Ülver, Havvanur Dervişoğlu, Mehmet Haklıdır, Orkun Hasekioğlu, Orkid Coskuner-Weber (2021). Structures of MERS-CoV macro domain in aqueous solution with dynamics: Impacts of parallel tempering simulation techniques and CHARMM36m and AMBER99SB force field parameters. Proteins: Structure, Function, and Bioinformatics, 89(10), 1289-1299. Wiley.
+Links: https://haklidir.github.io/publications/mers-cov-macro-domain-proteins-2021/ | https://doi.org/10.1002/prot.26150
+Research area: AI for Health
+
+### Deep Reinforcement Learning for Simulation-Based Determination of COVID-19 Pandemic Mitigation Policies
+
+Mahmut Lütfullah Özbilen, Emre Eğriboz, Ruşen Halepmollası, İsmail Bilgen, Mehmet Haklıdır (2021). Deep Reinforcement Learning for Simulation-Based Determination of COVID-19 Pandemic Mitigation Policies. Artificial Intelligence Theory and Applications, 1(2). İzmir Bakırçay Üniversitesi.
+Links: https://haklidir.github.io/publications/covid-mitigation-drl-aita-2021/
+Research area: Reinforcement Learning & Autonomous Systems, AI for Health
+
+### Towards Federated Learning in Identification of Medical Images: A Case Study
+
+Ruşen Halepmollası, Merve Zeybel, Elif Eyvaz, Rabia Arkan, Ahsen Genç, İsmail Bilgen, Mehmet Haklıdır (2021). Towards Federated Learning in Identification of Medical Images: A Case Study. Artificial Intelligence Theory and Applications, 1(2). İzmir Bakırçay Üniversitesi.
+Links: https://haklidir.github.io/publications/federated-medical-images-aita-2021/
+Research area: AI for Health, Computer Vision & Applied AI
+
+### Unfairness of Deep Learning Methods Arising Gender Bias in Covid-19 Diagnosis of Medical Images
+
+Havvanur Dervişoğlu, İsmail Bilgen, Ruşen Halepmollası, Barış Can, Mehmet Haklıdır (2021). Unfairness of Deep Learning Methods Arising Gender Bias in Covid-19 Diagnosis of Medical Images. Artificial Intelligence Theory and Applications, 1(2), 81-94. İzmir Bakırçay Üniversitesi.
+Links: https://haklidir.github.io/publications/gender-bias-covid-diagnosis-aita-2021/
+Research area: AI for Health, Agentic AI Safety & Governance
+
+### Prediction of geothermal originated boron contamination by deep learning approach: at Western Anatolia Geothermal Systems in Turkey
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2020). Prediction of geothermal originated boron contamination by deep learning approach: at Western Anatolia Geothermal Systems in Turkey. Environmental Earth Sciences, 79(8), 180. Springer.
+Links: https://haklidir.github.io/publications/boron-contamination-deep-learning-ees-2020/ | https://doi.org/10.1007/s12665-020-08907-6
+Research area: AI for Geoscience & Energy
+
+Summary: Uses hydrogeochemical variables and a deep neural network to predict boron contamination originating from geothermal systems in Western Anatolia, and uses the model to discuss sustainable discharge scenarios.
+
+### Prediction of Reservoir Temperatures Using Hydrogeochemical Data, Western Anatolia Geothermal Systems (Turkey): A Machine Learning Approach
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2020). Prediction of Reservoir Temperatures Using Hydrogeochemical Data, Western Anatolia Geothermal Systems (Turkey): A Machine Learning Approach. Natural Resources Research, 29(4), 2333-2346. Springer.
+Links: https://haklidir.github.io/publications/reservoir-temperature-ml-nrr-2020/ | https://doi.org/10.1007/s11053-019-09596-0
+Research area: AI for Geoscience & Energy
+
+Summary: A deep neural network forecasts geothermal reservoir temperatures from routine water-chemistry data, offering a way to reduce exploration risk and cost before drilling.
+
+### The Reservoir Temperature Prediction Using Hydrogeochemical Indicators by Machine Learning: Western Anatolia (Turkey) Case
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2020). The Reservoir Temperature Prediction Using Hydrogeochemical Indicators by Machine Learning: Western Anatolia (Turkey) Case. Proceedings of the World Geothermal Congress 2020+1.
+Links: https://haklidir.github.io/publications/reservoir-temperature-ml-wgc-2020/
+Research area: AI for Geoscience & Energy
+
+### The Fluid Temperature Prediction with Hydro-geochemical Indicators Using a Deep Learning Model: A Case Study Western Anatolia (Turkey)
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2019). The Fluid Temperature Prediction with Hydro-geochemical Indicators Using a Deep Learning Model: A Case Study Western Anatolia (Turkey). Workshop on Geothermal Reservoir Engineering, Stanford University.
+Links: https://haklidir.github.io/publications/fluid-temperature-deep-learning-stanford-2019/
+Research area: AI for Geoscience & Energy
+
+### Fuzzy control of calcium carbonate and silica scales in geothermal systems
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2017). Fuzzy control of calcium carbonate and silica scales in geothermal systems. Geothermics, 70, 230-238. Elsevier.
+Links: https://haklidir.github.io/publications/scale-fuzzy-control-geothermics-2017/ | https://doi.org/10.1016/j.geothermics.2017.07.003
+Research area: AI for Geoscience & Energy
+
+### Fuzzy Control of Calcium Carbonate and Silica Scales in Geothermal Systems
+
+Mehmet Haklıdır, Füsun Servin Tut Haklıdır (2015). Fuzzy Control of Calcium Carbonate and Silica Scales in Geothermal Systems. Proceedings of the World Geothermal Congress 2015, Melbourne, Australia.
+Links: https://haklidir.github.io/publications/scale-fuzzy-control-wgc-2015/
+Research area: AI for Geoscience & Energy
+
+### Modeling and Simulation of Land Avoidance Behavior Belonging to Tactical Entities within a High-Fidelity Simulation Environment
+
+Levent Şenyürek, Deniz Aldoğan, Mehmet Haklıdır (2013). Modeling and Simulation of Land Avoidance Behavior Belonging to Tactical Entities within a High-Fidelity Simulation Environment. Proceedings of the International Defense and Homeland Security Simulation Workshop (DHSS 2013), Athens, Greece, 67-76.
+Links: https://haklidir.github.io/publications/land-avoidance-tactical-entities-dhss-2013/
+Research area: Modeling, Simulation & Control
+
+### Anti-Submarine Warfare Modeling and Simulation
+
+Deniz Aldoğan, Mehmet Haklıdır, Levent Şenyürek, Yasemin Timar, Semuel Franko, Ömer Eroğlu, Ahmet Faik Güven, Hakkı Murat Genç (2013). Anti-Submarine Warfare Modeling and Simulation. Proceedings of the International Defense and Homeland Security Simulation Workshop (DHSS 2013), Athens, Greece, 77-84.
+Links: https://haklidir.github.io/publications/anti-submarine-warfare-dhss-2013/
+Research area: Modeling, Simulation & Control
+
+### Case-Space Model Approach in Decision Support Systems
+
+U. Uluğ, Ahmet Faik Güven, Semuel Franko, Mehmet Haklıdır, N. Sarı, M. Gürbüz, U. Özkan (2013). Case-Space Model Approach in Decision Support Systems. USMOS 2013, National Defence Modelling and Simulation Symposium, METU, Ankara.
+Links: https://haklidir.github.io/publications/case-space-decision-support-usmos-2013/
+Research area: Modeling, Simulation & Control
+
+### Modeling and Simulation of Anti-Submarine Warfare
+
+Deniz Aldoğan, Mehmet Haklıdır, Levent Şenyürek, Yasemin Timar, Semuel Franko, Ömer Eroğlu, Ahmet Faik Güven, Hakkı Murat Genç (2013). Modeling and Simulation of Anti-Submarine Warfare. USMOS 2013, National Defence Modelling and Simulation Symposium, METU, Ankara.
+Links: https://haklidir.github.io/publications/anti-submarine-warfare-usmos-2013/
+Research area: Modeling, Simulation & Control
+
+### Decision Support System for Torpedo Threats (DeSuS)
+
+Mehmet Haklıdır, Semuel Franko, Ahmet Faik Güven, U. Uluğ (2010). Decision Support System for Torpedo Threats (DeSuS). Ship Survivability Conference 2010, Berlin, Germany.
+Links: https://haklidir.github.io/publications/torpedo-decision-support-desus-ssc-2010/
+Research area: Modeling, Simulation & Control
+
+### Hydrogen Production from Geothermal Sources in Turkey
+
+Mehmet Haklıdır, Füsun Servin Tut Haklıdır (2010). Hydrogen Production from Geothermal Sources in Turkey. Proceedings of the World Geothermal Congress 2010, Bali, Indonesia.
+Links: https://haklidir.github.io/publications/hydrogen-geothermal-turkey-wgc-2010/
+Research area: AI for Geoscience & Energy
+
+### A General Approach to High Fidelity Modeling, Simulation and Control of Tactical Entities and Implementation in a Commercial Computer Generated Forces Toolkit
+
+Deniz Aldoğan, Mehmet Haklıdır, Levent Şenyürek, Seniha Köksal, Ömer Eroğlu, Cemil Akdemir, Semuel Franko, Isa Taşdelen, Sevgi Akgün (2009). A General Approach to High Fidelity Modeling, Simulation and Control of Tactical Entities and Implementation in a Commercial Computer Generated Forces Toolkit. 21st European Modeling and Simulation Symposium (EMSS 2009), Tenerife, Spain.
+Links: https://haklidir.github.io/publications/tactical-entities-cgf-emss-2009/
+Research area: Modeling, Simulation & Control
+
+### High Fidelity Modeling and Simulation of Submarine in a Commercial Computer Generated Forces Toolkit
+
+Mehmet Haklıdır, Ahmet Faik Güven, Ömer Eroğlu, Deniz Aldoğan, Isa Taşdelen (2009). High Fidelity Modeling and Simulation of Submarine in a Commercial Computer Generated Forces Toolkit. Proceedings of the 2009 Summer Computer Simulation Conference (SCSC 2009), Istanbul, 299-306.
+Links: https://haklidir.github.io/publications/submarine-cgf-scsc-2009/
+Research area: Modeling, Simulation & Control
+
+### Modeling, Simulation and Feedback Linearization Control of Nonlinear Surface Vessels
+
+Mehmet Haklıdır, Deniz Aldoğan, Isa Taşdelen, Semuel Franko (2009). Modeling, Simulation and Feedback Linearization Control of Nonlinear Surface Vessels. 6th International Conference on Informatics in Control, Automation and Robotics (ICINCO 2009), Milan, Italy.
+Links: https://haklidir.github.io/publications/surface-vessels-feedback-linearization-icinco-2009/
+Research area: Modeling, Simulation & Control
+
+### Acoustic Decoy/Jammer Tactical Concepts for Submarines: A Simulation Case Study
+
+U. Uluğ, Mehmet Haklıdır, S. Koruk, R. Caputcu, N. Sarı (2009). Acoustic Decoy/Jammer Tactical Concepts for Submarines: A Simulation Case Study. USMOS 2009, National Defence Modelling and Simulation Symposium, METU, Ankara.
+Links: https://haklidir.github.io/publications/acoustic-decoy-submarines-usmos-2009/
+Research area: Modeling, Simulation & Control
+
+### Modeling and Simulation of a Submarine in a Commercial Computer Generated Forces Toolkit
+
+Mehmet Haklıdır, Ahmet Faik Güven, Ömer Eroğlu, Deniz Aldoğan, Isa Taşdelen (2009). Modeling and Simulation of a Submarine in a Commercial Computer Generated Forces Toolkit. USMOS 2009, National Defence Modelling and Simulation Symposium, METU, Ankara.
+Links: https://haklidir.github.io/publications/submarine-cgf-usmos-2009/
+Research area: Modeling, Simulation & Control
+
+### Full-Scale Finite Element Analysis of a Passive Sonobuoy
+
+F. Aruk, A. Kaplaner, Semuel Franko, C. Okutan, Mehmet Haklıdır (2009). Full-Scale Finite Element Analysis of a Passive Sonobuoy. Undersea Defence Technology (UDT Europe 2009), Cannes, France.
+Links: https://haklidir.github.io/publications/passive-sonobuoy-fea-udt-2009/
+Research area: Modeling, Simulation & Control
+
+### Modeling, Simulation and Control of Rotary Wing Platforms in a Computer Generated Forces Toolkit
+
+Semuel Franko, Seniha Köksal, Mehmet Haklıdır (2009). Modeling, Simulation and Control of Rotary Wing Platforms in a Computer Generated Forces Toolkit. 7th Annual Industrial Simulation Conference (ISC 2009), Loughborough, UK.
+Links: https://haklidir.github.io/publications/rotary-wing-cgf-isc-2009/
+Research area: Modeling, Simulation & Control
+
+### Modeling, simulation and fuzzy control of an anthropomorphic robot arm by using Dymola
+
+Mehmet Haklıdır, Isa Taşdelen (2009). Modeling, simulation and fuzzy control of an anthropomorphic robot arm by using Dymola. Journal of Intelligent Manufacturing, 20(2), 177-186. Springer.
+Links: https://haklidir.github.io/publications/robot-arm-fuzzy-control-jim-2009/ | https://doi.org/10.1007/s10845-008-0227-9
+Research area: Modeling, Simulation & Control, Reinforcement Learning & Autonomous Systems
+
+### The possibilities for hydrogen production from H2S and storage in the Black Sea
+
+Mehmet Haklıdır, Füsun Servin Tut Haklıdır (2009). The possibilities for hydrogen production from H2S and storage in the Black Sea. International Journal of Nuclear Hydrogen Production and Applications, 2(1), 78-85. Inderscience.
+Links: https://haklidir.github.io/publications/hydrogen-h2s-black-sea-ijnhpa-2009/
+Research area: AI for Geoscience & Energy
+
+### Implementation of Fuzzy Control for Surface Platforms in a Computer Generated Forces Toolkit
+
+Levent Şenyürek, Seniha Köksal, Hakkı Murat Genç, Deniz Aldoğan, Mehmet Haklıdır (2008). Implementation of Fuzzy Control for Surface Platforms in a Computer Generated Forces Toolkit. 2008 International Conference on Computational Intelligence for Modelling, Control and Automation (CIMCA 2008), Vienna, Austria, 832-837. IEEE.
+Links: https://haklidir.github.io/publications/fuzzy-control-surface-platforms-cimca-2008/
+Research area: Modeling, Simulation & Control
+
+### FST: Simulation Based Sonobuoy Mechanical Design Tool
+
+Mehmet Haklıdır, Semuel Franko (2008). FST: Simulation Based Sonobuoy Mechanical Design Tool. International Sonobuoy Interoperability Conference 2008, Washington DC, USA.
+Links: https://haklidir.github.io/publications/sonobuoy-design-tool-isic-2008/
+Research area: Modeling, Simulation & Control
+
+### High Fidelity Modeling and Simulation of Surface Platforms in a Computer Generated Forces Toolkit
+
+Mehmet Haklıdır, Deniz Aldoğan, Isa Taşdelen (2008). High Fidelity Modeling and Simulation of Surface Platforms in a Computer Generated Forces Toolkit. 2008 Summer Computer Simulation Conference (SCSC 2008), Edinburgh, UK.
+Links: https://haklidir.github.io/publications/surface-platforms-cgf-scsc-2008/
+Research area: Modeling, Simulation & Control
+
+### Hydrogen Production from Geothermal Sources
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2007). Hydrogen Production from Geothermal Sources. International Hydrogen Energy Congress and Exhibition (IHEC 2007), Istanbul.
+Links: https://haklidir.github.io/publications/hydrogen-geothermal-ihec-2007/
+Research area: AI for Geoscience & Energy
+
+### Possibilities for Hydrogen Production from H2S and Storage in the Black Sea
+
+Mehmet Haklıdır, Füsun Servin Tut Haklıdır (2007). Possibilities for Hydrogen Production from H2S and Storage in the Black Sea. 5th International Conference on Hydrogen Treatment of Materials (HTM 2007), Donetsk, Ukraine.
+Links: https://haklidir.github.io/publications/hydrogen-h2s-black-sea-htm-2007/
+Research area: AI for Geoscience & Energy
+
+### The Solution of Tactical Shortest Path Problems Using Genetic Algorithm Approach
+
+F. Ucan, G. B. Kaplan, R. Caputcu, Mehmet Haklıdır, O. F. Arar (2007). The Solution of Tactical Shortest Path Problems Using Genetic Algorithm Approach. USMOS 2007, National Defence Modelling and Simulation Symposium, METU, Ankara.
+Links: https://haklidir.github.io/publications/tactical-shortest-path-ga-usmos-2007/
+Research area: Modeling, Simulation & Control
+
+### Modeling and VR-Forces Back-End Integrated Simulation of Surface Ships
+
+Mehmet Haklıdır, Deniz Aldoğan, Isa Taşdelen (2007). Modeling and VR-Forces Back-End Integrated Simulation of Surface Ships. USMOS 2007, National Defence Modelling and Simulation Symposium, METU, Ankara.
+Links: https://haklidir.github.io/publications/surface-ships-vr-forces-usmos-2007/
+Research area: Modeling, Simulation & Control
+
+### FST: Hidrofonun Yer Değiştirmesinin Hesaplanması İçin Benzetim Tabanlı Sonoboy Mekanik Tasarım Aracı
+
+Mehmet Haklıdır (2007). FST: Hidrofonun Yer Değiştirmesinin Hesaplanması İçin Benzetim Tabanlı Sonoboy Mekanik Tasarım Aracı. USMOS 2007, National Defence Modelling and Simulation Symposium, METU, Ankara.
+Links: https://haklidir.github.io/publications/sonobuoy-hydrophone-usmos-2007/
+English title: FST: A Simulation-Based Sonobuoy Mechanical Design Tool to Calculate the Displacement of the Hydrophone
+Research area: Modeling, Simulation & Control
+
+### Modeling of Sonobuoy for Position Estimation
+
+Mehmet Haklıdır, Ş. Ertuğrul, E. Tulunay (2006). Modeling of Sonobuoy for Position Estimation. SAVTEK 2006, National Defence Technologies Congress, METU, Ankara.
+Links: https://haklidir.github.io/publications/sonobuoy-position-estimation-savtek-2006/
+Research area: Modeling, Simulation & Control
+
+### Possibilities of Production and Storage of Hydrogen in the Black Sea
+
+Mehmet Haklıdır, Füsun Servin Tut, Şule Kapkın (2006). Possibilities of Production and Storage of Hydrogen in the Black Sea. 16th World Hydrogen Energy Conference (WHEC 2006), Lyon, France.
+Links: https://haklidir.github.io/publications/hydrogen-black-sea-whec-2006/
+Research area: AI for Geoscience & Energy
+
+### Modeling and Simulation of an Anthropomorphic Robot Arm by Using Dymola
+
+Mehmet Haklıdır, Isa Taşdelen (2006). Modeling and Simulation of an Anthropomorphic Robot Arm by Using Dymola. 5th International Symposium on Intelligent Manufacturing Systems (IMS 2006), Sakarya.
+Links: https://haklidir.github.io/publications/robot-arm-dymola-ims-2006/
+Research area: Modeling, Simulation & Control, Reinforcement Learning & Autonomous Systems
+
+### Yüzer Göndermecin Durum Denetimi İçin Modellenmesi
+
+Mehmet Haklıdır (2006). Yüzer Göndermecin Durum Denetimi İçin Modellenmesi. M.Sc. Thesis, Mechatronics Engineering, Istanbul Technical University.
+Links: https://haklidir.github.io/publications/msc-thesis-sonobuoy-2006/
+English title: Modelling of Sonobuoy for Position Estimation
+Research area: Modeling, Simulation & Control
+
+### Black Sea, a Hydrogen Source
+
+Mehmet Haklıdır, Şule Kapkın (2005). Black Sea, a Hydrogen Source. International Hydrogen Energy Congress and Exhibition (IHEC 2005), Istanbul.
+Links: https://haklidir.github.io/publications/black-sea-hydrogen-source-ihec-2005/
+Research area: AI for Geoscience & Energy
+
+### Fuzzy-PD Control of a Two DOF Robot Manipulator
+
+Mehmet Haklıdır, M. Güler (2003). Fuzzy-PD Control of a Two DOF Robot Manipulator. UMTS 2003, National Machine Theory Symposium, Gazi University, Ankara.
+Links: https://haklidir.github.io/publications/fuzzy-pd-robot-manipulator-umts-2003/
+Research area: Modeling, Simulation & Control
+
+### Analysis of a Planar Two-Link Robot on a Square Trajectory
+
+M. Güler, Mehmet Haklıdır, N. Yağız (2003). Analysis of a Planar Two-Link Robot on a Square Trajectory. MBGAK 2003, Istanbul University.
+Links: https://haklidir.github.io/publications/planar-two-link-robot-mbgak-2003/
+Research area: Modeling, Simulation & Control
+
+### Fuzzy Control of a One DOF Robot Arm
+
+Mehmet Haklıdır, M. Güler (2003). Fuzzy Control of a One DOF Robot Arm. MBGAK 2003, Istanbul University.
+Links: https://haklidir.github.io/publications/fuzzy-control-one-dof-robot-mbgak-2003/
+Research area: Modeling, Simulation & Control
+
+## Talks
+
+- December 2025: Tıpta Yapay Zekâ ve Karar Destek Sistemleri (Invited talk, Tıpta Yapay Zekâ ve Karar Destek Sistemleri Eğitim Semineri, Istanbul, Türkiye)
+- December 2025: Güvenilir Yapay Zekâ (Webinar, Güvenilir Yapay Zekâ Webinarı, Online)
+- November 2025: Türkiye E-Ticaret Haftası Paneli (Panelist, Türkiye E-Ticaret Haftası, Lütfi Kırdar Congress Center, Istanbul)
+- November 2025: İAFL AI Talks (Invited talk, İAFL AI Talks, Istanbul, Türkiye)
+- November 2025: TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü Müdürü Mehmet Haklıdır Sunumu (Invited talk, Future of AI and Cloud 2025, Çırağan Palace Kempinski, Istanbul)
+- November 2025: AI EDIH Türkiye Paneli (Panelist, AI EDIH Türkiye, MEXT, Istanbul)
+- October 2025: Makineler "Artık" Düşünebilir mi? (Invited talk, Türkiye Yapay Zekâ Zirvesi 2025, Wyndham Grand Levent, Istanbul)
+- October 2025: Stratejiden Uygulamaya: BSC Yapay Zekâ Fabrikası (Invited talk, Stratejiden Uygulamaya: BSC Yapay Zekâ Fabrikası, METU CoZone, Ankara)
+- October 2025: Türkiye Innovation Week 2025 Paneli (Panelist, Türkiye Innovation Week 2025, Haliç Congress Center, Istanbul)
+- September 2025: AWS Cloud Day Istanbul 2025 (Invited talk, AWS Cloud Day Istanbul 2025, Zorlu PSM, Istanbul)
+- July 2025: Zihinle Makine Arasında: Üretken Yapay Zekâ Nerede Başlar? (Invited talk, IDEF'25 – IDEF Talks, Istanbul Expo Center, Istanbul)
+- July 2025: BSC Yapay Zekâ Fabrikası Yolculuğu (Invited talk, BSC Yapay Zekâ Fabrikası Yolculuğu, MEXT, Istanbul)
+- June 2025: ESFRI ve Ufuk Avrupa Araştırma Altyapıları Bilgi Günü (Invited talk, ESFRI and Horizon Europe Research Infrastructures Info Day, Online)
+- June 2025: Next Level Uludağ Paneli (Panelist, Next Level Uludağ, Bursa Business School, Uludağ, Bursa)
+- May 2025: 28. Makine ve Teknoloji Günleri (Invited talk, 28th Machine and Technology Days, Avcılar Campus, Istanbul)
+- May 2025: TRAI 8. Yıl Mayıs Çalıştayı Paneli (Panelist, TRAI 8th Year Workshop, Istanbul, Türkiye)
+- April 2024: Türkiye'nin Türkçe Büyük Dil Temel Modeli Projesi (Invited talk, TÜBİTAK Bilim Genç)
+- March 2024: Yapay Zekâ Ekonomisini İnşa Etmek (Invited talk, 8th Istanbul Economy Summit, Istanbul, Türkiye)
+- February 2024: TÜBİTAK BİLGEM Yapay Zekâ Enstitüsü (Invited talk, Türkiye Yapay Zekâ İnisiyatifi (TRAI))
+- February 2024: Üretken Yapay Zekâ Uygulamaları Paneli (Panelist, SAYZEK Defence Industry AI Summit)
+- February 2024: Türkçe Büyük Dil Modeli: Yolculuğun Neresindeyiz? (Panelist, TRAI Panel)
+- February 2024: IV. Uluslararası Sağlıkta Yapay Zekâ Kongresi (Invited talk, IV. International Congress on Artificial Intelligence in Health)
+- January 2024: 1. Ulusal Yapay Zekâ Buluşması (Invited talk, 1st National AI Meeting, Cappadocia, Türkiye)
+- October 2023: Yapay Zekâ Dünyasında Ülkemizdeki Çalışmalar ve Geleceğimiz (Invited talk, Yapay Zekâ Çalışmaları)
+- March 2023: Webinar: Yapay Zekâ Merkezleri (Webinar, TRAI Webinar, Online)
+- October 2022: TÜBİTAK BİLGEM Yapay Zekâ Enstitüsünün Yapay Zekâ Ekosistemi ile Etkileşimi (Invited talk, TR AI Week 2022)
+- March 2022: Yapay Zekâ Nedir? (Invited talk, TÜBİTAK Bilim Genç)
+- December 2021: Büyük Veri ve İleri Analitik Uygulamaları (Webinar, Türkiye Açık Kaynak Platformu – Açık Seminer, Online)
+- May 2021: TÜBİTAK BİLGEM and Artificial Intelligence (Invited talk, SEDS GTU TechTalks #2)
+- April 2021: Artificial Intelligence and Digital Transformation (Invited talk, Visionary Engineers Summit)
+- April 2021: Artificial Intelligence in Manufacturing (Invited talk, YONAR/MU 2021)
+- March 2021: Artificial Intelligence and Big Data in Real-World Problems (Invited talk, 24th Machine and Technology Days)
+- November 2020: Big Data and Advanced Analytics (Invited talk, Galatasaray University Industrial Engineering Seminar)
+- June 2020: Big Data and Artificial Intelligence in the Impact of Digital Transformation (Invited talk, İzmir Bakırçay University Seminar)
+- December 2019: Data Science of the Future (Invited talk, İzmir Universities Platform Technology Days, İzmir, Türkiye)
+- November 2019: Big Data and Advanced Analytics (Invited talk, Bilişim Zirvesi 2019, Istanbul, Türkiye)
+- April 2019: Artificial Intelligence and Big Data in Health (Invited talk, Abant Anesthesia Symposium)
+- April 2019: Cloud Computing and Big Data Research Lab (B3LAB) (Invited talk, TRAI Meet-up #21)
+- March 2019: Artificial Intelligence and Energy (Invited talk, PES Speak)
+- March 2019: Artificial Intelligence and Turkey (Invited talk, BEMDays 2019)
+- December 2018: Big Data and Machine Learning (Invited talk, GSUINNOVE)
+- October 2018: Artificial Intelligence, Deep Learning and Applications for Energy (Guest lecture, ESEN 401 Guest Lecture)
+- October 2018: Digital Transformation in Industries (Invited talk, KAMU-BİB'20)
+- September 2018: AI-Based Decision Making for Self-Driving Cars (Invited talk, BIAS – TOSB Seminar Series)
+- November 2015: Naval Research and Development Activities (Invited talk, Turkey Defence Week)

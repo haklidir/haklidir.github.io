@@ -119,4 +119,14 @@ sections:
         url: /research/modeling-simulation/
   design:
     layout: cards
+- block: markdown
+  id: concepts
+  content:
+    title: Concepts and Frameworks
+    text: 'Explanations of frameworks introduced in my papers.
+
+
+      - [**Accountability Graphs**](/concepts/accountability-graphs/): A framework for attributing responsibility in conversational AI agent chains: agent chains are modelled as directed acyclic graphs with provenance metadata and causal responsibility semantics, and harm is traced backwards to graded responsibility scores.'
+  design:
+    columns: '1'
 ---
