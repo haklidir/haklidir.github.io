@@ -43,7 +43,7 @@ sections:
       - EU AI Act
       metrics:
       - icon: hero/document-text
-        value: '7'
+        value: '8'
         label: papers
       cta:
         text: Read more
@@ -90,7 +90,7 @@ sections:
       - Benchmarks
       metrics:
       - icon: hero/document-text
-        value: '4'
+        value: '5'
         label: papers
       cta:
         text: Read more

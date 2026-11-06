@@ -8,11 +8,23 @@ date_precision: year
 publication_types:
 - chapter
 publication:
-  name: Artificial Intelligence and National Technology Reflections
+  name: Artificial Intelligence and National Technology Reflections (H. Arslan, A. Taşdelen, E. Kuzucu Hıdır and O. A. Çetin, Eds.)
   pages: 381-412
-  publisher: TÜBA Türkiye Bilimler Akademisi
+  publisher: Turkish Academy of Sciences (TÜBA)
+abstract: 'This chapter provides a comprehensive overview of Türkiye’s artificial intelligence (AI) ecosystem over the past five years (2020–2025). It first situates AI within the national policy framework, including the National Artificial Intelligence Strategy and its 2024–2025 Action Plan, to outline strategic priorities for talent, data and computing infrastructure, regulation, and international cooperation. It then maps the principal institutional actors: the Ministry of Industry and Technology, TÜBİTAK and the BİLGEM Artificial Intelligence Institute, sectoral regulators, and the defense cluster, clarifying their complementary roles in funding, coordination, standard-setting, and application. The academic backbone is described through the rapid expansion of AI degree programs, research labs, and EU-linked projects that cultivate a growing talent pipeline. The chapter also surveys a rising startup landscape, highlighting enterprise AI firms and vertical applications (e.g., retail computer
+  vision, industrial AI, conversational AI) and the support structures of technoparks, accelerators, and venture capital. National collaborations (co-development labs, public-private projects) and international linkages (Horizon Europe, EDIH, GPAI) are examined as key engines of knowledge transfer, diffusion, and alignment with global norms. In comparative perspective, Türkiye is an emergent regional player: not yet top-tier in private investment volumes, but increasingly organized, capability-rich, and globally connected. The concluding section synthesizes achievements and open challenges: scaling compute and data resources, broadening high-quality datasets, increasing late-stage finance, and ensuring trustworthy, human-centric AI, offering a grounded view of Türkiye’s trajectory from planning to execution.'
+summary: 'An overview of Türkiye''s AI ecosystem in 2020–2025: policy, institutions, academia, startups and international collaboration.'
 tags: []
+keywords:
+- artificial intelligence
+- Türkiye
+- national strategy
+- startups
+- international collaboration
 featured: false
+hugoblox:
+  ids:
+    doi: 10.53478/TUBA.978-625-6110-86-1.ch16
 reading_time: false
 show_date_updated: false
 ---

@@ -18,7 +18,9 @@ sections:
 
       open-source models (LREC 2026), explainable bad-check risk assessment combining machine learning with
 
-      large language models (SIU 2026), a metric for the conceptual diversity of text, and multimodal speech
+      large language models (SIU 2026), a counterfactual audit of demographic sensitivity in LLM-based
+
+      credit-risk scoring (FinNLP 2026), a metric for the conceptual diversity of text, and multimodal speech
 
       emotion and text sentiment analysis (UBMK 2023).'
   design:

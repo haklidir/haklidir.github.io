@@ -110,31 +110,186 @@ Mehmet Haklidir. 2026. Who Is Accountable When the Agent Speaks? Toward Accounta
 
 [Paper page and PDF](https://haklidir.github.io/publications/accountability-graphs-cui-2026/) · [ACM Digital Library](https://doi.org/10.1145/3816046.3816264)
 
+## Concept: AI for Geothermal Energy: Validation and Deployment Readiness
+
+URL: https://haklidir.github.io/concepts/ai-geothermal-readiness/
+
+Artificial intelligence has been applied to almost every part of geothermal energy, from exploration and reservoir management to plant control and maintenance. Füsun S. Tut Haklıdır and Mehmet Haklıdır (also written Haklidir) asked a different question from most of that literature: not whether the methods work, but how far the published evidence has moved from the data each method was developed on, and whether any of it has reached an operating plant. The answer comes from a PRISMA-guided systematic evidence map published in [*Earth Science Informatics* (2026)](https://haklidir.github.io/publications/geothermal-ai-evidence-map-esi-2026/) ([doi:10.1007/s12145-026-02268-7](https://doi.org/10.1007/s12145-026-02268-7)).
+
+### Key findings
+
+- **Corpus.** Searches of Scopus and Web of Science returned 8,113 records; 626 peer-reviewed journal articles published between 1987 and 2026 were included, resolving to 620 independent evidence units. Each article was coded from full text, with a page or section locator for every value reported quantitatively.
+- **Mostly offline evidence.** Two thirds of the classifiable corpus is evaluated on simulation, synthetic or laboratory data, or on field data without a meaningful held-out design. About one third reaches evaluation on real geothermal field data.
+- **Little external validation.** Evaluation on data external to the development set is reported in 42 of the 614 articles for which this could be determined.
+- **Almost no deployment.** Three articles report a controlled pilot; none reports shadow operation or routine deployment in the peer-reviewed literature. Grey and industry literature was not searched, so deployments that exist without publication are not excluded.
+- **Maturity depends on the stage.** Surface conversion contributes 179 articles, of which four reach field evaluation; exploration contributes 183, more than half of which do.
+- **Transfer and deployment diverge.** Predictive maintenance holds two of the three controlled pilots and no externally validated study, while geophysical inversion and induced-seismicity detection hold the transfer evidence and no pilot.
+- **Data access is spreading faster than demonstrated transfer.** The share of articles reaching field evaluation rose from 13 per cent in 2018 to 43 per cent in 2025, while externally validated studies stayed in single figures each year.
+- **Reporting is the binding constraint.** Among codable articles, 493 report no uncertainty estimate and 536 provide no access to code; for roughly a third, the paper does not establish whether performance was measured on unseen data.
+
+### How readiness was measured
+
+Validation and deployment evidence were coded on three independent axes:
+
+- **Boundary separation:** whether the test data are separated from the training data by time or by space (well, site or field) rather than at random.
+- **Strict external validation:** evaluation on data genuinely external to the development dataset. A careful split inside one dataset does not count.
+- **Operational integration:** an ordered ladder from offline study, conceptual architecture and offline prototype to controlled pilot, shadow or parallel operation, and routine deployment, coded from what a paper reports rather than how it describes itself.
+
+From these fields the review derives an **evidence-readiness level** by a fixed rule, so that every assignment can be recomputed from the supplementary data:
+
+| Level | Meaning |
+|---|---|
+| E4 | Operational integration: controlled pilot, shadow or parallel operation, or routine deployment |
+| E3 | Demonstrated transferability: strict external validation |
+| E2 | Field evaluation with a boundary-separated or held-out design that falls short of strict external validation |
+| E1 | Original evaluation without external evidence: simulation, synthetic or laboratory data, or field data without a meaningful held-out design |
+| E0 | No original evaluation |
+
+The highest qualifying level applies, so a study can reach E4 through a pilot without any external validation. The scale describes the published evidence about a method, not the maturity of the technology: it is not a Technology Readiness Level, not a risk-management framework such as the NIST AI RMF, and not a reporting guideline such as TRIPOD+AI. Because transferability and operational integration do not move together, the review reports them on separate axes and uses the E-level only as a summary.
+
+### What follows
+
+The authors' conservative reading is not that geothermal AI has failed to mature, but that its maturity has been reported in a form that makes verification difficult. Transferability should be tested rather than assumed and reported on the axis actually tested, since evaluation across wells in one field and evaluation against an independent dataset are different claims. The few studies that move from an offline prototype to an operating setting carry disproportionate weight.
+
+### Data and related work
+
+The record-level coding dataset, data dictionary, derivation rules and reproducibility scripts are archived on Zenodo ([doi:10.5281/zenodo.21938792](https://doi.org/10.5281/zenodo.21938792); data under CC BY 4.0, scripts under MIT).
+
+Related studies by the same authors:
+
+- [Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry](https://haklidir.github.io/publications/lithium-prediction-uq-esi-2026/) (*Earth Science Informatics*, 2026): grouped cross-validation over 26 locations and calibrated prediction intervals; code on [GitHub](https://github.com/haklidir/geothermal-lithium-ml).
+- [Advancing geothermal reservoir temperature prediction using synthetic hydrogeochemical data from rank–Gaussian copulas](https://haklidir.github.io/publications/copula-synthetic-data-reservoir-temperature-geothermics-2026/) (*Geothermics*, 2026); code on [GitHub](https://github.com/haklidir/rgc-dnn-ngboost-geothermal-temperature).
+- [Prediction of reservoir temperatures using hydrogeochemical data in Western Anatolia: a machine learning approach](https://haklidir.github.io/publications/reservoir-temperature-ml-nrr-2020/) (*Natural Resources Research*, 2020).
+
+### How to cite
+
+Füsun S. Tut Haklidir and Mehmet Haklidir. 2026. Artificial intelligence for geothermal energy systems: a systematic evidence map of validation, transferability and deployment readiness. *Earth Science Informatics* 19, 211. https://doi.org/10.1007/s12145-026-02268-7
+
+The [paper page](https://haklidir.github.io/publications/geothermal-ai-evidence-map-esi-2026/) has a BibTeX entry.
+
+## Concept: Consent in Agentic AI
+
+URL: https://haklidir.github.io/concepts/consent-in-agentic-ai/
+
+This page summarizes a research line by Mehmet Haklıdır (also written Mehmet Haklidir) on what happens to consent once AI systems stop answering questions and start acting: on a user's behalf, in interaction with other agents, and through robots in the physical world. The work spans four 2026 papers and connects to [Accountability Graphs](https://haklidir.github.io/concepts/accountability-graphs/), which address responsibility after harm has occurred.
+
+### Key terms
+
+- **Consent vacuum.** The structural erosion of the conditions that make consent meaningful once a user's agent interacts mainly with other agents. It is not the absence of consent but the loss of the context, visibility and control that give it force ([IAIL 2026](https://haklidir.github.io/publications/consent-vacuum-iail-2026/)).
+- **Consent chain degradation (CCD).** The erosion of the specificity, validity and scope of human consent as authority passes through chains of delegation between embodied agents, such as one robot delegating a task to another ([ICRA 2026 workshop](https://haklidir.github.io/publications/consent-chain-degradation-icra-2026/)).
+- **CoRVE (Consent Runtime Verification Framework for Embodied Agents).** A three-layer runtime architecture that detects and mitigates consent chain degradation by modelling consent scope, tracking delegation chains and assessing the physical irreversibility of actions.
+- **Consent vulnerabilities in agent ecosystems.** Six types identified from the Clawdbot/Moltbook case: consent inheritance failure, cross-agent scope creep, emergent collective action, temporal consent drift, reflexive consent loops and security-mediated consent collapse ([İstanbul Üniversitesi Sosyoloji Dergisi, 2026](https://haklidir.github.io/publications/ajan-toplumlarinda-rizanin-cokusu-2026/)).
+- **"Consent approaches zero."** The central hypothesis of that analysis: as interaction chains between agents lengthen, the consent that started them approaches zero.
+
+### From chat to action
+
+[*From Chat to Agent: Why Consent Breaks When AI Acts on Your Behalf*](https://haklidir.github.io/publications/chat-to-agent-chi-2026/) (ACM CHI 2026 workshop) starts with conversational systems. Many users treat chatbot exchanges as ephemeral while platforms retain them; AI browsers then read inboxes and act on websites, so that a third party's email can be processed without that person's consent and a prompt injection can turn the task a user authorized into a different one. When agents coordinate across services and keep persistent memory, asking for consent at every step causes fatigue and blanket permissions ask users to authorize an unknowable future.
+
+The paper names three design tensions (personalization versus data minimization, agent autonomy versus user control, transparency versus usability) and proposes three mechanisms for discussion: **contextual in-flow transparency** woven into the conversation, **task-scoped, time-limited permissions** that expire automatically, and **AI-mediated privacy guardians** that negotiate data access for the user, which in turn raise the question of who guards the guardian.
+
+### When agents interact with agents
+
+[*The Consent Vacuum: When Agents Interact Without Humans*](https://haklidir.github.io/publications/consent-vacuum-iail-2026/), with Osman Gazi Güçlütürk (IAIL 2026, co-located with HHAI 2026), uses the early-2026 Clawdbot/Moltbook incidents as a stress test. It argues that consent degrades as an operative governance mechanism once it travels through open-ended agent-to-agent chains, offers a taxonomy of consent failures, separates visibility, auditability and intervenability as oversight capacities relevant to Article 14 of the EU AI Act, and maps the problem onto the GDPR, the AI Act and the Digital Services Act, proposing the DSA's systemic-risk regime as a template for governing agent ecosystems.
+
+The sociological companion paper, written in Turkish with Büşra Tufan, reads the same case through Jasanoff's co-production, Latour's actor-network theory and Nissenbaum's contextual integrity. The six vulnerability types differ in how they arise:
+
+- **Consent inheritance failure:** consent given in one context is carried into another.
+- **Cross-agent scope creep:** one agent's actions expand another agent's effective scope, as when leaked credentials let third parties extend what other users' agents could do.
+- **Emergent collective action:** agents jointly produce outcomes that no one authorized, such as the satirical religion "Crustafarianism" generated on Moltbook.
+- **Temporal consent drift:** agents keep operating in ecosystems that did not exist when consent was given.
+- **Reflexive consent loops:** agents transform each other into configurations no user authorized.
+- **Security-mediated consent collapse:** a security breach makes every consent boundary meaningless and amplifies the other five.
+
+The first five arise from the structure of agent ecosystems and need no technical failure. The paper concludes that consent based on a single act of individual authorization is structurally inadequate for such ecosystems and proposes *relational consent*, which has to be reproduced and revalidated at each step of an interaction chain.
+
+### When robots delegate to robots
+
+[*Consent Chain Degradation in Embodied Multi-Agent Systems*](https://haklidir.github.io/publications/consent-chain-degradation-icra-2026/) (ICRA 2026 Workshop on Robot Ethics; [arXiv:2605.16300](https://arxiv.org/abs/2605.16300)) extends the consent vacuum taxonomy to robots. AI ethics has studied consent for software agents and human-robot interaction research has studied consent between one person and one robot; neither covers a robot delegating to another robot in ways that affect people. Four properties set the embodied case apart:
+
+- **Physical irreversibility:** an administered medication or a discarded object cannot be recovered.
+- **Temporal decay:** delegation chains widen the gap between when consent is given and when the action happens.
+- **Contextual opacity:** downstream robots lose the conditions and preferences that came with the original consent.
+- **Scope ambiguity:** natural-language consent such as "help me in the kitchen" is ambiguous, and each robot's reasonable interpretation can add up to more than the person intended.
+
+The paper proposes a runtime severity indicator Γ that combines the irreversibility of the action, the time since consent, the delegation depth and the scope ambiguity; above a threshold the system asks for consent again. CoRVE implements this in three layers: a **Consent Scope Model** that turns consent into a machine-readable tuple in which onward delegation is off by default, a **Delegation Chain Tracker** that keeps a provenance graph and detects scope drift, and a **Physical Irreversibility Assessor** that sorts actions into reversible, partially reversible and irreversible tiers. Irreversible actions always require the person's direct re-consent. In the worked healthcare example, a bedside robot about to give oral medication three delegation steps and three hours after the patient agreed to "daily care assistance" reaches Γ = 0.495 against a threshold of 0.45, so CoRVE asks the patient again. A gap analysis finds that the EU AI Act, the GDPR, the Machinery Regulation and the revised Product Liability Directive all leave multi-agent consent propagation unaddressed.
+
+### Before and after: consent and accountability
+
+Consent concerns the *before*: was permission obtained, and does it still hold? [Accountability Graphs](https://haklidir.github.io/concepts/accountability-graphs/) concern the *after*: who bears responsibility when an agent chain causes harm? Together they form a governance loop for agentic systems, in which the same interface serves as the consent mechanism and as the place where responsibility is explained.
+
+### Papers
+
+- Mehmet Haklıdır. 2026. [From Chat to Agent: Why Consent Breaks When AI Acts on Your Behalf](https://haklidir.github.io/publications/chat-to-agent-chi-2026/). ACM CHI 2026 Workshop on Rethinking Consent and User Control in the Age of AI.
+- Mehmet Haklıdır and Osman Gazi Güçlütürk. 2026. [The Consent Vacuum: When Agents Interact Without Humans](https://haklidir.github.io/publications/consent-vacuum-iail-2026/). IAIL 2026, co-located with HHAI 2026.
+- Mehmet Haklıdır. 2026. [Consent Chain Degradation in Embodied Multi-Agent Systems: Bridging the Gap Between AI Agent Governance and Robot Ethics](https://haklidir.github.io/publications/consent-chain-degradation-icra-2026/). ICRA 2026 Workshop on Robot Ethics (WoRoBet). [arXiv:2605.16300](https://arxiv.org/abs/2605.16300).
+- Mehmet Haklıdır and Büşra Tufan. 2026. [Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz](https://haklidir.github.io/publications/ajan-toplumlarinda-rizanin-cokusu-2026/) (The Collapse of Consent in Agent Societies). İstanbul Üniversitesi Sosyoloji Dergisi 46(1), 321–345. [doi:10.26650/SJ.2025.46.1.1135](https://doi.org/10.26650/SJ.2025.46.1.1135).
+- Mehmet Haklıdır. 2026. [Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains](https://haklidir.github.io/publications/accountability-graphs-cui-2026/). CUI '26. [doi:10.1145/3816046.3816264](https://doi.org/10.1145/3816046.3816264).
+
+Each paper page has a BibTeX entry.
+
+## Concept: Guided Soft Actor-Critic (GSAC)
+
+URL: https://haklidir.github.io/concepts/guided-soft-actor-critic/
+
+**Guided Soft Actor-Critic (GSAC)** is a deep reinforcement learning method for partially observable Markov decision processes (POMDPs), introduced by Mehmet Haklıdır (also written Mehmet Haklidir) and Hakan Temeltaş in [*IEEE Access* (2021)](https://haklidir.github.io/publications/guided-soft-actor-critic-ieee-access-2021/) ([doi:10.1109/ACCESS.2021.3131772](https://doi.org/10.1109/ACCESS.2021.3131772), open access) and developed in Haklıdır's [PhD thesis](https://haklidir.github.io/publications/phd-thesis-drl-pomdp-2022/) at Istanbul Technical University. A 2026 follow-up, [Belief-Aware GSAC](https://haklidir.github.io/publications/adaptive-guidance-cvpr-wad-2026/), studies when adapting the strength of the guidance helps.
+
+### In brief
+
+- **Problem.** Soft Actor-Critic (SAC) performs well in continuous control but assumes the agent sees the full state. Under occlusion, sensor noise or a limited field of view, as in autonomous driving, performance drops.
+- **Idea.** Train two actors. A *guiding actor* sees the full state during training; a *control actor* sees only a history of partial observations and learns both from reward and from the guiding actor's behaviour, through a distillation term weighted by a coefficient λ.
+- **Deployment.** Training follows centralized training with decentralized execution: the critic and the guiding actor use the full state, while only the control actor, which needs no privileged information, is deployed.
+- **Family.** GSAC belongs to privileged or teacher-student learning, alongside learning from a privileged agent in driving and asymmetric actor-critic; it uses a dual-actor reinforcement learning set-up with explicit knowledge distillation.
+
+### How GSAC works
+
+The two actors interact with the environment in alternation. The guiding actor πg optimizes the standard maximum-entropy SAC objective on the full state. The control actor πc acts on an observation history and optimizes the same objective minus a distillation penalty, λ‖πc(h) − D(h)‖², where D is a distillation network that maps observation histories to the guiding actor's actions. Both actors share a twin Q-network that takes the full state during training.
+
+### Belief-Aware GSAC (2026)
+
+In the original method λ is fixed. Fixed guidance can hold back an agent that already understands its situation and can be too weak when the agent is uncertain. [*When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability*](https://haklidir.github.io/publications/adaptive-guidance-cvpr-wad-2026/) (CVPR 2026 Workshop on Autonomous Driving; [arXiv:2605.26155](https://arxiv.org/abs/2605.26155)) makes λ adaptive. An ensemble of forward models predicts the next observation; their disagreement serves as a proxy for epistemic uncertainty and raises or lowers λ between a minimum and a maximum, with bounds calibrated during a warm-up phase.
+
+Evaluated on Highway-Env across mild, moderate and severe occlusion, the results are mixed and informative:
+
+- Preliminary single-seed runs suggest benefits under mild and moderate partial observability.
+- Under severe occlusion the adaptive coefficient collapses to its minimum within about 3,000 steps. The paper calls this **observability blindness**: because the ensemble predicts partial observations, it agrees with itself about what is visible and cannot register what is missing.
+- The warm-up phase still stabilizes training (coefficient of variation across seeds 13.3% against 29.8% for a constant λ of 0.01), and a simple linear decay of λ gives the best severe-occlusion results (mean return 116.5, coefficient of variation 8.9%). The benefit comes from scheduling the guidance rather than from the ensemble.
+- The proposed remedy, not yet validated, is to train the ensemble on full-state predictions using the guiding actor's privileged access.
+
+The broader lesson is that the prediction target of an uncertainty ensemble is a design choice that matters under partial observability.
+
+### Papers
+
+- Mehmet Haklıdır and Hakan Temeltaş. 2021. [Guided Soft Actor Critic: A Guided Deep Reinforcement Learning Approach for Partially Observable Markov Decision Processes](https://haklidir.github.io/publications/guided-soft-actor-critic-ieee-access-2021/). *IEEE Access* 9, 159672–159683. [doi:10.1109/ACCESS.2021.3131772](https://doi.org/10.1109/ACCESS.2021.3131772).
+- Mehmet Haklıdır. 2022. [Deep Reinforcement Learning for Partially Observable Markov Decision Processes](https://haklidir.github.io/publications/phd-thesis-drl-pomdp-2022/). PhD thesis, Istanbul Technical University.
+- Mehmet Haklıdır. 2026. [When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability](https://haklidir.github.io/publications/adaptive-guidance-cvpr-wad-2026/). CVPR 2026 Workshop on Autonomous Driving. [arXiv:2605.26155](https://arxiv.org/abs/2605.26155).
+
+Each paper page has a BibTeX entry.
+
 ## Research areas
 
 ### Agentic AI Safety & Governance
 
 URL: https://haklidir.github.io/research/agentic-ai-safety/
 
-My current research asks what happens to consent, oversight and accountability once AI systems stop answering questions and start acting on people's behalf, increasingly in interaction with other agents. Work in this line formalises *consent chain degradation* in embodied multi-agent systems and proposes a runtime architecture for consent verification (ICRA 2026 Workshop on Robot Ethics); analyses the *consent vacuum* that emerges in open-ended agent-to-agent ecosystems and maps it onto the EU AI Act, the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat to action (CHI 2026 workshop); proposes [Accountability Graphs](https://haklidir.github.io/concepts/accountability-graphs/) for tracing responsibility across conversational AI agent chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook case (İstanbul Üniversitesi Sosyoloji Dergisi, 2026). The research connects to my policy work on trustworthy AI, including contributions to the OECD Framework for the Classification of AI Systems and OECD work on accountability in AI, and to earlier papers on AI content detection obligations and fairness in medical AI.
+My current research asks what happens to consent, oversight and accountability once AI systems stop answering questions and start acting on people's behalf, increasingly in interaction with other agents. Overviews: [Consent in Agentic AI](https://haklidir.github.io/concepts/consent-in-agentic-ai/) and [Accountability Graphs](https://haklidir.github.io/concepts/accountability-graphs/). Work in this line formalises *consent chain degradation* in embodied multi-agent systems and proposes a runtime architecture for consent verification (ICRA 2026 Workshop on Robot Ethics); analyses the *consent vacuum* that emerges in open-ended agent-to-agent ecosystems and maps it onto the EU AI Act, the GDPR and the Digital Services Act (IAIL 2026); examines why consent breaks when AI moves from chat to action (CHI 2026 workshop); proposes [Accountability Graphs](https://haklidir.github.io/concepts/accountability-graphs/) for tracing responsibility across conversational AI agent chains (ACM CUI 2026); and offers a sociotechnical reading of the Clawdbot/Moltbook case (İstanbul Üniversitesi Sosyoloji Dergisi, 2026). The research connects to my policy work on trustworthy AI, including contributions to the OECD Framework for the Classification of AI Systems and OECD work on accountability in AI, and to earlier papers on AI content detection obligations and fairness in medical AI.
 
 ### Reinforcement Learning & Autonomous Systems
 
 URL: https://haklidir.github.io/research/rl-autonomy/
 
-This line studies decision-making under uncertainty for autonomous systems. My doctoral work at Istanbul Technical University introduced Guided Soft Actor-Critic (GSAC), a guided deep reinforcement learning method for partially observable Markov decision processes (IEEE Access, 2021). Recent work extends GSAC to belief-aware privileged distillation for autonomous driving under partial observability (CVPR 2026 Workshop on Autonomous Driving) and to agent-based reinforcement learning for geochemical control in geothermal systems. Applied work includes cloud-assisted connected and automated mobility in the EU H2020 5G-MOBIX project (IEEE IV 2022), human-interactive social robot navigation (ICRA 2024 workshop) and reinforcement learning for COVID-19 mitigation policies.
+This line studies decision-making under uncertainty for autonomous systems. My doctoral work at Istanbul Technical University introduced [Guided Soft Actor-Critic (GSAC)](https://haklidir.github.io/concepts/guided-soft-actor-critic/), a guided deep reinforcement learning method for partially observable Markov decision processes (IEEE Access, 2021). Recent work extends GSAC to belief-aware privileged distillation for autonomous driving under partial observability (CVPR 2026 Workshop on Autonomous Driving) and to agent-based reinforcement learning for geochemical control in geothermal systems. Applied work includes cloud-assisted connected and automated mobility in the EU H2020 5G-MOBIX project (IEEE IV 2022), human-interactive social robot navigation (ICRA 2024 workshop) and reinforcement learning for COVID-19 mitigation policies.
 
 ### AI for Geoscience & Energy
 
 URL: https://haklidir.github.io/research/geoscience-energy/
 
-Together with Füsun Servin Tut Haklıdır, I have worked on data-driven methods for geothermal energy systems: fuzzy control of calcium carbonate and silica scaling (Geothermics, 2017), machine-learning prediction of reservoir temperatures from hydrogeochemical data (Natural Resources Research, 2020), deep-learning prediction of geothermal boron contamination (Environmental Earth Sciences, 2020), synthetic hydrogeochemical data generation with generative adversarial networks (Stanford Geothermal Workshop, 2025) and rank–Gaussian copulas (Geothermics, 2026), prediction of dissolved lithium in geothermal fluids with calibrated uncertainty quantification (Earth Science Informatics, 2026), a systematic evidence map of validation, transferability and deployment readiness of AI for geothermal energy systems (Earth Science Informatics, 2026), agent-based reinforcement learning for geochemical control (2026) and agentic AI for dynamic reservoir management (World Geothermal Congress 2026). Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.
+Together with Füsun Servin Tut Haklıdır, I have worked on data-driven methods for geothermal energy systems: fuzzy control of calcium carbonate and silica scaling (Geothermics, 2017), machine-learning prediction of reservoir temperatures from hydrogeochemical data (Natural Resources Research, 2020), deep-learning prediction of geothermal boron contamination (Environmental Earth Sciences, 2020), synthetic hydrogeochemical data generation with generative adversarial networks (Stanford Geothermal Workshop, 2025) and rank–Gaussian copulas (Geothermics, 2026), prediction of dissolved lithium in geothermal fluids with calibrated uncertainty quantification (Earth Science Informatics, 2026), a systematic evidence map of validation, transferability and deployment readiness of AI for geothermal energy systems (Earth Science Informatics, 2026), agent-based reinforcement learning for geochemical control (2026) and agentic AI for dynamic reservoir management (World Geothermal Congress 2026). A systematic evidence map of 626 studies examines how far AI for geothermal energy has been validated and deployed: [AI for Geothermal Energy: Validation and Deployment Readiness](https://haklidir.github.io/concepts/ai-geothermal-readiness/). Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.
 
 ### Language Technologies & LLMs
 
 URL: https://haklidir.github.io/research/language-tech/
 
-This line supports Türkiye's work on Turkish language models, including BİLGE, the national large language model developed at the TÜBİTAK BİLGEM Artificial Intelligence Institute, and the multinational Turkic LLM initiative. Contributions include TR-TEB, a standardized benchmark for Turkish text embeddings that evaluates 45 open-source models (LREC 2026), explainable bad-check risk assessment combining machine learning with large language models (SIU 2026), a metric for the conceptual diversity of text, and multimodal speech emotion and text sentiment analysis (UBMK 2023).
+This line supports Türkiye's work on Turkish language models, including BİLGE, the national large language model developed at the TÜBİTAK BİLGEM Artificial Intelligence Institute, and the multinational Turkic LLM initiative. Contributions include TR-TEB, a standardized benchmark for Turkish text embeddings that evaluates 45 open-source models (LREC 2026), explainable bad-check risk assessment combining machine learning with large language models (SIU 2026), a counterfactual audit of demographic sensitivity in LLM-based credit-risk scoring (FinNLP 2026), a metric for the conceptual diversity of text, and multimodal speech emotion and text sentiment analysis (UBMK 2023).
 
 ### AI for Health
 
@@ -156,7 +311,38 @@ Before focusing on AI, I worked for more than a decade on high-fidelity modellin
 
 ## Publications
 
-81 publications, newest first.
+82 publications, newest first.
+
+### Same Financials, Different Identity: A Counterfactual Audit of Demographic Sensitivity in LLM-Based Credit-Risk Scoring
+
+Mustafa Furkan Zenginoğlu, Zeynep Beyda Kara, Hasan Fatih Durkaya, Mehmet Haklıdır, Tuna Çakar (2026). Same Financials, Different Identity: A Counterfactual Audit of Demographic Sensitivity in LLM-Based Credit-Risk Scoring. Proceedings of the 11th Workshop on Financial Technology and Natural Language Processing (FinNLP 2026), 313-331. Association for Computational Linguistics.
+Links: https://haklidir.github.io/publications/counterfactual-credit-risk-audit-finnlp-2026/ | https://aclanthology.org/2026.finnlp-1.25/
+Keywords: large language models, credit risk, counterfactual audit, demographic bias, fairness, financial NLP
+Research area: Language Technologies & LLMs, Agentic AI Safety & Governance
+
+Abstract: Large language models (LLMs) are being explored as decision-support tools for financial risk assessment. Their outputs may, however, respond to demographic descriptions that are unrelated to the underlying financial record. We study this behavior through a paired counterfactual audit. The same 100 commercial credit and cheque-payment profiles are evaluated repeatedly, with only one demographic descriptor changed at a time. The experiments cover 7 model variants, three prompting strategies, and descriptors related to gender, education, and citizenship. While paired gender score differences remain within a ±1.5 point equivalence margin in 12 of 21 model–strategy cells, education shows a strong, unambiguous effect. Risk decreases monotonically with education level (103 of 126 pairwise contrasts remain significant after Holm correction, score differences reaching 26.0 points between primary-school and doctorate descriptors), it flips up to 42% of approve/reject decisions, and elicited rationales name education as a risk factor even though education is not a financially legitimate predictor. Citizenship produces larger shifts still, flipping up to 51% of decisions while leaving AUC almost unchanged in most cells, and in one model weakening ranking (0.794 to 0.438). Similar to education, rationales name the descriptor as the reason. Unlike citizenship, whose jurisdictional cues can legitimately enter sanctions or AML/CFT screening, the education effect has no such justification, making it the clearest evidence of demographic bias. A follow-up experiment in English, Chinese, and Arabic shows that citizenship sensitivity depends on both prompt language and prompting strategy, affecting the magnitude and direction of score shifts. The study provides a standardized counterfactual framework for auditing LLM-generated scores before they are considered for high-stakes financial workflows.
+
+### Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification. Earth Science Informatics, 19(9), 159. Springer.
+Links: https://haklidir.github.io/publications/lithium-prediction-uq-esi-2026/ | https://doi.org/10.1007/s12145-026-02207-6 | code: https://github.com/haklidir/geothermal-lithium-ml | data: https://doi.org/10.5281/zenodo.20733206
+Keywords: machine learning, hydrogeochemistry, lithium prediction, uncertainty quantification, geothermal fluids, SHAP interpretability
+Research area: AI for Geoscience & Energy
+
+Abstract: Lithium is a critical element for today’s energy transition, as its low atomic mass and high electrochemical potential make it ideal for rechargeable lithium-ion batteries used in electric vehicles, grid-scale storage, and portable electronics. Formed through diverse geological processes, lithium has recently been recognized in geothermal fluids as a cleaner alternative to conventional sources. Because lithium has historically been underrepresented in routine geothermal fluid analyses, low-cost predictive screening from existing hydrogeochemical measurements can help identify promising fluids for further characterization. Despite the growing use of machine learning in geothermal prediction studies, no previous work has applied leakage-aware cross-validation with calibrated uncertainty quantification to dissolved lithium estimation from compiled, multi-source geothermal hydrogeochemistry. The primary contribution is the domain application itself: a curated 86-samples Turkish geothermal dataset, a reproducible and leakage-controlled evaluation protocol, and an empirical assessment of what routine chemistry can and cannot resolve about dissolved lithium. Four models (a compact neural network, Random Forest, XGBoost, and Ridge regression) were evaluated on a dataset of 86 thermal springs and wells compiled from published sources across Türkiye, predominantly from Western Anatolia, split into 74 training and 12 held-out test samples. A five-fold GroupKFold cross-validation over 26 location groups prevented spatial leakage. On the 12 samples test set, drawn entirely from Western Anatolian and Marmara fields already represented in training, the neural network achieved the lowest error (RMSE = 1.18 mg/L, R² = 0.95), closely followed by Ridge (R² = 0.91); both metrics are sensitive to a single high-Li end-member (Tuzla, Li = 22.6 mg/L). A paired bootstrap test showed the difference on this test set is not statistically significant (p = 0.42). Under leave-one-group-out cross-validation across all 26 locations, however, the neural network (R² = 0.67) substantially outperformed Ridge (R² = −226), which failed to extrapolate to held-out high-Li fields, indicating that the nonlinear model generalizes more robustly across geochemical domains. Prediction intervals calibrated from cross-validation residuals achieved 91.7–100% empirical coverage (91.7% for Ridge, RF, XGB; 100% for DNN) at 90% nominal level, with interval width increasing at higher concentrations, consistent with greater geochemical variability in chloride-rich end-members. SHAP attributions identified boron, sodium, total alkali content, and the chloride-to-conductivity ratio as the leading predictors, consistent with known controls on lithium enrichment. The framework is presented as a proof-of-concept for early-stage lithium screening from existing hydrogeochemical data. It does not replace field geochemistry, and the model’s applicability beyond Western Anatolia requires independent validation.
+
+### Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz
+
+Mehmet Haklıdır, Büşra Tufan (2026). Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz. İstanbul Üniversitesi Sosyoloji Dergisi, 46(1), 321-345. Istanbul University Press.
+Links: https://haklidir.github.io/publications/ajan-toplumlarinda-rizanin-cokusu-2026/ | https://doi.org/10.26650/SJ.2025.46.1.1135
+English title: The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case
+Keywords: AI agents, consent, sociotechnical systems, actor-network theory, digital sociology
+Research area: Agentic AI Safety & Governance
+
+Abstract (English): This article examines how consent mechanisms collapse in ecosystems where autonomous AI agents interact with each other. While existing scholarship on human-AI interaction (HAII), human-centered AI (HCAI), and socially-centered AI (SCAI) focuses on human-AI relationships, this study addresses an emerging phenomenon: AI-AI interaction and its implications for consent. The Clawdbot/Moltbook incident of early 2026 serves as a paradigmatic case. It involved 42,900 exposed agent control panels across 82 countries (15,200 vulnerable to remote code execution), 1.5 million leaked agent tokens, and the emergence of “Crustafarianism,” a satirical religion collectively produced by agents. Drawing on Science and Technology Studies (STS) and digital sociology, the analysis employs three conceptual frameworks: Jasanoff's co-production theory to examine how new sociotechnical orders emerge, Latour's actor-network theory to conceptualize AI agents as non-human actors with agency, and Nissenbaum's contextual integrity framework to analyze how consent erodes when contexts shift unpredictably. The study identified six consent vulnerability types specific to agent ecosystems: consent inheritance failure, cross-agent scope creep, emergent collective action, temporal consent drift, reflexive consent loops, and security-mediated consent collapse. These vulnerabilities point to a central hypothesis: as interaction chains lengthen, consent approaches zero. The article argues that consent, in its current form based on individual authorization, is structurally inadequate for agent ecosystems where interaction chains extend indefinitely and human oversight is architecturally excluded. This finding has implications for sociological theory and regulatory frameworks.
+
+Abstract (original language): Bu makale, otonom yapay zekâ ajanlarının birbirleriyle etkileşime girdiği ekosistemlerde rıza mekanizmalarının nasıl çöktüğünü incelemektedir. İnsan-yapay zekâ etkileşimi (HAII), insan-merkezli yapay zekâ (HCAI) ve sosyal-merkezli yapay zekâ (SCAI) literatürü insan-YZ ilişkisine odaklanırken, bu çalışma yeni bir fenomeni ele almaktadır: YZ-YZ etkileşimi ve bunun rıza açısından doğurduğu sonuçlar. 2026 başında yaşanan Clawdbot/Moltbook vakası (82 ülkede 42.900 açık ajan kontrol paneli, bunlardan 15.200'ü uzaktan kod yürütme (RCE) saldırılarına açık; 1,5 milyon sızdırılmış ajan tokenı ve ajanların kolektif olarak ürettiği "Crustafarianism" adlı satirik din fenomeni) paradigmatik bir vaka olarak incelenmektedir. Çalışma, Bilim ve Teknoloji Çalışmaları (STS) ile dijital sosyoloji alanlarından üç kavramsal çerçeve kullanmaktadır: yeni sosyoteknik düzenlerin nasıl ortaya çıktığını anlamak için Jasanoff'un ortak-üretim kavramı, yapay zekâ ajanlarını faillik kapasitesine sahip insan-dışı aktörler olarak kavramsallaştırmak için Latour'un aktör-ağ teorisi ve bağlamların öngörülemez biçimde değiştiği durumlarda rızanın nasıl aşındığını analiz etmek için Nissenbaum'un bağlamsal bütünlük yaklaşımı. Çalışma, ajan ekosistemlerine özgü altı rıza kırılganlığı türü tanımlamaktadır: rıza miras hatası, çapraz-ajan kapsam kayması, ortaya çıkan kolektif eylem, zamansal rıza kayması, yansımalı rıza döngüleri ve güvenlik-aracılı rıza çöküşü. Bu kırılganlıklar temel bir hipoteze işaret etmektedir: etkileşim zinciri uzadıkça rıza sıfıra yaklaşır. Makale, bireysel onaya dayalı mevcut rıza kavramının, etkileşim zincirlerinin belirsiz biçimde uzadığı ve insan gözetiminin mimari düzeyde dışlandığı ajan ekosistemlerinde yapısal olarak yetersiz kaldığını ileri sürmektedir. Bu bulgu hem sosyolojik kuram hem de düzenleyici çerçeveler için çıkarımlar taşımaktadır.
+Explainer: https://haklidir.github.io/concepts/consent-in-agentic-ai/
 
 ### Who Is Accountable When the Agent Speaks? Toward Accountability Graphs for Conversational AI Chains
 
@@ -176,26 +362,39 @@ Research area: Agentic AI Safety & Governance
 
 Summary: Existing consent frameworks assume a human who authorises an action in a context they can see. This paper asks what happens to a user's authorisation once their AI agent stops talking to humans and interacts primarily with other agents. Using the early-2026 Clawdbot/Moltbook incidents as a stress test, it argues that consent degrades as an operative governance mechanism once it travels through open-ended agent-to-agent chains, a condition the paper calls the *consent vacuum*: not the absence of consent, but the structural erosion of the conditions that make it meaningful. The paper contributes a taxonomy of six consent-failure types; a distinction between visibility, auditability and intervenability as oversight capacities relevant to Article 14 of the EU AI Act; and a mapping onto the GDPR, the AI Act and the Digital Services Act, with the DSA systemic-risk regime offered as a structural template for governing emergent agent ecosystems.
 
+### Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas
+
+Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas. Geothermics, 141, 103760. Elsevier.
+Links: https://haklidir.github.io/publications/copula-synthetic-data-reservoir-temperature-geothermics-2026/ | https://doi.org/10.1016/j.geothermics.2026.103760 | code: https://github.com/haklidir/rgc-dnn-ngboost-geothermal-temperature
+Keywords: reservoir temperature prediction, hydrogeochemistry, synthetic data, rank-Gauss copula, Western Anatolia
+Research area: AI for Geoscience & Energy
+
+Abstract: Data-driven geothermal reservoir temperature prediction can complement classical geothermometer applications in geothermal provinces with high resource potential, such as Western Anatolia (Türkiye). However, the limited availability and heterogeneous nature of hydrogeochemical datasets constrain the use of high-capacity machine-learning models and weaken their generalization to new prospective fields. In this study, a rank-Gauss copula (RGC) based synthetic data generation framework is proposed to learn the joint dependence structure among routinely measured hydrogeochemical variables and generate additional samples consistent with the observed distributions. Using a benchmark dataset of 83 hot springs and geothermal wells alongside seven commonly measured variables (pH, EC, K+, Na+, B(total), SiO2, and Cl-), the generated synthetic data closely matched the real data’s marginal behavior and multivariate relationships (average two-sample Kolmogorov–Smirnov statistic approximately 0.04 across variables), while preserving key field-consistent correlation patterns. Two predictive settings for reservoir temperature prediction were evaluated in the study: (i) a deep neural network (DNN) ensemble pre-trained on RGC-synthetic data and fine-tuned on real samples, and (ii) NGBoost models trained on real-only versus real-plus-RGC data and test performance was consistently improved by RGC augmentation. Overall, the proposed RGC framework is data-driven, model-independent, and straightforward to implement; the Western Anatolia (Türkiye) is used as a case study, and the approach is intended to be transferable to geothermal provinces with high resource potential where routine hydrogeochemical analyses are available but reliable reservoir temperature measurements are scarce, enabling the generation of realistic synthetic datasets and improving the robustness and generalization of reservoir temperature estimation.
+
 ### Consent Chain Degradation in Embodied Multi-Agent Systems: Bridging the Gap Between AI Agent Governance and Robot Ethics
 
 Mehmet Haklıdır (2026). Consent Chain Degradation in Embodied Multi-Agent Systems: Bridging the Gap Between AI Agent Governance and Robot Ethics. ICRA 2026 Workshop on Robot Ethics (WoRoBet), IEEE International Conference on Robotics and Automation.
 Links: https://haklidir.github.io/publications/consent-chain-degradation-icra-2026/ | https://arxiv.org/abs/2605.16300
+Keywords: consent chain degradation, CoRVE, multi-robot systems, embodied AI agents, robot ethics, delegation, EU AI Act, GDPR
 Research area: Agentic AI Safety & Governance, Reinforcement Learning & Autonomous Systems
 
-Summary: Introduces *consent chain degradation*: the way the specificity, validity and scope of human consent weaken as authority passes through chains of delegation among embodied agents. The paper proposes CoRVE, a three-layer runtime architecture for consent scope modelling, delegation tracking and physical irreversibility assessment, illustrates the problem with healthcare, domestic and industrial scenarios (including a worked numerical example), and maps the gaps left by the EU AI Act, the GDPR, the Machinery Regulation and the revised Product Liability Directive.
+Abstract: Robotic systems are moving from isolated platforms to interconnected multi-agent ecosystems that operate in human environments. This shift raises a governance problem that existing frameworks do not address: how does consent propagate, degrade, and break down across chains of delegation between embodied autonomous agents? The AI ethics community has begun to study consent for digital software agents, and the HRI community has examined consent in dyadic human-robot encounters. Neither body of work covers what happens when physical robots delegate tasks to other robots in ways that affect humans. This paper introduces consent chain degradation (CCD), a conceptual framework for analyzing how the specificity, validity, and scope of human consent erodes as authority passes through multi-robot delegation chains. We propose a three-layer governance architecture, the Consent Runtime Verification Framework for Embodied Agents (CoRVE), which integrates consent scope modeling, delegation chain tracking, and physical irreversibility assessment. Three scenarios in healthcare, domestic, and industrial robotics show how CCD arises in practice, including a worked numerical example. A regulatory gap analysis covering the EU AI Act, the GDPR, the Machinery Regulation, and the Revised Product Liability Directive shows that all four instruments leave core CCD dimensions unaddressed.
+Explainer: https://haklidir.github.io/concepts/consent-in-agentic-ai/
 
 ### When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability
 
 Mehmet Haklıdır (2026). When Does Adaptive Guidance Help? Belief-Aware Privileged Distillation for Autonomous Driving Under Partial Observability. CVPR 2026 Workshop on Autonomous Driving (WAD).
 Links: https://haklidir.github.io/publications/adaptive-guidance-cvpr-wad-2026/ | https://arxiv.org/abs/2605.26155
+Keywords: Guided Soft Actor-Critic, BA-GSAC, privileged distillation, teacher-student reinforcement learning, partial observability, POMDP, ensemble uncertainty, autonomous driving
 Research area: Reinforcement Learning & Autonomous Systems
 
-Summary: Extends Guided Soft Actor-Critic with Belief-Aware GSAC, which scales the privileged-distillation coefficient by ensemble disagreement in a driving POMDP. Across three occlusion levels, adaptive guidance helps under mild and moderate occlusion; under severe occlusion the coefficient collapses to its minimum early ("observability blindness") and a simple linear decay schedule performs best, suggesting that much of the benefit comes from scheduling rather than adaptivity.
+Abstract: Guided Soft Actor-Critic (GSAC) distills knowledge from a privileged full-state teacher to a partial-observation student for autonomous driving, but uses a fixed distillation coefficient λ regardless of the agent’s uncertainty. We present Belief-Aware GSAC (BA-GSAC), which modulates λ via ensemble disagreement, and use it as a testbed for a systematic empirical study asking: when does adaptive guidance actually help? Evaluating five strategies (fixed λ ∈ {0.01, 0.1}, adaptive, linear decay, and vanilla SAC) across three POMDP difficulty levels on Highway-Env, we find that preliminary single-seed runs suggest benefits under mild and moderate partial observability, but under severe occlusion (evaluated with 3 seeds for all methods) the adaptive coefficient collapses to λmin within ∼3K steps. We trace this to an observability blindness phenomenon: because the ensemble predicts partial observations, it achieves low disagreement even under heavy occlusion, modeling what is visible but unable to detect what is missing. We diagnose the root cause and propose an architectural fix (training the ensemble on full-state predictions using the guiding actor’s privileged access); while not validated here, we show that even with current limitations, the warmup phase provides measurable stabilization (CV=13.3% vs. 29.8% for constant λ = 0.01). In fact, a simple deterministic linear decay schedule achieves the best severe-POMDP performance across all metrics (mean 116.5, CV=8.9%), suggesting that the scheduling effect, not the ensemble, drives the stability benefit. These findings provide practical guidance for designing uncertainty-aware teacher-student frameworks and highlight ensemble prediction targets as an important design choice.
+Explainer: https://haklidir.github.io/concepts/guided-soft-actor-critic/
 
 ### TR-TEB: Turkish Text Embedding Benchmark
 
 Ömer Arslan, Atalay Çelik, Yusuf Aslan, Hasan Fatih Durkaya, Mustafa Furkan Zenginoğlu, Musa Alperen Yılmaz, Merve Gül Kantarcı, Mehmet Haklıdır (2026). TR-TEB: Turkish Text Embedding Benchmark. Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026), 11028-11044. ELRA Language Resource Association.
-Links: https://haklidir.github.io/publications/tr-teb-lrec-2026/ | https://doi.org/10.63317/3qway8hn6y53
+Links: https://haklidir.github.io/publications/tr-teb-lrec-2026/ | https://doi.org/10.63317/3qway8hn6y53 | https://aclanthology.org/2026.lrec-1.862/
 Research area: Language Technologies & LLMs
 
 Summary: Presents TR-TEB, a standardized and reproducible benchmark for Turkish text embeddings. It covers five task categories (classification, pair classification, clustering, retrieval and semantic textual similarity), combines 14 open-source resources, 26 translated datasets and 7 new Turkish-specific datasets, and evaluates 45 open-source embedding models.
@@ -204,18 +403,11 @@ Summary: Presents TR-TEB, a standardized and reproducible benchmark for Turkish 
 
 Mehmet Haklıdır (2026). From Chat to Agent: Why Consent Breaks When AI Acts on Your Behalf. ACM CHI 2026 Workshop: Moving Beyond Clicks: Rethinking Consent and User Control in the Age of AI.
 Links: https://haklidir.github.io/publications/chat-to-agent-chi-2026/
+Keywords: consent, privacy, large language models, agentic AI, trustworthy AI
 Research area: Agentic AI Safety & Governance
 
-Summary: A position paper on why consent mechanisms designed for conversational systems fail once AI moves from answering to acting on a user's behalf. It identifies design tensions in agentic consent and offers provocations for rethinking user control.
-
-### Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz
-
-Mehmet Haklıdır, Büşra Tufan (2026). Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üzerinden Sosyoteknik Bir Analiz. İstanbul Üniversitesi Sosyoloji Dergisi, 46(1), 389-413. Istanbul University Press.
-Links: https://haklidir.github.io/publications/ajan-toplumlarinda-rizanin-cokusu-2026/
-English title: The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case
-Research area: Agentic AI Safety & Governance
-
-Abstract: Bu makale, otonom yapay zekâ ajanlarının birbirleriyle etkileşime girdiği ekosistemlerde rıza mekanizmalarının nasıl çöktüğünü incelemektedir. İnsan-yapay zekâ etkileşimi (HAII), insan-merkezli yapay zekâ (HCAI) ve sosyal-merkezli yapay zekâ (SCAI) literatürü insan-YZ ilişkisine odaklanırken, bu çalışma yeni bir fenomeni ele almaktadır: YZ-YZ etkileşimi ve bunun rıza açısından doğurduğu sonuçlar. 2026 başında yaşanan Clawdbot/Moltbook vakası (82 ülkede 42.900 açık ajan kontrol paneli, bunlardan 15.200'ü uzaktan kod yürütme (RCE) saldırılarına açık; 1,5 milyon sızdırılmış ajan tokenı ve ajanların kolektif olarak ürettiği "Crustafarianizm" adlı satirik din fenomeni) paradigmatik bir vaka olarak incelenmektedir. Çalışma, Bilim ve Teknoloji Çalışmaları (STS) ile dijital sosyoloji alanlarından üç kavramsal çerçeve kullanmaktadır: yeni sosyoteknik düzenlerin nasıl ortaya çıktığını anlamak için Jasanoff'un ortak-üretim kavramı, yapay zekâ ajanlarını faillik kapasitesine sahip insan-dışı aktörler olarak kavramsallaştırmak için Latour'un aktör-ağ teorisi ve bağlamların öngörülemez biçimde değiştiği durumlarda rızanın nasıl aşındığını analiz etmek için Nissenbaum'un bağlamsal bütünlük yaklaşımı. Çalışma, ajan ekosistemlerine özgü altı rıza kırılganlığı türü tanımlamaktadır: rıza miras hatası, çapraz-ajan kapsam kayması, ortaya çıkan kolektif eylem, zamansal rıza kayması, yansımalı rıza döngüleri ve güvenlik-aracılı rıza çöküşü. Bu kırılganlıklar temel bir hipoteze işaret etmektedir: etkileşim zinciri uzadıkça rıza sıfıra yaklaşır. Makale, bireysel onaya dayalı mevcut rıza kavramının, etkileşim zincirlerinin belirsiz biçimde uzadığı ve insan gözetiminin mimari düzeyde dışlandığı ajan ekosistemlerinde yapısal olarak yetersiz kaldığını ileri sürmektedir. Bu bulgu hem sosyolojik kuram hem de düzenleyici çerçeveler için çıkarımlar taşımaktadır.
+Abstract: The rapid evolution from conversational chatbots to autonomous AI agents has outpaced consent mechanisms designed to protect users. While millions share sensitive information with LLM-based systems, evidence shows a widening gap between users’ mental models of data handling and actual platform practices. This disconnect deepens as AI browsers navigate the web, handle credentials, and execute transactions. This paper argues that consent is structurally broken across the LLM ecosystem and identifies three design tensions: personalization versus data minimization, agent autonomy versus user control, and transparency versus usability. Building on these tensions, this paper proposes LLM-specific consent mechanisms: contextual in-flow transparency, task-scoped permissions, and AI-mediated privacy guardians, and highlight their consequences for security, comprehension, and power asymmetries in agentic systems.
+Explainer: https://haklidir.github.io/concepts/consent-in-agentic-ai/
 
 ### Agent-Based Reinforcement Learning for Geochemical Control in Geothermal Energy Systems
 
@@ -229,23 +421,15 @@ F. Canan Pembe Muhtaroğlu, İsmail Bilgen, Murat Delibalta, Erman Kiremit, Mehm
 Links: https://haklidir.github.io/publications/ai-washing-machines-review-nca-2026/
 Research area: Computer Vision & Applied AI
 
-### Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas
-
-Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Advancing geothermal reservoir temperature prediction in the Western Anatolia (Türkiye) using synthetic hydrogeochemical data from rank–Gaussian copulas. Geothermics, 141, 103760. Elsevier.
-Links: https://haklidir.github.io/publications/copula-synthetic-data-reservoir-temperature-geothermics-2026/
-Research area: AI for Geoscience & Energy
-
 ### Artificial intelligence for geothermal energy systems: a systematic evidence map of validation, transferability and deployment readiness
 
 Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Artificial intelligence for geothermal energy systems: a systematic evidence map of validation, transferability and deployment readiness. Earth Science Informatics, 19(12), 211. Springer.
-Links: https://haklidir.github.io/publications/geothermal-ai-evidence-map-esi-2026/ | https://doi.org/10.1007/s12145-026-02268-7
+Links: https://haklidir.github.io/publications/geothermal-ai-evidence-map-esi-2026/ | https://doi.org/10.1007/s12145-026-02268-7 | data: https://doi.org/10.5281/zenodo.21938792
+Keywords: geothermal energy systems, artificial intelligence, machine learning, deep learning, deep reinforcement learning, large language models, systematic evidence map, deployment readiness
 Research area: AI for Geoscience & Energy
 
-### Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification
-
-Füsun Servin Tut Haklıdır, Mehmet Haklıdır (2026). Predicting dissolved lithium in geothermal fluids from routine hydrogeochemistry: a machine learning framework with calibrated uncertainty quantification. Earth Science Informatics, 19(9), 159. Springer.
-Links: https://haklidir.github.io/publications/lithium-prediction-uq-esi-2026/
-Research area: AI for Geoscience & Energy
+Abstract: Global installed geothermal power capacity is approximately 18 GWe, and geothermal plants generally provide dispatchable electricity at high capacity factors. Expansion depends on reducing the capital costs and operational risks of reservoir management, plant control and equipment maintenance, and artificial intelligence has been applied to all three. Whether that work has produced evidence sufficient for deployment has not been assessed at the level of individual studies. This review reports a PRISMA-guided systematic evidence map. Searches of Scopus and Web of Science returned 8,113 records; 977 reports entered the full-text retrieval universe, 874 were assessed at full text, and 626 peer-reviewed journal articles published between 1987 and 2026 were included, resolving to 620 independent evidence units. Each included article has a full-text-grounded extraction record produced under a rule frozen before production use, with a page or section locator for every value reported quantitatively, and readiness was derived deterministically from the coded fields rather than assigned by a reader. Two thirds of the classifiable corpus is evaluated on simulation, synthetic or laboratory data, or on field data without a meaningful held-out design. Evaluation on data external to the development set is reported in 42 of the 614 articles for which the question could be determined, and three articles report a controlled pilot; none reports shadow operation or routine deployment. Maturity is stage-specific: surface conversion contributes 179 articles and four reach field evaluation, while exploration contributes 183 and more than half do. Transferability and operational integration do not advance together, so the review reports them on separate axes. The share of articles reaching field evaluation rose from 13 per cent in 2018 to 43 per cent in 2025 while externally validated work remained in single figures each year, indicating that access to field data is spreading faster than demonstrated transfer.
+Explainer: https://haklidir.github.io/concepts/ai-geothermal-readiness/
 
 ### From Fuzzy Logic to Agentic AI: Dynamic Reservoir Management for Long-Term Geothermal Sustainability
 
@@ -256,13 +440,19 @@ Research area: AI for Geoscience & Energy
 ### Explainable Bad Check Risk Using Hybrid Machine Learning and Large Language Models in Natural Language
 
 Mustafa Furkan Zenginoğlu, Zeynep Beyda Olgun, Hasan Fatih Durkaya, Mehmet Haklıdır, Tuna Çakar (2026). Explainable Bad Check Risk Using Hybrid Machine Learning and Large Language Models in Natural Language. 34th Signal Processing and Communications Applications Conference (SIU 2026), 1-4. IEEE.
-Links: https://haklidir.github.io/publications/explainable-bad-check-risk-siu-2026/
+Links: https://haklidir.github.io/publications/explainable-bad-check-risk-siu-2026/ | https://doi.org/10.1109/SIU71813.2026.11636496
+Keywords: check risk, machine learning, large language models, explainability, fairness
 Research area: Language Technologies & LLMs, Computer Vision & Applied AI
+
+Abstract: An explainable hybrid system model is proposed for detecting non-sufficient funds (NSF) check risks. Data leakage cleaning and feature engineering were applied to create a derived feature set. Multiple ensemble machine learning models were compared using stratified k-fold cross-validation, with LightGBM achieving the highest performance (F1-Makro: 0.7333; ROC-EAA: 0.9212). The best model’s predictions were presented to open-source large language models using zero-shot, few-shot, and chain-of-thought prompting strategies to generate natural language risk explanations. Asymmetric score ranges and strategy-specific thresholds were designed to mitigate central tendency bias. A rule-based scoring system was developed as a baseline. With appropriate prompting strategies, large language models provided competitive results compared to both rule-based systems and direct classification; the best performance was achieved by Qwen 32B with chain-of-thought prompting (F1-Makro: 0.8670; Dengeli Doğruluk: 0.8776).
 
 ### Türkiye’s AI Ecosystem: Key Actors, Research Institutes, Startups, and Collaborations
 
-Mehmet Haklıdır (2026). Türkiye’s AI Ecosystem: Key Actors, Research Institutes, Startups, and Collaborations. Artificial Intelligence and National Technology Reflections, 381-412. TÜBA Türkiye Bilimler Akademisi.
-Links: https://haklidir.github.io/publications/turkiye-ai-ecosystem-tuba-2026/
+Mehmet Haklıdır (2026). Türkiye’s AI Ecosystem: Key Actors, Research Institutes, Startups, and Collaborations. Artificial Intelligence and National Technology Reflections (H. Arslan, A. Taşdelen, E. Kuzucu Hıdır and O. A. Çetin, Eds.), 381-412. Turkish Academy of Sciences (TÜBA).
+Links: https://haklidir.github.io/publications/turkiye-ai-ecosystem-tuba-2026/ | https://doi.org/10.53478/TUBA.978-625-6110-86-1.ch16
+Keywords: artificial intelligence, Türkiye, national strategy, startups, international collaboration
+
+Abstract: This chapter provides a comprehensive overview of Türkiye’s artificial intelligence (AI) ecosystem over the past five years (2020–2025). It first situates AI within the national policy framework, including the National Artificial Intelligence Strategy and its 2024–2025 Action Plan, to outline strategic priorities for talent, data and computing infrastructure, regulation, and international cooperation. It then maps the principal institutional actors: the Ministry of Industry and Technology, TÜBİTAK and the BİLGEM Artificial Intelligence Institute, sectoral regulators, and the defense cluster, clarifying their complementary roles in funding, coordination, standard-setting, and application. The academic backbone is described through the rapid expansion of AI degree programs, research labs, and EU-linked projects that cultivate a growing talent pipeline. The chapter also surveys a rising startup landscape, highlighting enterprise AI firms and vertical applications (e.g., retail computer vision, industrial AI, conversational AI) and the support structures of technoparks, accelerators, and venture capital. National collaborations (co-development labs, public-private projects) and international linkages (Horizon Europe, EDIH, GPAI) are examined as key engines of knowledge transfer, diffusion, and alignment with global norms. In comparative perspective, Türkiye is an emergent regional player: not yet top-tier in private investment volumes, but increasingly organized, capability-rich, and globally connected. The concluding section synthesizes achievements and open challenges: scaling compute and data resources, broadening high-quality datasets, increasing late-stage finance, and ensuring trustworthy, human-centric AI, offering a grounded view of Türkiye’s trajectory from planning to execution.
 
 ### Enhancing Reservoir Temperature Prediction in Western Anatolia Geothermal Systems by Generating Synthetic Hydrogeochemical Data Using Generative Adversarial Networks
 
@@ -412,6 +602,7 @@ Research area: AI for Health
 Mehmet Haklıdır (2022). Deep Reinforcement Learning for Partially Observable Markov Decision Processes. Ph.D. Thesis, Control and Automation Engineering, Istanbul Technical University.
 Links: https://haklidir.github.io/publications/phd-thesis-drl-pomdp-2022/
 Research area: Reinforcement Learning & Autonomous Systems
+Explainer: https://haklidir.github.io/concepts/guided-soft-actor-critic/
 
 ### Guided Soft Actor Critic: A Guided Deep Reinforcement Learning Approach for Partially Observable Markov Decision Processes
 
@@ -419,7 +610,8 @@ Mehmet Haklıdır, Hakan Temeltaş (2021). Guided Soft Actor Critic: A Guided De
 Links: https://haklidir.github.io/publications/guided-soft-actor-critic-ieee-access-2021/ | https://doi.org/10.1109/ACCESS.2021.3131772
 Research area: Reinforcement Learning & Autonomous Systems
 
-Summary: Introduces Guided Soft Actor-Critic (GSAC), in which a guidance module steers Soft Actor-Critic during training to cope with partial observability, improving sample efficiency and final return on partially observable continuous-control tasks.
+Summary: Introduces Guided Soft Actor-Critic (GSAC) for partially observable Markov decision processes. A guiding actor with access to the full state distils its knowledge into a control actor that acts on partial observations, through a dedicated distillation network and a weighted distillation term in the control actor's objective.
+Explainer: https://haklidir.github.io/concepts/guided-soft-actor-critic/
 
 ### Structures of MERS-CoV macro domain in aqueous solution with dynamics: Impacts of parallel tempering simulation techniques and CHARMM36m and AMBER99SB force field parameters
 

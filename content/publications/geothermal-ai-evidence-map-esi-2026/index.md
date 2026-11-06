@@ -14,14 +14,33 @@ publication:
   issue: 12
   pages: '211'
   publisher: Springer
+abstract: 'Global installed geothermal power capacity is approximately 18 GWe, and geothermal plants generally provide dispatchable electricity at high capacity factors. Expansion depends on reducing the capital costs and operational risks of reservoir management, plant control and equipment maintenance, and artificial intelligence has been applied to all three. Whether that work has produced evidence sufficient for deployment has not been assessed at the level of individual studies. This review reports a PRISMA-guided systematic evidence map. Searches of Scopus and Web of Science returned 8,113 records; 977 reports entered the full-text retrieval universe, 874 were assessed at full text, and 626 peer-reviewed journal articles published between 1987 and 2026 were included, resolving to 620 independent evidence units. Each included article has a full-text-grounded extraction record produced under a rule frozen before production use, with a page or section locator for every value reported
+  quantitatively, and readiness was derived deterministically from the coded fields rather than assigned by a reader. Two thirds of the classifiable corpus is evaluated on simulation, synthetic or laboratory data, or on field data without a meaningful held-out design. Evaluation on data external to the development set is reported in 42 of the 614 articles for which the question could be determined, and three articles report a controlled pilot; none reports shadow operation or routine deployment. Maturity is stage-specific: surface conversion contributes 179 articles and four reach field evaluation, while exploration contributes 183 and more than half do. Transferability and operational integration do not advance together, so the review reports them on separate axes. The share of articles reaching field evaluation rose from 13 per cent in 2018 to 43 per cent in 2025 while externally validated work remained in single figures each year, indicating that access to field data is spreading faster
+  than demonstrated transfer.'
+summary: 'PRISMA-guided evidence map of 626 studies: external validation is reported in 42 of 614 determinable articles, three report a controlled pilot and none routine deployment.'
 tags:
 - AI for Geoscience
-featured: false
+keywords:
+- geothermal energy systems
+- artificial intelligence
+- machine learning
+- deep learning
+- deep reinforcement learning
+- large language models
+- systematic evidence map
+- deployment readiness
+concept: ai-geothermal-readiness
+featured: true
 hugoblox:
   ids:
     doi: 10.1007/s12145-026-02268-7
+links:
+- type: dataset
+  url: https://doi.org/10.5281/zenodo.21938792
 reading_time: false
 show_date_updated: false
 ---
+
+Overview page for this line of work: [AI for Geothermal Energy: Validation and Deployment Readiness](/concepts/ai-geothermal-readiness/).
 
 Research area: [AI for Geoscience & Energy](/research/geoscience-energy/).

@@ -33,6 +33,6 @@ reading_time: false
 show_date_updated: false
 ---
 
-Overview of the framework, worked example and related work: [Accountability Graphs](/concepts/accountability-graphs/).
+Overview page for this line of work: [Accountability Graphs](/concepts/accountability-graphs/).
 
 Research area: [Agentic AI Safety & Governance](/research/agentic-ai-safety/).

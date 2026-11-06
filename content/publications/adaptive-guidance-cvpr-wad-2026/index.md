@@ -10,9 +10,21 @@ publication_types:
 publication:
   name: CVPR 2026 Workshop on Autonomous Driving (WAD)
   short_name: CVPR 2026 WAD
-summary: Extends Guided Soft Actor-Critic with Belief-Aware GSAC, which scales the privileged-distillation coefficient by ensemble disagreement in a driving POMDP.
+abstract: 'Guided Soft Actor-Critic (GSAC) distills knowledge from a privileged full-state teacher to a partial-observation student for autonomous driving, but uses a fixed distillation coefficient λ regardless of the agent’s uncertainty. We present Belief-Aware GSAC (BA-GSAC), which modulates λ via ensemble disagreement, and use it as a testbed for a systematic empirical study asking: when does adaptive guidance actually help? Evaluating five strategies (fixed λ ∈ {0.01, 0.1}, adaptive, linear decay, and vanilla SAC) across three POMDP difficulty levels on Highway-Env, we find that preliminary single-seed runs suggest benefits under mild and moderate partial observability, but under severe occlusion (evaluated with 3 seeds for all methods) the adaptive coefficient collapses to λmin within ∼3K steps. We trace this to an observability blindness phenomenon: because the ensemble predicts partial observations, it achieves low disagreement even under heavy occlusion, modeling what is visible
+  but unable to detect what is missing. We diagnose the root cause and propose an architectural fix (training the ensemble on full-state predictions using the guiding actor’s privileged access); while not validated here, we show that even with current limitations, the warmup phase provides measurable stabilization (CV=13.3% vs. 29.8% for constant λ = 0.01). In fact, a simple deterministic linear decay schedule achieves the best severe-POMDP performance across all metrics (mean 116.5, CV=8.9%), suggesting that the scheduling effect, not the ensemble, drives the stability benefit. These findings provide practical guidance for designing uncertainty-aware teacher-student frameworks and highlight ensemble prediction targets as an important design choice.'
+summary: Belief-Aware GSAC adapts the distillation coefficient by ensemble disagreement; under severe occlusion this fails through observability blindness, and a linear decay schedule works best.
 tags:
 - Reinforcement Learning
+keywords:
+- Guided Soft Actor-Critic
+- BA-GSAC
+- privileged distillation
+- teacher-student reinforcement learning
+- partial observability
+- POMDP
+- ensemble uncertainty
+- autonomous driving
+concept: guided-soft-actor-critic
 featured: true
 hugoblox:
   ids:
@@ -22,5 +34,7 @@ show_date_updated: false
 ---
 
 Extends Guided Soft Actor-Critic with Belief-Aware GSAC, which scales the privileged-distillation coefficient by ensemble disagreement in a driving POMDP. Across three occlusion levels, adaptive guidance helps under mild and moderate occlusion; under severe occlusion the coefficient collapses to its minimum early ("observability blindness") and a simple linear decay schedule performs best, suggesting that much of the benefit comes from scheduling rather than adaptivity.
+
+Overview page for this line of work: [Guided Soft Actor-Critic (GSAC)](/concepts/guided-soft-actor-critic/).
 
 Research area: [Reinforcement Learning & Autonomous Systems](/research/rl-autonomy/).

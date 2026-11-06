@@ -4,8 +4,8 @@ title: Advancing geothermal reservoir temperature prediction in the Western Anat
 authors:
 - Füsun Servin Tut Haklıdır
 - me
-date: '2026-01-01'
-date_precision: year
+date: '2026-06-28'
+date_precision: day
 publication_types:
 - article-journal
 publication:
@@ -13,9 +13,24 @@ publication:
   volume: 141
   pages: '103760'
   publisher: Elsevier
+abstract: 'Data-driven geothermal reservoir temperature prediction can complement classical geothermometer applications in geothermal provinces with high resource potential, such as Western Anatolia (Türkiye). However, the limited availability and heterogeneous nature of hydrogeochemical datasets constrain the use of high-capacity machine-learning models and weaken their generalization to new prospective fields. In this study, a rank-Gauss copula (RGC) based synthetic data generation framework is proposed to learn the joint dependence structure among routinely measured hydrogeochemical variables and generate additional samples consistent with the observed distributions. Using a benchmark dataset of 83 hot springs and geothermal wells alongside seven commonly measured variables (pH, EC, K+, Na+, B(total), SiO2, and Cl-), the generated synthetic data closely matched the real data’s marginal behavior and multivariate relationships (average two-sample Kolmogorov–Smirnov statistic approximately
+  0.04 across variables), while preserving key field-consistent correlation patterns. Two predictive settings for reservoir temperature prediction were evaluated in the study: (i) a deep neural network (DNN) ensemble pre-trained on RGC-synthetic data and fine-tuned on real samples, and (ii) NGBoost models trained on real-only versus real-plus-RGC data and test performance was consistently improved by RGC augmentation. Overall, the proposed RGC framework is data-driven, model-independent, and straightforward to implement; the Western Anatolia (Türkiye) is used as a case study, and the approach is intended to be transferable to geothermal provinces with high resource potential where routine hydrogeochemical analyses are available but reliable reservoir temperature measurements are scarce, enabling the generation of realistic synthetic datasets and improving the robustness and generalization of reservoir temperature estimation.'
+summary: Rank-Gauss copula synthetic data improves deep-learning and NGBoost prediction of geothermal reservoir temperature from routine hydrogeochemistry.
 tags:
 - AI for Geoscience
+keywords:
+- reservoir temperature prediction
+- hydrogeochemistry
+- synthetic data
+- rank-Gauss copula
+- Western Anatolia
 featured: true
+hugoblox:
+  ids:
+    doi: 10.1016/j.geothermics.2026.103760
+links:
+- type: code
+  url: https://github.com/haklidir/rgc-dnn-ngboost-geothermal-temperature
 reading_time: false
 show_date_updated: false
 ---

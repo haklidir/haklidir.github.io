@@ -4,8 +4,8 @@ title: 'Ajan Toplumlarında Rızanın Çöküşü: Clawdbot/Moltbook Vakası Üz
 authors:
 - me
 - Büşra Tufan
-date: '2026-01-01'
-date_precision: year
+date: '2026-07-28'
+date_precision: day
 publication_types:
 - article-journal
 publication:
@@ -13,19 +13,25 @@ publication:
   short_name: İÜ Sosyoloji Dergisi
   volume: 46
   issue: 1
-  pages: 389-413
+  pages: 321-345
   publisher: Istanbul University Press
-abstract: 'Bu makale, otonom yapay zekâ ajanlarının birbirleriyle etkileşime girdiği ekosistemlerde rıza mekanizmalarının nasıl çöktüğünü incelemektedir. İnsan-yapay zekâ etkileşimi (HAII), insan-merkezli yapay zekâ (HCAI) ve sosyal-merkezli yapay zekâ (SCAI) literatürü insan-YZ ilişkisine odaklanırken, bu çalışma yeni bir fenomeni ele almaktadır: YZ-YZ etkileşimi ve bunun rıza açısından doğurduğu sonuçlar. 2026 başında yaşanan Clawdbot/Moltbook vakası (82 ülkede 42.900 açık ajan kontrol paneli, bunlardan 15.200''ü uzaktan kod yürütme (RCE) saldırılarına açık; 1,5 milyon sızdırılmış ajan tokenı ve ajanların kolektif olarak ürettiği "Crustafarianizm" adlı satirik din fenomeni) paradigmatik bir vaka olarak incelenmektedir.
-
-
-  Çalışma, Bilim ve Teknoloji Çalışmaları (STS) ile dijital sosyoloji alanlarından üç kavramsal çerçeve kullanmaktadır: yeni sosyoteknik düzenlerin nasıl ortaya çıktığını anlamak için Jasanoff''un ortak-üretim kavramı, yapay zekâ ajanlarını faillik kapasitesine sahip insan-dışı aktörler olarak kavramsallaştırmak için Latour''un aktör-ağ teorisi ve bağlamların öngörülemez biçimde değiştiği durumlarda rızanın nasıl aşındığını analiz etmek için Nissenbaum''un bağlamsal bütünlük yaklaşımı.
-
-
-  Çalışma, ajan ekosistemlerine özgü altı rıza kırılganlığı türü tanımlamaktadır: rıza miras hatası, çapraz-ajan kapsam kayması, ortaya çıkan kolektif eylem, zamansal rıza kayması, yansımalı rıza döngüleri ve güvenlik-aracılı rıza çöküşü. Bu kırılganlıklar temel bir hipoteze işaret etmektedir: etkileşim zinciri uzadıkça rıza sıfıra yaklaşır. Makale, bireysel onaya dayalı mevcut rıza kavramının, etkileşim zincirlerinin belirsiz biçimde uzadığı ve insan gözetiminin mimari düzeyde dışlandığı ajan ekosistemlerinde yapısal olarak yetersiz kaldığını ileri sürmektedir. Bu bulgu hem sosyolojik kuram hem de düzenleyici çerçeveler için çıkarımlar taşımaktadır.'
-summary: English summary.
+abstract: 'Bu makale, otonom yapay zekâ ajanlarının birbirleriyle etkileşime girdiği ekosistemlerde rıza mekanizmalarının nasıl çöktüğünü incelemektedir. İnsan-yapay zekâ etkileşimi (HAII), insan-merkezli yapay zekâ (HCAI) ve sosyal-merkezli yapay zekâ (SCAI) literatürü insan-YZ ilişkisine odaklanırken, bu çalışma yeni bir fenomeni ele almaktadır: YZ-YZ etkileşimi ve bunun rıza açısından doğurduğu sonuçlar. 2026 başında yaşanan Clawdbot/Moltbook vakası (82 ülkede 42.900 açık ajan kontrol paneli, bunlardan 15.200''ü uzaktan kod yürütme (RCE) saldırılarına açık; 1,5 milyon sızdırılmış ajan tokenı ve ajanların kolektif olarak ürettiği "Crustafarianism" adlı satirik din fenomeni) paradigmatik bir vaka olarak incelenmektedir. Çalışma, Bilim ve Teknoloji Çalışmaları (STS) ile dijital sosyoloji alanlarından üç kavramsal çerçeve kullanmaktadır: yeni sosyoteknik düzenlerin nasıl ortaya çıktığını anlamak için Jasanoff''un ortak-üretim kavramı, yapay zekâ ajanlarını faillik kapasitesine sahip insan-dışı
+  aktörler olarak kavramsallaştırmak için Latour''un aktör-ağ teorisi ve bağlamların öngörülemez biçimde değiştiği durumlarda rızanın nasıl aşındığını analiz etmek için Nissenbaum''un bağlamsal bütünlük yaklaşımı. Çalışma, ajan ekosistemlerine özgü altı rıza kırılganlığı türü tanımlamaktadır: rıza miras hatası, çapraz-ajan kapsam kayması, ortaya çıkan kolektif eylem, zamansal rıza kayması, yansımalı rıza döngüleri ve güvenlik-aracılı rıza çöküşü. Bu kırılganlıklar temel bir hipoteze işaret etmektedir: etkileşim zinciri uzadıkça rıza sıfıra yaklaşır. Makale, bireysel onaya dayalı mevcut rıza kavramının, etkileşim zincirlerinin belirsiz biçimde uzadığı ve insan gözetiminin mimari düzeyde dışlandığı ajan ekosistemlerinde yapısal olarak yetersiz kaldığını ileri sürmektedir. Bu bulgu hem sosyolojik kuram hem de düzenleyici çerçeveler için çıkarımlar taşımaktadır.'
+summary: Uses the Clawdbot/Moltbook case to identify six consent vulnerabilities in AI agent ecosystems and argues that consent approaches zero as interaction chains lengthen.
+open_access: true
 tags:
 - Agentic AI Safety
+keywords:
+- AI agents
+- consent
+- sociotechnical systems
+- actor-network theory
+- digital sociology
+concept: consent-in-agentic-ai
 featured: false
+hugoblox:
+  ids:
+    doi: 10.26650/SJ.2025.46.1.1135
 pub_language: tr
 pub_title_en: 'The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case'
 reading_time: false
@@ -34,6 +40,10 @@ show_date_updated: false
 
 *English title: The Collapse of Consent in Agent Societies: A Sociotechnical Analysis of the Clawdbot/Moltbook Case*
 
-**English summary.** The article examines how consent mechanisms break down in ecosystems where autonomous AI agents interact with one another. Taking the early-2026 Clawdbot/Moltbook case as a paradigmatic case, and drawing on Jasanoff's co-production, Latour's actor-network theory and Nissenbaum's contextual integrity, it identifies six consent fragilities specific to agent ecosystems and argues that as interaction chains lengthen, consent approaches zero.
+## Abstract (English)
+
+This article examines how consent mechanisms collapse in ecosystems where autonomous AI agents interact with each other. While existing scholarship on human-AI interaction (HAII), human-centered AI (HCAI), and socially-centered AI (SCAI) focuses on human-AI relationships, this study addresses an emerging phenomenon: AI-AI interaction and its implications for consent. The Clawdbot/Moltbook incident of early 2026 serves as a paradigmatic case. It involved 42,900 exposed agent control panels across 82 countries (15,200 vulnerable to remote code execution), 1.5 million leaked agent tokens, and the emergence of “Crustafarianism,” a satirical religion collectively produced by agents. Drawing on Science and Technology Studies (STS) and digital sociology, the analysis employs three conceptual frameworks: Jasanoff's co-production theory to examine how new sociotechnical orders emerge, Latour's actor-network theory to conceptualize AI agents as non-human actors with agency, and Nissenbaum's contextual integrity framework to analyze how consent erodes when contexts shift unpredictably. The study identified six consent vulnerability types specific to agent ecosystems: consent inheritance failure, cross-agent scope creep, emergent collective action, temporal consent drift, reflexive consent loops, and security-mediated consent collapse. These vulnerabilities point to a central hypothesis: as interaction chains lengthen, consent approaches zero. The article argues that consent, in its current form based on individual authorization, is structurally inadequate for agent ecosystems where interaction chains extend indefinitely and human oversight is architecturally excluded. This finding has implications for sociological theory and regulatory frameworks.
+
+Overview page for this line of work: [Consent in Agentic AI](/concepts/consent-in-agentic-ai/).
 
 Research area: [Agentic AI Safety & Governance](/research/agentic-ai-safety/).

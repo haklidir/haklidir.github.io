@@ -300,6 +300,8 @@ def bibtex(pub: dict, year: int, used_keys: set) -> str:
         fields.append(("doi", pub["doi"]))
     if pub.get("arxiv"):
         fields += [("eprint", pub["arxiv"]), ("archivePrefix", "arXiv")]
+    if pub.get("acl_id"):
+        fields.append(("url", f"https://aclanthology.org/{pub['acl_id']}/"))
     if pub.get("status"):
         fields.append(("note", "Forthcoming" if pub["status"] == "forthcoming" else pub["status"]))
     if pub.get("language"):
@@ -384,6 +386,10 @@ def build_publications(pubs: list[dict], areas: dict[str, dict]) -> None:
         local_pdf = page_dir / f"{slug}.pdf"
         if pub.get("pdf") and not local_pdf.exists():
             links.append({"type": "pdf", "url": pub["pdf"]})
+        if pub.get("code"):
+            links.append({"type": "code", "url": pub["code"]})
+        if pub.get("dataset"):
+            links.append({"type": "dataset", "url": pub["dataset"]})
         if pub.get("url"):
             links.append({"type": "site", "url": pub["url"]})
 
@@ -427,6 +433,8 @@ def build_publications(pubs: list[dict], areas: dict[str, dict]) -> None:
             body.append(f"*English title: {pub['title_en']}*")
         if pub.get("status") == "forthcoming":
             body.append("> [!NOTE]\n> Accepted for publication; forthcoming.")
+        if pub.get("abstract_en"):
+            body.append("## Abstract (English)\n\n" + paragraphs(pub["abstract_en"]))
         if pub.get("overview"):
             body.append(paragraphs(pub["overview"]))
         if pub.get("concept"):
@@ -434,7 +442,7 @@ def build_publications(pubs: list[dict], areas: dict[str, dict]) -> None:
             if not concept_page.exists():
                 sys.exit(f"{slug}: concept page {concept_page} does not exist")
             concept_title = yaml.safe_load(concept_page.read_text(encoding="utf-8").split("---\n")[1])["title"]
-            body.append(f"Overview of the framework, worked example and related work: [{concept_title}](/concepts/{pub['concept']}/).")
+            body.append(f"Overview page for this line of work: [{concept_title}](/concepts/{pub['concept']}/).")
         if pub.get("note"):
             body.append(pub["note"].strip())
         area_links = ", ".join(f"[{areas[k]['name']}](/research/{k}/)" for k in pub.get("areas", []))
@@ -599,6 +607,12 @@ def pub_links(pub: dict) -> str:
     bits = [f"{BASE_URL}/publications/{pub['slug']}/"]
     if pub.get("doi"):
         bits.append(f"https://doi.org/{pub['doi']}")
+    if pub.get("acl_id"):
+        bits.append(f"https://aclanthology.org/{pub['acl_id']}/")
+    if pub.get("code"):
+        bits.append(f"code: {pub['code']}")
+    if pub.get("dataset"):
+        bits.append(f"data: {pub['dataset']}")
     if pub.get("arxiv"):
         bits.append(f"https://arxiv.org/abs/{pub['arxiv']}")
     return " | ".join(bits)
@@ -668,8 +682,11 @@ def build_llms(pubs: list[dict], areas: list[dict], talks: list[dict]) -> None:
         if p.get("areas"):
             full.append("Research area: " + ", ".join(next(a["name"] for a in areas if a["key"] == k)
                                                        for k in p["areas"]))
+        if p.get("abstract_en"):
+            full += ["", "Abstract (English): " + " ".join(p["abstract_en"].split())]
         if p.get("abstract"):
-            full += ["", "Abstract: " + " ".join(p["abstract"].split())]
+            label = "Abstract (original language)" if p.get("abstract_en") else "Abstract"
+            full += ["", f"{label}: " + " ".join(p["abstract"].split())]
         elif p.get("overview"):
             full += ["", "Summary: " + " ".join(p["overview"].split())]
         elif p.get("summary"):

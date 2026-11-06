@@ -10,10 +10,22 @@ publication_types:
 publication:
   name: ICRA 2026 Workshop on Robot Ethics (WoRoBet), IEEE International Conference on Robotics and Automation
   short_name: ICRA 2026 WoRoBet
-summary: 'Introduces consent chain degradation: the way the specificity, validity and scope of human consent weaken as authority passes through chains of delegation among embodied agents.'
+abstract: 'Robotic systems are moving from isolated platforms to interconnected multi-agent ecosystems that operate in human environments. This shift raises a governance problem that existing frameworks do not address: how does consent propagate, degrade, and break down across chains of delegation between embodied autonomous agents? The AI ethics community has begun to study consent for digital software agents, and the HRI community has examined consent in dyadic human-robot encounters. Neither body of work covers what happens when physical robots delegate tasks to other robots in ways that affect humans. This paper introduces consent chain degradation (CCD), a conceptual framework for analyzing how the specificity, validity, and scope of human consent erodes as authority passes through multi-robot delegation chains. We propose a three-layer governance architecture, the Consent Runtime Verification Framework for Embodied Agents (CoRVE), which integrates consent scope modeling, delegation
+  chain tracking, and physical irreversibility assessment. Three scenarios in healthcare, domestic, and industrial robotics show how CCD arises in practice, including a worked numerical example. A regulatory gap analysis covering the EU AI Act, the GDPR, the Machinery Regulation, and the Revised Product Liability Directive shows that all four instruments leave core CCD dimensions unaddressed.'
+summary: Introduces consent chain degradation (CCD) in multi-robot delegation chains and CoRVE, a runtime consent verification architecture for embodied agents.
 tags:
 - Agentic AI Safety
 - Reinforcement Learning
+keywords:
+- consent chain degradation
+- CoRVE
+- multi-robot systems
+- embodied AI agents
+- robot ethics
+- delegation
+- EU AI Act
+- GDPR
+concept: consent-in-agentic-ai
 featured: true
 hugoblox:
   ids:
@@ -23,5 +35,7 @@ show_date_updated: false
 ---
 
 Introduces *consent chain degradation*: the way the specificity, validity and scope of human consent weaken as authority passes through chains of delegation among embodied agents. The paper proposes CoRVE, a three-layer runtime architecture for consent scope modelling, delegation tracking and physical irreversibility assessment, illustrates the problem with healthcare, domestic and industrial scenarios (including a worked numerical example), and maps the gaps left by the EU AI Act, the GDPR, the Machinery Regulation and the revised Product Liability Directive.
+
+Overview page for this line of work: [Consent in Agentic AI](/concepts/consent-in-agentic-ai/).
 
 Research area: [Agentic AI Safety & Governance](/research/agentic-ai-safety/), [Reinforcement Learning & Autonomous Systems](/research/rl-autonomy/).

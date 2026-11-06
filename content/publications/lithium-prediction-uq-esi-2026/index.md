@@ -4,8 +4,8 @@ title: 'Predicting dissolved lithium in geothermal fluids from routine hydrogeoc
 authors:
 - Füsun Servin Tut Haklıdır
 - me
-date: '2026-01-01'
-date_precision: year
+date: '2026-08-11'
+date_precision: day
 publication_types:
 - article-journal
 publication:
@@ -14,9 +14,28 @@ publication:
   issue: 9
   pages: '159'
   publisher: Springer
+abstract: 'Lithium is a critical element for today’s energy transition, as its low atomic mass and high electrochemical potential make it ideal for rechargeable lithium-ion batteries used in electric vehicles, grid-scale storage, and portable electronics. Formed through diverse geological processes, lithium has recently been recognized in geothermal fluids as a cleaner alternative to conventional sources. Because lithium has historically been underrepresented in routine geothermal fluid analyses, low-cost predictive screening from existing hydrogeochemical measurements can help identify promising fluids for further characterization. Despite the growing use of machine learning in geothermal prediction studies, no previous work has applied leakage-aware cross-validation with calibrated uncertainty quantification to dissolved lithium estimation from compiled, multi-source geothermal hydrogeochemistry. The primary contribution is the domain application itself: a curated 86-samples Turkish geothermal
+  dataset, a reproducible and leakage-controlled evaluation protocol, and an empirical assessment of what routine chemistry can and cannot resolve about dissolved lithium. Four models (a compact neural network, Random Forest, XGBoost, and Ridge regression) were evaluated on a dataset of 86 thermal springs and wells compiled from published sources across Türkiye, predominantly from Western Anatolia, split into 74 training and 12 held-out test samples. A five-fold GroupKFold cross-validation over 26 location groups prevented spatial leakage. On the 12 samples test set, drawn entirely from Western Anatolian and Marmara fields already represented in training, the neural network achieved the lowest error (RMSE = 1.18 mg/L, R² = 0.95), closely followed by Ridge (R² = 0.91); both metrics are sensitive to a single high-Li end-member (Tuzla, Li = 22.6 mg/L). A paired bootstrap test showed the difference on this test set is not statistically significant (p = 0.42). Under leave-one-group-out cross-validation
+  across all 26 locations, however, the neural network (R² = 0.67) substantially outperformed Ridge (R² = −226), which failed to extrapolate to held-out high-Li fields, indicating that the nonlinear model generalizes more robustly across geochemical domains. Prediction intervals calibrated from cross-validation residuals achieved 91.7–100% empirical coverage (91.7% for Ridge, RF, XGB; 100% for DNN) at 90% nominal level, with interval width increasing at higher concentrations, consistent with greater geochemical variability in chloride-rich end-members. SHAP attributions identified boron, sodium, total alkali content, and the chloride-to-conductivity ratio as the leading predictors, consistent with known controls on lithium enrichment. The framework is presented as a proof-of-concept for early-stage lithium screening from existing hydrogeochemical data. It does not replace field geochemistry, and the model’s applicability beyond Western Anatolia requires independent validation.'
+summary: Leakage-aware machine learning with calibrated prediction intervals for screening dissolved lithium in geothermal fluids from routine hydrogeochemistry.
 tags:
 - AI for Geoscience
+keywords:
+- machine learning
+- hydrogeochemistry
+- lithium prediction
+- uncertainty quantification
+- geothermal fluids
+- SHAP interpretability
 featured: false
+hugoblox:
+  ids:
+    doi: 10.1007/s12145-026-02207-6
+links:
+- type: code
+  url: https://github.com/haklidir/geothermal-lithium-ml
+- type: dataset
+  url: https://doi.org/10.5281/zenodo.20733206
 reading_time: false
 show_date_updated: false
 ---

@@ -10,14 +10,22 @@ publication_types:
 publication:
   name: 'ACM CHI 2026 Workshop: Moving Beyond Clicks: Rethinking Consent and User Control in the Age of AI'
   short_name: CHI 2026 Workshop
-summary: A position paper on why consent mechanisms designed for conversational systems fail once AI moves from answering to acting on a user's behalf.
+abstract: 'The rapid evolution from conversational chatbots to autonomous AI agents has outpaced consent mechanisms designed to protect users. While millions share sensitive information with LLM-based systems, evidence shows a widening gap between users’ mental models of data handling and actual platform practices. This disconnect deepens as AI browsers navigate the web, handle credentials, and execute transactions. This paper argues that consent is structurally broken across the LLM ecosystem and identifies three design tensions: personalization versus data minimization, agent autonomy versus user control, and transparency versus usability. Building on these tensions, this paper proposes LLM-specific consent mechanisms: contextual in-flow transparency, task-scoped permissions, and AI-mediated privacy guardians, and highlight their consequences for security, comprehension, and power asymmetries in agentic systems.'
+summary: Argues that consent is structurally broken across the LLM ecosystem as AI moves from chat to action, and proposes in-flow transparency, task-scoped permissions and privacy guardians.
 tags:
 - Agentic AI Safety
+keywords:
+- consent
+- privacy
+- large language models
+- agentic AI
+- trustworthy AI
+concept: consent-in-agentic-ai
 featured: false
 reading_time: false
 show_date_updated: false
 ---
 
-A position paper on why consent mechanisms designed for conversational systems fail once AI moves from answering to acting on a user's behalf. It identifies design tensions in agentic consent and offers provocations for rethinking user control.
+Overview page for this line of work: [Consent in Agentic AI](/concepts/consent-in-agentic-ai/).
 
 Research area: [Agentic AI Safety & Governance](/research/agentic-ai-safety/).
