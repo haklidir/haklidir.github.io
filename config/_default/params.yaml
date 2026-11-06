@@ -21,7 +21,7 @@ hugoblox:
     # Short tagline displayed on your site
     tagline: ""
     # Site meta description for search engines and social sharing
-    description: "Mehmet Haklıdır, PhD: founding Director of the TÜBİTAK BİLGEM Artificial Intelligence Institute. Research on agentic AI safety and governance, reinforcement learning for autonomous systems, language technologies and applied AI. Publications, talks and service."
+    description: "Mehmet Haklıdır (also written Mehmet Haklidir), PhD: founding Director of the TÜBİTAK BİLGEM Artificial Intelligence Institute. Research on agentic AI safety and governance, reinforcement learning for autonomous systems, language technologies and applied AI. Publications, talks and service."
     # Social accounts (used for meta tags like Twitter Cards)
     social:
       twitter: "mhaklidir" # Twitter/X handle for Twitter Cards (without @)
