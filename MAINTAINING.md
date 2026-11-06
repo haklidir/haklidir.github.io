@@ -63,6 +63,14 @@ Her yayın sayfasında Highwire `citation_*` meta etiketleri bulunur
 sayfada makalenin özeti veya tam metni olmalıdır; bu yüzden resmi özetleri ve izin verilen PDF'leri
 eklemek görünürlüğü en çok artıran adımdır. Yeni sayfaların Scholar'da görünmesi birkaç hafta sürebilir.
 
+## Arama motorlarına bildirim (IndexNow)
+
+Her başarılı yayından sonra `.github/workflows/indexnow.yml` değişen sayfaları IndexNow'a bildirir
+(Bing ve ortakları; ChatGPT arama ve Copilot Bing dizinini kullanır). Anahtar, `static/` altındaki
+32 karakterlik `.txt` dosyasının adıdır; silmeyin. Tüm siteyi yeniden bildirmek için GitHub'da
+Actions → "Notify search engines (IndexNow)" → Run workflow. Google IndexNow kullanmaz; Google için
+Search Console'daki site haritası yeterlidir.
+
 ## Yerelde önizleme (isteğe bağlı)
 
 Hugo **0.162.0 extended** (sürüm `hugoblox.yaml` ile aynı olmalı), Go, Node.js ve pnpm gerekir.
