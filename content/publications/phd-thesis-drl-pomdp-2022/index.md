@@ -12,9 +12,12 @@ publication:
   publisher: Istanbul Technical University
 tags:
 - Reinforcement Learning
+concept: guided-soft-actor-critic
 featured: false
 reading_time: false
 show_date_updated: false
 ---
+
+Overview page for this line of work: [Guided Soft Actor-Critic (GSAC)](/concepts/guided-soft-actor-critic/).
 
 Research area: [Reinforcement Learning & Autonomous Systems](/research/rl-autonomy/).

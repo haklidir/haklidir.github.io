@@ -20,7 +20,7 @@ sections:
       - EU AI Act
       metrics:
       - icon: hero/document-text
-        value: '7'
+        value: '8'
         label: papers
       cta:
         text: Read more
@@ -67,7 +67,7 @@ sections:
       - Benchmarks
       metrics:
       - icon: hero/document-text
-        value: '4'
+        value: '5'
         label: papers
       cta:
         text: Read more
@@ -126,7 +126,13 @@ sections:
     text: 'Explanations of frameworks introduced in my papers.
 
 
-      - [**Accountability Graphs**](/concepts/accountability-graphs/): A framework for attributing responsibility in conversational AI agent chains: agent chains are modelled as directed acyclic graphs with provenance metadata and causal responsibility semantics, and harm is traced backwards to graded responsibility scores.'
+      - [**Accountability Graphs**](/concepts/accountability-graphs/): A framework for attributing responsibility in conversational AI agent chains: agent chains are modelled as directed acyclic graphs with provenance metadata and causal responsibility semantics, and harm is traced backwards to graded responsibility scores.
+
+      - [**AI for Geothermal Energy: Validation and Deployment Readiness**](/concepts/ai-geothermal-readiness/): What a systematic evidence map of 626 peer-reviewed studies shows about AI in geothermal energy systems: how far methods have been validated beyond their development data, the E0–E4 evidence-readiness scale, and why transferability and deployment do not advance together.
+
+      - [**Consent in Agentic AI**](/concepts/consent-in-agentic-ai/): How user consent breaks down when AI systems act on people''s behalf, interact with other agents and delegate to robots: the consent vacuum, consent chain degradation, the CoRVE runtime architecture and six consent vulnerabilities in agent ecosystems.
+
+      - [**Guided Soft Actor-Critic (GSAC)**](/concepts/guided-soft-actor-critic/): A deep reinforcement learning method for partially observable problems in which a guiding actor with privileged full-state access distils its policy into a control actor that acts on observation histories; extended in 2026 by Belief-Aware GSAC.'
   design:
     columns: '1'
 ---

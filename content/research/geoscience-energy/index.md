@@ -30,6 +30,11 @@ sections:
       management (World Geothermal Congress 2026).
 
 
+      A systematic evidence map of 626 studies examines how far AI for geothermal energy has been validated
+
+      and deployed: [AI for Geothermal Energy: Validation and Deployment Readiness](/concepts/ai-geothermal-readiness/).
+
+
       Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.'
   design:
     columns: '1'

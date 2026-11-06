@@ -16,12 +16,27 @@ publication:
   short_name: SIU 2026
   pages: 1-4
   publisher: IEEE
+abstract: 'An explainable hybrid system model is proposed for detecting non-sufficient funds (NSF) check risks. Data leakage cleaning and feature engineering were applied to create a derived feature set. Multiple ensemble machine learning models were compared using stratified k-fold cross-validation, with LightGBM achieving the highest performance (F1-Makro: 0.7333; ROC-EAA: 0.9212). The best model’s predictions were presented to open-source large language models using zero-shot, few-shot, and chain-of-thought prompting strategies to generate natural language risk explanations. Asymmetric score ranges and strategy-specific thresholds were designed to mitigate central tendency bias. A rule-based scoring system was developed as a baseline. With appropriate prompting strategies, large language models provided competitive results compared to both rule-based systems and direct classification; the best performance was achieved by Qwen 32B with chain-of-thought prompting (F1-Makro: 0.8670; Dengeli
+  Doğruluk: 0.8776).'
+summary: A LightGBM risk model combined with open-source LLMs that explain non-sufficient-funds check risk in natural language.
 tags:
 - Language Technologies
 - Applied AI
+keywords:
+- check risk
+- machine learning
+- large language models
+- explainability
+- fairness
 featured: false
+hugoblox:
+  ids:
+    doi: 10.1109/SIU71813.2026.11636496
+pub_language: tr
 reading_time: false
 show_date_updated: false
 ---
+
+Paper in Turkish. Turkish title: Hibrit Makine Öğrenmesi ve Büyük Dil Modelleri ile Karşılıksız Çek Riskinin Doğal Dilde Açıklanması.
 
 Research area: [Language Technologies & LLMs](/research/language-tech/), [Computer Vision & Applied AI](/research/vision-applied/).

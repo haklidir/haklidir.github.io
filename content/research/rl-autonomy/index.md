@@ -9,9 +9,11 @@ sections:
     title: Reinforcement Learning & Autonomous Systems
     text: 'This line studies decision-making under uncertainty for autonomous systems. My doctoral work at
 
-      Istanbul Technical University introduced Guided Soft Actor-Critic (GSAC), a guided deep reinforcement
+      Istanbul Technical University introduced [Guided Soft Actor-Critic (GSAC)](/concepts/guided-soft-actor-critic/),
 
-      learning method for partially observable Markov decision processes (IEEE Access, 2021).
+      a guided deep reinforcement learning method for partially observable Markov decision processes
+
+      (IEEE Access, 2021).
 
 
       Recent work extends GSAC to belief-aware privileged distillation for autonomous driving under partial

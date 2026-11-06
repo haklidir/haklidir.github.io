@@ -15,6 +15,8 @@
   narrative: |-
     My current research asks what happens to consent, oversight and accountability once AI systems stop
     answering questions and start acting on people's behalf, increasingly in interaction with other agents.
+    Overviews: [Consent in Agentic AI](/concepts/consent-in-agentic-ai/) and
+    [Accountability Graphs](/concepts/accountability-graphs/).
 
     Work in this line formalises *consent chain degradation* in embodied multi-agent systems and proposes a
     runtime architecture for consent verification (ICRA 2026 Workshop on Robot Ethics); analyses the
@@ -37,8 +39,9 @@
   summary: "Decision-making under uncertainty and partial observability for autonomous vehicles, robots and control."
   narrative: |-
     This line studies decision-making under uncertainty for autonomous systems. My doctoral work at
-    Istanbul Technical University introduced Guided Soft Actor-Critic (GSAC), a guided deep reinforcement
-    learning method for partially observable Markov decision processes (IEEE Access, 2021).
+    Istanbul Technical University introduced [Guided Soft Actor-Critic (GSAC)](/concepts/guided-soft-actor-critic/),
+    a guided deep reinforcement learning method for partially observable Markov decision processes
+    (IEEE Access, 2021).
 
     Recent work extends GSAC to belief-aware privileged distillation for autonomous driving under partial
     observability (CVPR 2026 Workshop on Autonomous Driving) and to agent-based reinforcement learning for
@@ -66,6 +69,9 @@
     agent-based reinforcement learning for geochemical control (2026) and agentic AI for dynamic reservoir
     management (World Geothermal Congress 2026).
 
+    A systematic evidence map of 626 studies examines how far AI for geothermal energy has been validated
+    and deployed: [AI for Geothermal Energy: Validation and Deployment Readiness](/concepts/ai-geothermal-readiness/).
+
     Earlier papers explored hydrogen production from geothermal sources and from H₂S in the Black Sea.
 
 - key: language-tech
@@ -82,7 +88,8 @@
 
     Contributions include TR-TEB, a standardized benchmark for Turkish text embeddings that evaluates 45
     open-source models (LREC 2026), explainable bad-check risk assessment combining machine learning with
-    large language models (SIU 2026), a metric for the conceptual diversity of text, and multimodal speech
+    large language models (SIU 2026), a counterfactual audit of demographic sensitivity in LLM-based
+    credit-risk scoring (FinNLP 2026), a metric for the conceptual diversity of text, and multimodal speech
     emotion and text sentiment analysis (UBMK 2023).
 
 - key: health-ai

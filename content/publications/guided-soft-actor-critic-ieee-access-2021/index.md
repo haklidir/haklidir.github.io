@@ -13,10 +13,11 @@ publication:
   volume: 9
   pages: 159672-159683
   publisher: IEEE
-summary: Introduces Guided Soft Actor-Critic (GSAC), in which a guidance module steers Soft Actor-Critic during training to cope with partial observability, improving sample efficiency and final return on partially observable continuous-control tasks.
+summary: Introduces Guided Soft Actor-Critic (GSAC) for partially observable Markov decision processes.
 open_access: true
 tags:
 - Reinforcement Learning
+concept: guided-soft-actor-critic
 featured: true
 hugoblox:
   ids:
@@ -25,6 +26,8 @@ reading_time: false
 show_date_updated: false
 ---
 
-Introduces Guided Soft Actor-Critic (GSAC), in which a guidance module steers Soft Actor-Critic during training to cope with partial observability, improving sample efficiency and final return on partially observable continuous-control tasks.
+Introduces Guided Soft Actor-Critic (GSAC) for partially observable Markov decision processes. A guiding actor with access to the full state distils its knowledge into a control actor that acts on partial observations, through a dedicated distillation network and a weighted distillation term in the control actor's objective.
+
+Overview page for this line of work: [Guided Soft Actor-Critic (GSAC)](/concepts/guided-soft-actor-critic/).
 
 Research area: [Reinforcement Learning & Autonomous Systems](/research/rl-autonomy/).

@@ -11,6 +11,10 @@ sections:
 
       answering questions and start acting on people''s behalf, increasingly in interaction with other agents.
 
+      Overviews: [Consent in Agentic AI](/concepts/consent-in-agentic-ai/) and
+
+      [Accountability Graphs](/concepts/accountability-graphs/).
+
 
       Work in this line formalises *consent chain degradation* in embodied multi-agent systems and proposes a
 
